@@ -1,0 +1,144 @@
+/* ----------------------------------------
+	Components / Modals
+---------------------------------------- */
+
+.modal {
+	position: absolute;
+	top: map-get($spacer, 2);
+	left: 50%;
+	transform: translate3d( -50%, 0, 0 );
+	width: auto;
+	height: auto;
+	max-width: var(--content-width);
+	min-height: calc( 100vh - #{map-get($spacer, 4)} );
+	padding: map-get($spacer, 2);
+	transition: opacity 500ms, transform 500ms;
+	transition-delay: transform 500ms;
+	border: none;
+	border-radius: 3px;
+	box-shadow: 0 0 40px rgba(0,0,0,0.1), 0 0 10px rgba(0,0,0,0.25);
+	background-color: map-get($color, white);
+	color: map-get($color, black);
+	opacity: 0;
+	pointer-events: none;
+	visibility: hidden;
+	z-index: 10;
+	
+	@supports (display: grid) {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-column-gap: map-get($spacer, 1);
+		align-items: start;
+	}
+	
+	&.--is-modal {
+		opacity: 1;
+		pointer-events: all;
+		visibility: visible;
+	}
+}
+
+.modal__headline {
+	
+	@supports (display: grid) {
+		grid-column: span 4;
+		grid-row: 1 / 2;
+	}
+}
+
+.modal__image {
+	
+	@supports (display: grid) {
+		grid-column: 1 / 3;
+		grid-row: 2 / 5;
+	}
+}
+
+.modal__description {
+	
+	@supports (display: grid) {
+		grid-column: 3 / 5;
+		grid-row: 2 / 3;
+	}
+}
+
+.modal__ingredients {
+	
+	@supports (display: grid) {
+		grid-column: 3 / 5;
+		grid-row: 3 / 4;
+	}
+}
+
+.modal__directions {
+	
+	@supports (display: grid) {
+		grid-column: 3 / 5;
+		grid-row: 4 / 5;
+	}
+}
+
+.modal__actions {
+	position: sticky;
+	bottom: 0;
+	display: flex;
+	align-items: baseline;
+	margin-top: auto;
+	
+	@supports (display: grid) {
+		grid-column: span 4;
+		align-self: end;
+	}
+	
+	& > a {
+		margin-left: map-get($spacer, 1);
+	}
+	& > a:first-child {
+		margin-left: 0;
+		margin-right: auto;
+	}
+}
+
+//.modal[open] {
+//	animation: appear 500ms cubic-bezier(0, 1.8, 1, 1.8);
+//}
+//
+//.modal::backdrop {
+//	background: linear-gradient(45deg, rgba(0, 143, 104, .5), rgba(250, 224, 66, .5));
+//}
+
+//@keyframes appear {
+//	from {
+//		opacity: 0;
+//		transform: translateY( #{map-get($spacer, 3)} );
+//	}
+//	to {
+//		opacity: 1;
+//		transform: translateY(0);
+//	}
+//}
+
+body.--is-modal {
+	overflow: hidden;
+}
+
+.page__overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: opacity 500ms;
+	pointer-events: none;
+	background-color: fade-out( map-get($color, black), 0.15 );
+	background-image: url("../img/bg.png");
+	visibility: hidden;
+	z-index: 9;
+	
+	&.--is-modal {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: all;
+	}
+}

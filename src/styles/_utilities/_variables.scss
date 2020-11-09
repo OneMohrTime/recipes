@@ -1,0 +1,79 @@
+/* ----------------------------------------
+	Utilities / Variables
+---------------------------------------- */
+
+/**
+ * Vendor
+ * - Bourbon
+ * - Include-Media
+ */
+
+$bourbon: (
+	"contrast-switch-dark-color": #2b3b4c,
+	"contrast-switch-light-color": #e8e7e1,
+	"global-font-file-formats": ("eot", "ttf", "woff2", "woff"),
+	"modular-scale-base": 1em 1.25em,
+	"modular-scale-ratio": 1.618,
+	"rails-asset-pipeline": false,
+);
+
+$base-line-height: 1.65em;
+
+$breakpoints: (
+	for-phone-only: 599px,
+	for-tablet-portrait-up: 600px,
+	for-tablet-landscape-up: 900px,
+	for-desktop-up: 1200px,
+	for-big-desktop-up: 1800px
+);
+
+
+/**
+ * Colors
+ */
+
+$color: (
+	white: #fafaf9,
+	black: #1e2732,
+	dark-gray: #2b3b4c,
+	gray: #989ca1,
+	light-gray: #e8e7e1,
+	tan: #f1bf98,
+	light-tan: #dcd9c8,
+	red: #ff6f4f,
+	blue: #0090c1,
+	light-blue: #38aecc,
+	green: #09814a,
+	light-green: #8fd5a6,
+	yellow: #fff05a,
+	gold: #e8c547,
+	orange: #a24936,
+	purple: #6e75a8,
+	background: #fffef7
+);
+
+
+/**
+ * Sizing
+ */
+
+$spacer: (
+	0: 0,
+	1: 1.125rem,
+	2: 2.25rem,
+	3: 3.375rem,
+	4: 4.5rem,
+	5: 5.625rem,
+	6: 6.75rem,
+	7: 7.875rem,
+	8: 6.5rem
+);
+
+
+/**
+ * Animation
+ */
+
+$box-shadow: 0 2px 24px fade-out( map-get($color, dark-gray), 0.94 );
+
+$speed: 350ms;

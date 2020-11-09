@@ -1,0 +1,22 @@
+/* ----------------------------------------
+	Layout / Header
+---------------------------------------- */
+
+.page__header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: map-get($color, white);
+	background-color: white;
+	background-image: url("../img/bg.png");
+	background-repeat: repeat;
+	box-shadow: $box-shadow;
+	z-index: 50;
+
+	@include media(">=for-desktop-up") {
+		// padding-left: calc( 50% - (var(--content-width) / 2) );
+		// padding-right: calc( 50% - (var(--content-width) / 2) );
+		max-width: calc( var(--content-width) + #{map-get($spacer, 2)} );
+	}
+}

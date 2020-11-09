@@ -1,0 +1,27 @@
+:root {
+	--content-width: 960px;
+}
+
+html {
+	font-family: "Prospectus Pro", $font-stack-garamond;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: map-get($color, white);
+	color: map-get($color, dark-gray);
+}
+
+body {
+	background-color: map-get($color, background);
+	background-image: url("../img/bg--texture.jpg");
+	background-repeat: repeat;
+}
+
+* {
+	box-sizing: border-box;
+	
+	&::before,
+	&::after {
+		box-sizing: border-box;
+	}
+}

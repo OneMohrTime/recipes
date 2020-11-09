@@ -1,0 +1,142 @@
+/* ----------------------------------------
+	Utilities / Mixins
+---------------------------------------- */
+
+/**
+ * Undo list styles
+ */
+
+@mixin list-reset() {
+	margin-bottom: 0;
+	padding-left: 0;
+	line-height: inherit;
+}
+
+
+/**
+ * Maintain aspect ratios
+ * @jonathantneal
+ *
+ * https://gist.github.com/jonathantneal/a9b8901273475d261dd3
+ */
+
+@mixin fluid-aspect($ratio: 1 1, $selector: "> :first-child") {
+	$selector: unquote($selector);
+
+	position: relative;
+	padding-bottom: percentage(nth($ratio, 2) / nth($ratio, 1));
+
+	#{$selector} {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+
+/**
+ * Navigation link styles
+ */
+
+@mixin nav-link() {
+	position: relative;
+	display: inline-block;
+	margin-top: 0;
+	margin-left: map-get($spacer, 1) / 2;
+	margin-right: 0;
+	margin-bottom: 0;
+	overflow: hidden;
+	border-radius: 3px;
+	vertical-align: top;
+	perspective: 600px;
+	perspective-origin: 50% 50%;
+
+	&:focus,
+	&:hover {
+		outline: none;
+		
+		span {
+			background-color: map-get($color, blue);
+			transform: translate3d( 0px, 0px, -30px ) rotateX( 90deg );
+		}
+	}
+	
+	span {
+		display: block;
+		position: relative;
+		padding: map-get($spacer, 1) / 2;
+		transition: all 400ms ease;
+		transform-origin: 50% 0%;
+		transform-style: preserve-3d;
+		
+		&:after {
+			content: attr(data-title);
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			padding: map-get($spacer, 1) / 2;
+			transform: translate3d( 0px, 105%, 0px ) rotateX( -90deg );
+			transform-origin: 50% 0%;
+			text-align: center;
+			background-color: map-get($color, blue);
+			color: map-get($color, white);
+		}
+	}
+
+	&:first-child {
+		margin-left: 0;
+	}
+}
+
+
+/**
+ * Inline link styles
+ */
+
+@mixin inline-link() {
+	position: relative;
+	transition: 500ms color;
+	font-size: inherit;
+	font-weight: 700;
+	color: inherit;
+	backface-visibility: hidden;
+	
+	&::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		bottom: -2px;
+		width: 100%;
+		height: 2px;
+		background-color: map-get($color, light-gray);
+	}
+	
+	&::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		bottom: -2px;
+		width: 0;
+		height: 2px;
+		transition: 500ms all;
+		background-color: map-get($color, blue);
+		backface-visibility: hidden;
+	}
+	
+	&:focus {
+		outline-color: transparent;
+	}
+	
+	&:focus,
+	&:hover {
+		color: map-get($color, blue);
+		
+		&::after {
+			width: 100%;
+		}
+	}
+}

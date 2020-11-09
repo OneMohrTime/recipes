@@ -1,0 +1,20 @@
+/* ----------------------------------------
+	Components / Breadcrumb
+---------------------------------------- */
+
+.breadcrumbs {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: baseline;
+	max-width: var(--content-width);
+	margin-left: auto;
+	margin-right: auto;
+	list-style-type: none;
+}
+
+.breadcrumbs__crumb {
+	flex: 0 1 auto;
+	margin-right: map-get($spacer, 1);
+	margin-bottom: map-get($spacer, 1);
+}

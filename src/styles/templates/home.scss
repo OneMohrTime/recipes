@@ -1,0 +1,295 @@
+/* ----------------------------------------
+	Template / Home Page
+---------------------------------------- */
+
+@import "../_utilities/templates";
+
+$nudge: map-get($spacer, 4);
+
+.homepage__intro {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	padding: 0;
+	height: 100vh;
+}
+
+.homepage__headline {
+	max-width: calc( 100% - #{map-get($spacer, 2)} );
+	font-size: modular-scale(4);
+
+	@include media(">=for-tablet-landscape-up") {
+		font-size: modular-scale(6);
+	}
+}
+
+.homepage__subheadline {
+	max-width: calc( 100% - #{map-get($spacer, 8)} );
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: map-get($spacer, 3);
+	
+	@include media("<for-phone-only") {
+		@include hide-visually();
+	}
+	
+	@include media(">=for-tablet-portrait-up") {
+		max-width: calc( 100% - #{map-get($spacer, 8) * 2} );
+	}
+	
+	@include media(">=for-tablet-landscape-up") {
+		max-width: calc( var(--content-width) - #{map-get($spacer, 8) * 2} );
+	}
+	
+	@include media(">=for-desktop-up") {
+		max-width: calc( var(--content-width) - #{map-get($spacer, 8) * 5} );
+	}
+}
+
+.homepage__promos {
+	position: relative;
+	height: auto;
+	text-align: center;
+
+	@include media(">=for-tablet-portrait-up") {
+//		height: 150vh;
+	}
+
+//	@include media(">=for-desktop-up") {
+//		height: 200vh;
+//	}
+
+	.bored {
+		position: relative;
+		height: auto;
+		max-width: calc( 100% - #{map-get($spacer, 2)} );
+		margin-left: auto;
+		margin-right: auto;
+		padding-bottom: map-get($spacer, 1);
+		transform: translateY( -#{$nudge} );
+		border-radius: 3px;
+		background-color: map-get($color, dark-gray);
+		color: map-get($color, white);
+		box-shadow: $box-shadow;
+		z-index: 10;
+
+		@include media(">=for-tablet-portrait-up") {
+//			height: 50vh;
+			max-width: calc( 100% - #{map-get($spacer, 8)} );
+			padding-bottom: 0;
+		}
+
+		@include media(">=for-desktop-up") {
+			max-width: var(--content-width);
+		}
+
+		@supports (display: grid) {
+			@include media(">=for-tablet-landscape-up") {
+				display: grid;
+				grid-template-columns: repeat(2, calc( 50% - #{map-get($spacer, 1)} ));
+				grid-column-gap: map-get($spacer, 2);
+				padding: map-get($spacer, 2);
+			}
+		}
+	}
+
+	.bored__headline {
+		margin-left: map-get($spacer, 1);
+		margin-right: map-get($spacer, 1);
+		padding-top: map-get($spacer, 1) / 2;
+		padding-bottom: map-get($spacer, 1) / 2;
+		border-bottom: 3px map-get($color, white) solid;
+
+		@supports (display: grid) {
+			@include media(">=for-tablet-landscape-up") {
+				grid-column: span 2;
+				justify-self: center;
+				margin-left: 0;
+				margin-right: 0;
+				padding: 0 map-get($spacer, 1) /2 map-get($spacer, 1) / 2;
+			}
+		}
+	}
+
+	.bored__link {
+		position: relative;
+		display: block;
+		margin-bottom: map-get($spacer, 2);
+		padding-left: map-get($spacer, 1);
+		padding-right: map-get($spacer, 1);
+
+		@include media(">=for-tablet-landscape-up") {
+			margin-bottom: 0;
+			padding: map-get($spacer, 4) map-get($spacer, 2);
+			background-color: map-get($color, dark-gray);
+			color: map-get($color, white);
+
+			&:focus,
+			&:hover {
+
+			}
+		}
+
+		@supports (display: grid) {
+			grid-column: span 1;
+		}
+		
+		& > * {
+			// Overlay issues with image as background image
+			z-index: 1;
+		}
+	}
+
+	.left-link,
+	.right-link {
+
+		&__headline {
+			// .left-link__headline
+			// .right-link__headline
+			display:inline-block;
+			font-size: modular-scale(2);
+			font-weight: 400;
+		}
+		
+		&__crosshair {
+			// .left-link__crosshair
+			// .right-link__crosshair
+			height: 2px;
+			
+			&::before,
+			&::after {
+				height: 2px;
+				margin-top: -2px;
+				background-color: map-get($color, white);
+			}
+		}
+		
+		&__description {
+			// .left-link__description
+			// .right-link__description
+			 margin-top: #{map-get($spacer, 1) / 2}
+		}
+
+		&__cover {
+			// .left-link__cover
+			// .right-link__cover
+			display: none;
+
+			@include media(">=for-tablet-landscape-up") {
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				z-index: 0;
+			}
+		}
+	}
+
+	.feature {
+		position: relative;
+		margin-bottom: $nudge;
+		padding-left: 25%;
+		padding-right: map-get($spacer, 1);
+		padding-bottom: $nudge;
+		text-align: left;
+		color: map-get($color, white);
+		z-index: 10;
+
+		@include media(">=for-tablet-portrait-up") {
+			padding-top: $nudge;
+			padding-left: 33%;
+			padding-right: map-get($spacer, 4);
+			padding-bottom: $nudge * 2;
+		}
+
+		@include media(">=for-tablet-landscape-up") {
+			padding-left: 50%;
+		}
+
+		@include media(">=for-desktop-up") {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			max-width: calc( var(--content-width) / 2 );
+			min-height: calc( 100vh - #{$nudge} );
+			padding: 0 0 $nudge;
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 0;
+			transform: translateX(50%);
+		}
+	}
+
+	.feature__link {
+		@include inline-link();
+	}
+
+	.promo__cover {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: 0;
+	}
+}
+
+.hompage__category {
+	max-width: calc( 100% - #{map-get($spacer, 2)} );
+	margin-left: auto;
+	margin-right: auto;
+	padding: map-get($spacer, 1);
+	transform: translateY(-#{$nudge});
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	background-color: map-get($color, white);
+	color: map-get($color, dark-gray);
+	box-shadow: $box-shadow;
+	z-index: 10;
+
+	@include media(">=for-tablet-portrait-up") {
+//			height: 50vh;
+		max-width: calc( 100% - #{map-get($spacer, 8)} );
+		padding-bottom: 0;
+	}
+
+	@include media(">=for-desktop-up") {
+		max-width: var(--content-width);
+	}
+
+	.category__list {
+		padding: 0;
+		margin-bottom: map-get($spacer, 4);
+		
+		@include media(">=for-tablet-portrait-up") {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-between;
+			margin-bottom: 0;
+		}
+		
+		li {
+			display: flex;
+			justify-content: center;
+			padding: map-get($spacer, 4);
+			margin-bottom: map-get($spacer, 1);
+			background-color: map-get($color, light-gray);
+			
+			@include media(">=for-tablet-portrait-up") {
+				flex: 0 0 calc( 50% - #{map-get($spacer, 1) / 2} );
+				max-width: calc( 50% - #{map-get($spacer, 1) / 2} );
+			}
+		
+			@include media(">=for-tablet-portrait-up") {
+				flex: 0 0 calc( 25% - #{map-get($spacer, 1)} );
+				max-width: calc( 25% - #{map-get($spacer, 1)} );
+			}
+		}
+	}
+}

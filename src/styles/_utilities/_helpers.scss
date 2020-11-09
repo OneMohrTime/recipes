@@ -1,0 +1,43 @@
+/* ----------------------------------------
+	Utilities / Helpers
+---------------------------------------- */
+
+/**
+ * Utility Mixins
+ */
+
+@mixin list-reset() {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	line-height: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+
+/**
+ * Utility classes
+ */
+
+.-hideText {
+	@include hide-text;
+}
+
+.--hide-visually {
+	@include hide-visually;
+
+	&.--focusable {
+		&:active,
+		&:focus {
+			@include hide-visually("unhide");
+		}
+	}
+}

@@ -1,0 +1,12 @@
+/* ----------------------------------------
+	Components / Intro
+---------------------------------------- */
+
+.intro {
+	padding-top: map-get($spacer, 2);
+	padding-bottom: map-get($spacer, 2);
+	
+	@include media(">=for-tablet-landscape-up") {
+		padding-bottom: map-get($spacer, 4);
+	}
+}

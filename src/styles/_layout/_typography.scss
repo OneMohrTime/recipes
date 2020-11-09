@@ -1,0 +1,234 @@
+/* ----------------------------------------
+	Layout / Typography
+---------------------------------------- */
+
+@import "../_components/font-face";
+
+/**
+ * Headers
+ */
+
+@for $i from 1 through 6 {
+	h#{$i} {
+		position: relative;
+		display: block;
+		margin: 0 0 #{map-get($spacer, 1) / 2};
+		font-weight: 700;
+	}
+}
+
+h1 {
+	font-size: modular-scale(4);
+
+	@include media(">=for-tablet-landscape-up") {
+		font-size: modular-scale(6);
+	}
+	font-weight: 900;
+}
+
+h2 {
+	font-size: modular-scale(3);
+
+	@include media(">=for-tablet-landscape-up") {
+		font-size: modular-scale(5);
+	}
+}
+
+h3 {
+	font-size: modular-scale(2);
+
+	@include media(">=for-tablet-landscape-up") {
+		font-size: modular-scale(4);
+	}
+}
+
+h4 {
+	font-size: modular-scale(1);
+
+	@include media(">=for-tablet-landscape-up") {
+		font-size: modular-scale(3);
+	}
+}
+
+h5 {
+	font-size: modular-scale(0);
+
+	@include media(">=for-tablet-landscape-up") {
+		font-size: modular-scale(2);
+	}
+}
+
+h6 {
+	font-size: modular-scale(0);
+
+	@include media(">=for-tablet-landscape-up") {
+		font-size: modular-scale(1);
+	}
+}
+
+
+/**
+ * Body copy
+ */
+
+p {
+	margin: 0 0 #{$base-line-height};
+	font-weight: 400;
+	line-height: 1.65em;
+	widows: 3;
+	orphans: 3;
+	hyphens: auto;
+
+	&:last-child,
+	&:only-child {
+		margin-bottom: 0;
+	}
+}
+
+ul, ol, dl {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+b,
+strong {
+	font-weight: 700;
+}
+
+i,
+em {
+	font-style: italic;
+}
+
+hr {
+	position: relative;
+	width: 50px;
+	height: 10px;
+	margin: map-get($spacer, 1) auto;
+	overflow: hidden;
+	border: 0;
+	background-image: url("../../assets/img/zigzag-long.png");
+	background-repeat: repeat-x;
+	animation: zigzag-bg-anim 7s linear infinite;
+}
+
+.hr {
+	&--black {
+		background-image: url("../../assets/img/zigzag-long__black.png");
+	}
+	&--blue {
+		background-image: url("../../assets/img/zigzag-long__blue.png");
+	}
+	&--dark-gray {
+		background-image: url("../../assets/img/zigzag-long__dark-gray.png");
+	}
+	&--gold {
+		background-image: url("../../assets/img/zigzag-long__gold.png");
+	}
+	&--green {
+		background-image: url("../../assets/img/zigzag-long__green.png");
+	}
+	&--light-gray {
+		background-image: url("../../assets/img/zigzag-long__light-gray.png");
+	}
+	&--red {
+		background-image: url("../../assets/img/zigzag-long__red.png");
+	}
+	&--tan {
+		background-image: url("../../assets/img/zigzag-long__tan.png");
+	}
+	&--white {
+		background-image: url("../../assets/img/zigzag-long__white.png");
+	}
+}
+
+@keyframes zigzag-bg-anim {
+	0% {
+		background-position: 0 0
+	}
+	to {
+		background-position:-215px 0
+	}
+}
+
+::selection {
+	background-color: map-get($color, yellow);
+	color: map-get($color, blue);
+	text-shadow: none;
+}
+
+/**
+ * Links
+ */
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:not([class]) {
+	@include inline-link();
+}
+
+:focus {
+	outline: 1px fade-out(map-get($color, blue), 0.4) solid;
+	outline-offset: map-get($spacer, 1) / 3;
+}
+
+
+/**
+ * Specific
+ */
+
+.headline {
+	position: relative;
+	margin-bottom: calc( #{map-get($spacer, 3) / 2} + 7px );
+	padding-bottom: #{map-get($spacer, 3) / 2};
+	border-bottom: 7px map-get($color, tan) solid;
+
+	&::before {
+		content: attr(data-title);
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: translate3d(2px, 2px, 0);
+		mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+		z-index: 1;
+	}
+}
+
+.reading {
+	line-height: 1.65em;
+}
+
+.highlight {
+	background-color: map-get($color, white);
+	padding: 2px map-get($spacer, 1) / 2;
+
+	&.--white {
+		background-color: map-get($color, white);
+	}
+	&.--yellow {
+		background-color: map-get($color, yellow);
+	}
+	&.--gold {
+		background-color: map-get($color, gold);
+	}
+}
+
+.page__body {
+	ul:not(.breadcrumbs), ol, dl {
+		margin-bottom: map-get($spacer, 1) / 2;
+		padding-left: map-get($spacer, 1);
+		line-height: 1.35em;
+	}
+
+	ul:not(.breadcrumbs) {
+		list-style-type: square;
+	}
+
+	ol {
+		list-style-type: decimal;
+	}
+}

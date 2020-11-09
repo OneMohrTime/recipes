@@ -1,0 +1,156 @@
+/* ----------------------------------------
+	Template / Search
+---------------------------------------- */
+
+@import "../_utilities/templates";
+
+$column: percentage( 1 / 12 );
+
+.page__results {
+	
+	@include media(">=for-tablet-landscape-up") {
+		display: grid;
+		grid-template-columns: repeat(12, $column);
+	}
+}
+
+@include media(">=for-tablet-portrait-up") {
+	.page__results {
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: map-get($spacer, 3) / 2;
+	}
+}
+
+@include media(">=for-tablet-landscape-up") {
+	.page__results {
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: map-get($spacer, 2);
+	}
+}
+
+.results__intro {
+	
+	@include media(">=for-tablet-landscape-up") {
+		grid-column: 3 / 11;
+		grid-row: 1 / 2;
+		max-width: var(--content-width);
+		padding-left: calc( 50% - (var(--content-width) / 2) );
+		padding-right: calc( 50% - (var(--content-width) / 2) );
+	}
+}
+
+.results {
+	
+	@include media(">=for-tablet-landscape-up") {
+		grid-column: 3 / 11;
+		grid-row: 2 / 3;
+		max-width: var(--content-width);
+		padding-left: calc( 50% - (var(--content-width) / 2) );
+		padding-right: calc( 50% - (var(--content-width) / 2) );
+	}
+}
+
+//.results__grid {
+//	max-width: var(--content-width);
+//	margin-left: auto;
+//	margin-right: auto;
+//}
+
+.results__list {
+	// Needs extra specificity
+	.results & {
+		@include list-reset();
+	}
+}
+
+
+/**
+ * Singlular result, WITHOUT grid support
+ */
+
+.result {
+	position: relative;
+	display: block;
+	margin-bottom: map-get($spacer, 1);
+	padding-top: map-get($spacer, 1) / 2;
+	padding-bottom: map-get($spacer, 1) / 2;
+	transition: color 500ms;
+	border-bottom: 1px map-get($color, light-gray) solid;
+	
+	&:hover,
+	&:focus {
+		color: map-get($color, blue);
+	}
+}
+
+.result__image {
+	display: none;
+}
+
+.result__type {
+	font-size: modular-scale(0);
+	font-style: italic;
+	font-weight: 400;
+	color: map-get($color, blue);
+}
+
+.result__title {
+	font-size: modular-scale(1);
+}
+
+.result__description {
+	font-size: modular-scale(0);
+}
+
+
+/**
+ * Singlular result, WITH grid support
+ */
+
+$image-size: 44px;
+@include media(">=for-tablet-landscape-up") {
+	$image-size: 72px;
+}
+
+@supports (display: grid) {
+	
+	.result {
+		display: grid;
+		grid-template-columns: $image-size 1fr;
+		grid-template-rows: repeat(3, auto);
+		grid-column-gap: map-get($spacer, 1);
+	}
+	
+	.result__image {
+		grid-column: 1 / 2;
+		grid-row: 1 / 4;
+		position: relative;
+		display: inherit;
+	}
+	
+	.thumbnail {
+		width: $image-size;
+		height: $image-size;
+		border: 0;
+		border-radius: $image-size;
+		background-color: map-get($color, light-gray);
+		z-index: 2;
+	}
+	
+	.thumbnail__bg {
+		position: absolute;
+		top: 3px;
+		left: 3px;
+		width: $image-size;
+		height: $image-size;
+		font-style: italic;
+		font-weight: 700;
+		text-align: center;
+		line-height: $image-size;
+		border: 0;
+		border-radius: $image-size;
+		background-color: map-get($color, blue);
+		color: map-get($color, white);
+		z-index: 1
+	}
+}
