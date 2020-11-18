@@ -1,0 +1,133 @@
+{% extends '_layouts/default' %}
+{% set mainClass    = 'recipes' %}
+{% set recipes      = site
+	.find('recipes')
+	.children()
+	.listed()
+	.sortBy('date', 'desc') %}
+{% set recipeImages = recipes.recipeImages %}
+{% set recipeCover  = page.cover %}
+
+{% block content %}
+	<article class="page__recipes{% if recipes is empty %} --is-empty{% endif %}">
+
+		<header class="recipes__intro intro">
+			<h1 class="recipes__headline headline" data-title="{{ page.headline | default(page.title) }}">{{ page.headline | default(page.title) }}</h1>
+
+			{% if page.description is defined and page.description is not empty %}
+				<div class="recipes__subheadline">{{ page.description.kirbytext | raw }}</div>
+			{% endif %}
+		</header>
+
+		<section id="recipesFeatured" class="recipes __featured">
+			<h2 class="recipes__subtitle">Featured</h2>
+
+			{% if recipes is defined and recipes is not empty %}
+
+				{% for recipe in recipes %}
+					<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe crosshair__trigger">
+						{% if recipe.cover is defined and recipe.cover is not empty %}
+							<img src="{{ recipe.cover.url }}"
+								alt="placeholder for {{ recipe.cover.title }}"
+								width="{{ recipe.cover.dimensions.width }}"
+								height="{{ recipe.cover.dimensions.height }}"
+								class="cover__image --ratio-{{ recipe.cover.ratio | slice(0, 4) }} --{{ recipe.cover.orientation }}"
+								id="img-{{ recipe.cover.hash }}"
+								srcset="{{ recipe.cover.srcset([400, 800, 1200, 1600]) }}" />
+						{% else %}
+							<img src="https://via.placeholder.com/500/e8e7e1/2b3b4c?text=Pretend+this+is+{{ recipe.title }}" alt="placeholder for {{ recipe.title }}" class="" />
+						{% endif %}
+						<div class="recipe__caption">
+							<h2 class="recipe__title">{{ recipe.title }}</h2>
+						<figure class="recipe__crosshair crosshair"></figure>
+							<p class="recipe__subtitle">{{ recipe.description | raw | slice(0, 164) }}</p>
+						</div>
+					</a>
+				{% endfor %}
+
+			{% else %}
+
+				<p class="no-drinks">There aren&rsquo;t any recipes listed on {{ site.title }} :(</p>
+
+			{% endif %}
+		</section>
+
+		<section class="recipes __blurb reading">
+			{{ page.description.kirbytext | raw }}
+		</section>
+
+		<section id="recipesNewest" class="recipes __newest">
+			<h2 class="recipes__subtitle">Newest</h2>
+
+			{% if recipes is defined and recipes is not empty %}
+
+				{% for recipe in recipes %}
+				<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe --small">
+					{% if recipe.cover is defined and recipe.cover is not empty %}
+						<img src="{{ recipe.cover.url }}"
+							 alt="placeholder for {{ recipe.cover.title }}"
+							 width="{{ recipe.cover.dimensions.width }}"
+							 height="{{ recipe.cover.dimensions.height }}"
+							 class="recipe__thumbnail --ratio-{{ recipe.cover.ratio | slice(0, 4) }} --{{ recipe.cover.orientation }}"
+							 id="{{ recipe.cover.hash }}"
+							 srcset="{{ recipe.cover.srcset([44, 72, 150]) }}" />
+					{% else %}
+						<img src="https://via.placeholder.com/500/e8e7e1/2b3b4c?text=Pretend+this+is+{{ recipe.title }}" alt="placeholder for {{ recipe.title }}" class="recipe__thumbnail" />
+					{% endif %}
+					<h2 class="recipe__title">{{ recipe.title | length > 40 ? recipe.title | slice(0, 40) ~ '...' : recipe.title }}</h2>
+				</a>
+				{% endfor %}
+
+			{% else %}
+
+				<p class="no-drinks">There aren&rsquo;t any recipes listed on {{ site.title }} :(</p>
+
+			{% endif %}
+		</section>
+
+
+		<section id="recipesAll" class="recipes __all">
+
+			{% if tags %}
+				<h2 class="recipes__browse">
+					<span id="recipeLabel" class="recipe-type__label" aria-label="Browse recipes by">Browse</span>
+					<select class="recipe-type__input" aria-labelledby="recipeLabel">
+						<option>Newest Recipes</option>
+						{% for tag in tags %}
+							<option>{{ tag }}</option>
+						{% endfor %}
+					</select>
+				</h2>
+			{% endif %}
+
+			{% if recipes is defined and recipes is not empty %}
+				{% for recipe in recipes %}
+
+					<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe crosshair__trigger" aria-label="Read {{ recipe.title }}">
+						{% if recipe.cover is defined and recipe.cover is not empty %}
+							<img src="{{ recipe.cover.url }}"
+								alt="placeholder for {{ recipe.cover.title }}"
+								width="{{ recipe.cover.dimensions.width }}"
+								height="{{ recipe.cover.dimensions.height }}"
+								class="cover__image --ratio-{{ recipe.cover.ratio | slice(0, 4) }} --{{ recipe.cover.orientation }}"
+								id="{{ recipe.cover.hash }}"
+								srcset="{{ recipe.cover.srcset([400, 800, 1200, 1600]) }}" />
+						{% else %}
+							<img src="https://via.placeholder.com/500/e8e7e1/2b3b4c?text=Pretend+this+is+{{ recipe.title }}" alt="placeholder for {{ recipe.title }}" class="" />
+						{% endif %}
+						<div class="recipe__caption">
+							<h2 class="recipe__title">{{ recipe.title }}</h2>
+						<figure class="recipe__crosshair crosshair"></figure>
+						</div>
+					</a>
+
+				{% endfor %}
+			{% else %}
+
+				<p class="no-drinks">There aren&rsquo;t any recipes listed on {{ site.title }} :(</p>
+
+			{% endif %}
+		</section>
+
+	</article>
+{% endblock %}

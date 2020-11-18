@@ -1,0 +1,13 @@
+<section id="searchForm" class="nav__search">
+	<form action="{{ siteUrl }}/search" class="nav__search-form">
+
+		<input type="search" id="search" class="search__field" name="q" value="{{ query ?? null }}" placeholder="Type ingredients, recipes, drinks..." />
+
+		<button type="button" id="searchClose" class="search__close button">&times;</button>
+
+		<button type="submit" class="search__submit button">
+			<span data-title="Search">Search</span>
+		</button>
+
+	</form>
+</section>

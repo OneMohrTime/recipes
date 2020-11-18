@@ -1,0 +1,111 @@
+{% extends '_layouts/default' %}
+
+{% set mainClass   = 'recipe' %}
+{% set title       = entry.title %}
+{% set headline    = entry.headline ??? title %}
+{% set description = entry.description ??? null %}
+{% set recipe      = entry.recipe ??? null %}
+{% set imageID     = recipe.imageId[0] ??? null %}
+{% set imageQuery  = craft.assets().id(imageID) ??? null %}
+{% set image       = imageQuery.one() ??? null %}
+{% set ingredients = entry.recipe.ingredients ??? null %}
+
+{% block content %}
+	<article class="recipe__grid">
+
+		<header class="recipe__intro intro">
+			<h1 class="recipe__headline headline" data-title="{{ headline }}">{{ headline }}</h1>
+			{% if description %}
+				<div class="recipe__subheadline">
+					<img src="" class="" />
+					{{ description }}
+				</div>
+			{% endif %}
+		</header>
+		<figure class="recipe__cover">
+			{% if image %}
+				<img src="{{ image.url }}"
+					 alt="{{ image.alt ??? image.title }}"
+					 class="cover__image"
+					 id="i-{{ image.id }}"
+					 srcset="" />
+			{% else %}
+				<img src="https://via.placeholder.com/960x450/e8e7e1/2b3b4c?text=Pretend+this+is+{{ title }}" alt="placeholder for {{ title }}" class="cover__image" />
+				<figcaption class="cover__caption">
+					{{ title }}
+				</figcaption>
+			{% endif %}
+		</figure>
+
+		{# {% if entry.recipeImages | length > 1 %}
+			<section class="recipe__gallery" style="display: none;">
+				{% for image in entry.recipeImages %}
+					<img src="{{ image.url }}"
+						 alt="{{ image.name }}"
+						 width="{{ image.dimensions.width }}"
+						 height="{{ image.dimensions.height }}"
+						 class="gallery__image ratio--{{ image.ratio|slice(0, 2) }}-{{ image.orientation }}"
+						 id="{{ image.hash }}"
+						 srcset="" />
+				{% endfor %}
+			</section>
+		{% endif %} #}
+
+		<section class="recipe__ingredients">
+			<div id="ingredients" class="ingredients" tabindex="0">
+				<h2 class="ingredients__title">Ingredients</h2>
+
+				{% if ingredients %}
+					<ul class="ingredients__list">
+
+						{% for ingredient in ingredients %}
+							<li class="ingredient reading">
+								<span class="quantity">{{ ingredient.quantity }}</span>
+								<span class="units">{{ ingredient.units }}</span>
+								<span class="ingredient">{{ ingredient.ingredient }}</span>
+							</li>
+						{% endfor %}
+
+					</ul>
+				{% else %}
+					<p>Evidently there are no ingredients.</p>
+				{% endif %}
+			</div>
+		</section>
+
+		{# <section id="directions" class="recipe__directions">
+
+			{{ entry.aboutRecipe.kirbytext|raw }}
+
+			<h2 class="directions__title">Directions</h2>
+
+			{% if entry.directions is defined and entry.directions is not empty %}
+				<ol class="directions__list" role="tablist">
+
+					{% for step in entry.directions.yaml %}
+						<li id="{{ step.step|replace({ ' ' : '', '.' : '', ',' : '' })|lower|slice(0, 24) }}" class="direction reading" role="tab" tabindex="0">
+							{{ step.step|raw }}
+						</li>
+					{% endfor %}
+
+				</ol>
+			{% else %}
+				<p>Apparently you should be able to figure this one out on your own?</p>
+			{% endif %}
+		</section> #}
+
+		{# {% if entry.tags is defined and entry.tags is not empty %}
+			<section class="recipe__tags">
+				<h3 class="tags__title">Related</h3>
+				{% if entry.tags %}
+					{% for tag in entry.tags %}
+						<p>{{ tag }}</p>
+					{% endfor %}
+				{% else %}
+					<p>This relates to&hellip;nothing!</p>
+				{% endif %}
+			</section>
+		{% endif %} #}
+
+	</article>
+{% endblock %}

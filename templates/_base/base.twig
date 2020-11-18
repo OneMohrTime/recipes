@@ -1,0 +1,69 @@
+<!doctype html>
+
+{# ============================================================================
+ # Base Layout
+ # ----------------------------------------------------------------------------
+ # This is the base layer to all pages
+ # ========================================================================= #}
+
+<html lang="en-US">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>{{ siteName }}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=no, viewport-fit=cover" />
+	<meta name="referrer" content="origin-when-cross-origin" />
+
+	<link rel="stylesheet" href="{{ mix('styles/main.css') }}" />
+	{# <noscript>
+		<link rel="stylesheet" href="{{ mix('styles/noscript.css') }}" />
+	</noscript> #}
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png" />
+	<link rel="manifest" href="/site.webmanifest" />
+	<link rel="mask-icon" href="/assets/img/favicons/safari-pinned-tab.svg" color="#ff6f4f" />
+	<meta name="msapplication-TileColor" content="#ff6f4f" />
+	<meta name="theme-color" content="#2b3b4c" />
+</head>
+
+<body>
+	<div class="page{{ pageClass ??? null }}">
+
+		{% include '_components/skipToContent.twig' %}
+
+		<header id="mainNav" class="nav page__header">
+			<a class="nav__logo menu__item" href="{{ siteUrl }}" aria-label="Home"><span data-title="Home">{{ siteName }}</span></a>
+
+			{# When activated, search appears over nav #}
+			{% include '_components/searchForm.twig' %}
+
+			{# Main site mobile and desktop navigation #}
+			{% include '_components/navigation.twig' %}
+		</header>
+
+		<main id="mainContent" class="page__body{% if mainClass is defined and mainClass is not null %} {{ mainClass }}{% endif %}">
+			{% block content %}
+			{% endblock %}
+		</main>
+
+		{% include '_components/modalSection.twig' %}
+
+		{% if entry.type.handle == 'recipe' or entry.type.handle == 'drink' %}
+			{% include '_components/breadcrumb.twig' %}
+		{% endif %}
+
+		<footer id="footer" class="page__footer">
+			{% include '_components/footer.twig' %}
+		</footer>
+
+	</div>
+
+	{# Load necessary vendor libraries #}
+	{% block scripts %}
+	{% endblock %}
+</body>
+
+</html>

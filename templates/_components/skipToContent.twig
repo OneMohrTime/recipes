@@ -1,0 +1,46 @@
+<a href="#searchToggle" class="skip-to-content" aria-label="Skip to search">
+	<span data-title="Skip to search">Skip to search</span>
+</a>
+
+<a href="#mainContent" class="skip-to-content" aria-label="Skip to content">
+	<span data-title="Skip to content">Skip to content</span>
+</a>
+
+{% if entry.type.handle == 'home' %}
+
+	<a href="#homeBored" class="skip-to-content" aria-label="Skip to browse">
+		<span data-title="Skip to browse">Skip to browse</span>
+	</a>
+	<a href="#homeFeature" class="skip-to-content" aria-label="Skip to featured link">
+		<span data-title="Skip to featured link">Skip to featured link</span>
+	</a>
+	<a href="#homeCategory" class="skip-to-content" aria-label="Skip to featured category">
+		<span data-title="Skip to featured category">Skip to featured category</span>
+	</a>
+
+{% elseif entry.type.handle == 'recipes' %}
+
+	<a href="#recipesFeatured" class="skip-to-content" aria-label="Skip to featured recipes">
+		<span data-title="Skip to featured recipes">Skip to featured recipes</span>
+	</a>
+	<a href="#recipesNewest" class="skip-to-content" aria-label="Skip to newest recipes">
+		<span data-title="Skip to newest recipes">Skip to newest recipes</span>
+	</a>
+	<a href="#recipesAll" class="skip-to-content" aria-label="Skip to all recipes">
+		<span data-title="Skip to all recipes">Skip to all recipes</span>
+	</a>
+
+{% elseif entry.type.handle == 'recipe' %}
+
+	<a href="#ingredients" class="skip-to-content" aria-label="Skip to ingredients">
+		<span data-title="Skip to ingredients">Skip to ingredients</span>
+	</a>
+	<a href="#directions" class="skip-to-content" aria-label="Skip to directions">
+		<span data-title="Skip to directions">Skip to directions</span>
+	</a>
+
+{% endif %}
+
+<a href="#footer" class="skip-to-content" aria-label="Skip to footer">
+	<span data-title="Skip to footer">Skip to footer</span>
+</a>
