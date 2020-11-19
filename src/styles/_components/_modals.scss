@@ -23,14 +23,14 @@
 	pointer-events: none;
 	visibility: hidden;
 	z-index: 10;
-	
+
 	@supports (display: grid) {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		grid-column-gap: map-get($spacer, 1);
 		align-items: start;
 	}
-	
+
 	&.--is-modal {
 		opacity: 1;
 		pointer-events: all;
@@ -39,7 +39,7 @@
 }
 
 .modal__headline {
-	
+
 	@supports (display: grid) {
 		grid-column: span 4;
 		grid-row: 1 / 2;
@@ -47,7 +47,7 @@
 }
 
 .modal__image {
-	
+
 	@supports (display: grid) {
 		grid-column: 1 / 3;
 		grid-row: 2 / 5;
@@ -55,7 +55,7 @@
 }
 
 .modal__description {
-	
+
 	@supports (display: grid) {
 		grid-column: 3 / 5;
 		grid-row: 2 / 3;
@@ -63,7 +63,7 @@
 }
 
 .modal__ingredients {
-	
+
 	@supports (display: grid) {
 		grid-column: 3 / 5;
 		grid-row: 3 / 4;
@@ -71,7 +71,7 @@
 }
 
 .modal__directions {
-	
+
 	@supports (display: grid) {
 		grid-column: 3 / 5;
 		grid-row: 4 / 5;
@@ -84,12 +84,12 @@
 	display: flex;
 	align-items: baseline;
 	margin-top: auto;
-	
+
 	@supports (display: grid) {
 		grid-column: span 4;
 		align-self: end;
 	}
-	
+
 	& > a {
 		margin-left: map-get($spacer, 1);
 	}
@@ -132,10 +132,10 @@ body.--is-modal {
 	transition: opacity 500ms;
 	pointer-events: none;
 	background-color: fade-out( map-get($color, black), 0.15 );
-	background-image: url("../img/bg.png");
+	background-image: url("../images/bg.png");
 	visibility: hidden;
 	z-index: 9;
-	
+
 	&.--is-modal {
 		opacity: 1;
 		visibility: visible;

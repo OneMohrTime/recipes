@@ -108,38 +108,38 @@ hr {
 	margin: map-get($spacer, 1) auto;
 	overflow: hidden;
 	border: 0;
-	background-image: url("../../assets/img/zigzag-long.png");
+	background-image: url("../images/zigzag-long.png");
 	background-repeat: repeat-x;
 	animation: zigzag-bg-anim 7s linear infinite;
 }
 
 .hr {
 	&--black {
-		background-image: url("../../assets/img/zigzag-long__black.png");
+		background-image: url("../images/zigzag-long__black.png");
 	}
 	&--blue {
-		background-image: url("../../assets/img/zigzag-long__blue.png");
+		background-image: url("../images/zigzag-long__blue.png");
 	}
 	&--dark-gray {
-		background-image: url("../../assets/img/zigzag-long__dark-gray.png");
+		background-image: url("../images/zigzag-long__dark-gray.png");
 	}
 	&--gold {
-		background-image: url("../../assets/img/zigzag-long__gold.png");
+		background-image: url("../images/zigzag-long__gold.png");
 	}
 	&--green {
-		background-image: url("../../assets/img/zigzag-long__green.png");
+		background-image: url("../images/zigzag-long__green.png");
 	}
 	&--light-gray {
-		background-image: url("../../assets/img/zigzag-long__light-gray.png");
+		background-image: url("../images/zigzag-long__light-gray.png");
 	}
 	&--red {
-		background-image: url("../../assets/img/zigzag-long__red.png");
+		background-image: url("../images/zigzag-long__red.png");
 	}
 	&--tan {
-		background-image: url("../../assets/img/zigzag-long__tan.png");
+		background-image: url("../images/zigzag-long__tan.png");
 	}
 	&--white {
-		background-image: url("../../assets/img/zigzag-long__white.png");
+		background-image: url("../images/zigzag-long__white.png");
 	}
 }
 

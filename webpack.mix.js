@@ -26,7 +26,7 @@ mix.setPublicPath('public/assets') // generate manifest in this directory
   // .sourceMaps();
 
   // Process images + media
-  .copyDirectory('src/images', 'assets/images')
+  .copyDirectory('src/images', 'images')
 
   // Live reload browser
   .browserSync({

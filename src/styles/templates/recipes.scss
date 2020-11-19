@@ -18,12 +18,14 @@ $column: percentage( 1 / 12 );
 	display: flex;
 	flex-wrap: wrap;
 
-	&.__featured {
+	&.-featured {
+		// .recipes.-featured
 		grid-column: span 9;
 		grid-row: 2 / 3;
 	}
 
-	&.__blurb {
+	&.-blurb {
+		// .recipes.-blurb
 		grid-column: span 9;
 		grid-row: 3 / 4;
 		align-items: center;
@@ -31,13 +33,15 @@ $column: percentage( 1 / 12 );
 		margin-bottom: map-get($spacer, 5);
 	}
 
-	&.__newest {
+	&.-newest {
+		// .recipes.-newest
 		grid-column: span 3;
 		grid-row: 2 / 4;
 		align-content: flex-start;
 	}
 
-	&.__all {
+	&.-all {
+		// .recipes.-all
 		grid-column: span 12;
 		grid-row: 4 / 5;
 		width: calc( 100% + #{map-get($spacer, 1)} );
@@ -69,7 +73,7 @@ $column: percentage( 1 / 12 );
 	}
 }
 
-.recipes.__blurb {
+.recipes.-blurb {
 	font-size: modular-scale(2);
 }
 
@@ -83,7 +87,7 @@ $column: percentage( 1 / 12 );
 	font-size: modular-scale(2);
 }
 
-.recipe-type__label {}
+// .recipe-type__label {}
 
 .recipe-type__input {
 	position: relative;
@@ -143,13 +147,13 @@ $column: percentage( 1 / 12 );
 		}
 	}
 
-	.__featured & {
+	.-featured & {
 		flex: 0 0 calc( 50% - #{map-get($spacer, 2)} );
 		max-width: calc( 50% - #{map-get($spacer, 2)} );
 		margin-right: map-get($spacer, 2);
 	}
 
-	.__newest & {
+	.-newest & {
 		flex: 0 0 100%;
 		max-width: 100%;
 		margin-bottom: map-get($spacer, 2);
@@ -159,7 +163,7 @@ $column: percentage( 1 / 12 );
 		}
 	}
 
-	.__all & {
+	.-all & {
 		flex: 0 0 calc( 25% - #{map-get($spacer, 1)});
 		max-width: calc( 25% - #{map-get($spacer, 1)});
 		margin-left: map-get($spacer, 1) / 2;
@@ -189,8 +193,8 @@ $column: percentage( 1 / 12 );
 
 .recipe__title {
 
-	.__featured &,
-	.__all & {
+	.-featured &,
+	.-all & {
 		@include ellipsis;
 		display: block;
 		margin-top: map-get($spacer, 1) / 2;
@@ -198,7 +202,7 @@ $column: percentage( 1 / 12 );
 		font-size: modular-scale(1);
 	}
 
-	.__newest & {
+	.-newest & {
 		margin-bottom: 0;
 		padding-top: 4px;
 		padding-bottom: 4px;

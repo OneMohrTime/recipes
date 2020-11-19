@@ -1,6 +1,6 @@
 {% extends '_layouts/default' %}
 
-{% set mainClass   = 'recipe' %}
+{% set mainClass   = 'recipe -entry' %}
 {% set title       = entry.title %}
 {% set headline    = entry.headline ??? title %}
 {% set description = entry.description ??? null %}
@@ -9,6 +9,7 @@
 {% set imageQuery  = craft.assets().id(imageID) ??? null %}
 {% set image       = imageQuery.one() ??? null %}
 {% set ingredients = entry.recipe.ingredients ??? null %}
+{% set directions  = entry.recipe.directions ??? null %}
 
 {% block content %}
 	<article class="recipe__grid">
@@ -68,23 +69,25 @@
 
 					</ul>
 				{% else %}
-					<p>Evidently there are no ingredients.</p>
+					<ul class="ingredients__list">
+						<li class="ingredient reading">Evidently there are no ingredients.</li>
+					</ul>
 				{% endif %}
 			</div>
 		</section>
 
-		{# <section id="directions" class="recipe__directions">
+		<section id="directions" class="recipe__directions">
 
-			{{ entry.aboutRecipe.kirbytext|raw }}
+			{{ description }}
 
 			<h2 class="directions__title">Directions</h2>
 
-			{% if entry.directions is defined and entry.directions is not empty %}
+			{% if directions %}
 				<ol class="directions__list" role="tablist">
 
-					{% for step in entry.directions.yaml %}
-						<li id="{{ step.step|replace({ ' ' : '', '.' : '', ',' : '' })|lower|slice(0, 24) }}" class="direction reading" role="tab" tabindex="0">
-							{{ step.step|raw }}
+					{% for step in directions %}
+						<li id="{{ step.direction|replace({ ' ' : '', '.' : '', ',' : '' })|lower|slice(0, 24) }}" class="direction reading" role="tab" tabindex="0">
+							{{ step.direction }}
 						</li>
 					{% endfor %}
 
@@ -92,7 +95,7 @@
 			{% else %}
 				<p>Apparently you should be able to figure this one out on your own?</p>
 			{% endif %}
-		</section> #}
+		</section>
 
 		{# {% if entry.tags is defined and entry.tags is not empty %}
 			<section class="recipe__tags">

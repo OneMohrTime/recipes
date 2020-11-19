@@ -48,7 +48,7 @@
 			width: 100px;
 			height: 61px;
 			background-color: transparent;
-			background: transparent url("../../../assets/img/recipe.png") no-repeat;
+			background: transparent url("../images/recipe.png") no-repeat;
 			background-size: 100px 61px;
 			background-repeat: no-repeat;
 		}
@@ -121,7 +121,7 @@
 
 .ingredients {
 	border-radius: 3px;
-	background-image: url("../img/bg.png");
+	background-image: url("../images/bg.png");
 	transition: transform $speed;
 
 	@include media(">=for-tablet-landscape-up") {

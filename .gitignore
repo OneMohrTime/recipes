@@ -16,6 +16,7 @@
 .env.php
 .env.sh
 .env
+config/license.key
 
 # COMPOSER
 composer.phar

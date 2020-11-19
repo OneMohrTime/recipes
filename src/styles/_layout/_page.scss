@@ -4,7 +4,7 @@
 
 .page {
 	position: relative;
-	
+
 	@include media(">=for-tablet-landscape-up") {
 		padding-bottom: map-get($spacer, 4);
 	}
@@ -23,18 +23,18 @@
 	}
 }
 
-.page.__recipes,
+.page.__recipePage,
 .page.__drinks,
 .page.__about,
 .page.__search {
 	& > .page__body {
 		margin-bottom: map-get($spacer, 2);
 		padding-top: map-get($spacer, 4);
-		
+
 		@include media(">=for-tablet-portrait-up") {
 			margin-bottom: map-get($spacer, 3);
 		}
-		
+
 		@include media(">=for-desktop-up") {
 			width: var(--content-width);
 			margin-bottom: map-get($spacer, 4);
@@ -44,15 +44,15 @@
 	}
 }
 
-.page.__recipe {
+.page.__recipes {
 	& > .page__body {
 		margin-bottom: map-get($spacer, 2);
 		padding-top: map-get($spacer, 4);
-		
+
 		@include media(">=for-tablet-portrait-up") {
 			margin-bottom: map-get($spacer, 3);
 		}
-		
+
 		@include media(">=for-desktop-up") {
 			margin-bottom: map-get($spacer, 4);
 		}
