@@ -26,6 +26,15 @@ return [
         'securityKey' => App::env('SECURITY_KEY'),
     ],
 
+    // Local environment settings
+    'local' => [
+        // Dev Mode (see https://craftcms.com/guides/what-dev-mode-does)
+        'devMode' => true,
+
+        // Prevent crawlers from indexing pages and following links
+        'disallowRobots' => true,
+    ],
+
     // Dev environment settings
     'dev' => [
         // Dev Mode (see https://craftcms.com/guides/what-dev-mode-does)
