@@ -1,0 +1,23 @@
+contentColumnType: string
+fieldGroup: ab41c906-bfd1-4292-89fe-04ed83d357bc
+handle: featureCategory
+instructions: ''
+name: 'Feature Category'
+searchable: false
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: '1'
+  limit: null
+  localizeRelations: false
+  selectionLabel: 'Add Category'
+  showSiteMenu: true
+  source: 'group:d292d761-7c52-45be-a1c9-2d638dbb7967'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

@@ -1,0 +1,60 @@
+fieldLayouts:
+  0a0b6d87-b8d1-4412-a0d3-acf2ec64fb46:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 7d8cc90c-9fdb-474d-8603-838be99bc7a1
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 43ca756d-4ad2-4e47-937e-962ec8de3f0c
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Additional Photos'
+        sortOrder: 2
+handle: recipes
+hasTitleField: false
+name: Recipes
+section: 8be328ea-62d9-42b7-9b78-07c424cd4724
+sortOrder: 1
+titleFormat: '{recipe.name}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

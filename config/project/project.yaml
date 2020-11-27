@@ -1,17 +1,71 @@
-dateModified: 1604636668
+dateModified: 1606448765
 email:
   fromEmail: derekmohrdesign@gmail.com
   fromName: Recipes
   transportType: craft\mail\transportadapters\Sendmail
+plugins:
+  cp-field-inspect:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  empty-coalesce:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  expanded-singles:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      expandSingles: '1'
+      redirectToEntry: '1'
+  feed-me:
+    edition: standard
+    enabled: true
+    schemaVersion: 4.3.0
+  kint:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      kintDisplayTheme: aante-light.css
+  logs:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0
+  mix:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      assetPath: assets
+      publicPath: public
+  recipe:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  seomatic:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.9
+  typogrify:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 system:
   edition: solo
   live: true
   name: Recipes
+  retryDuration: null
   schemaVersion: 3.5.13
-  timeZone: America/Los_Angeles
+  timeZone: America/Detroit
 users:
   allowPublicRegistration: false
   defaultGroup: null
-  photoSubpath: null
-  photoVolumeUid: null
+  photoSubpath: '{username}'
+  photoVolumeUid: 9931fe08-b5f7-45bc-9410-2f219f8fd70c
   requireEmailVerification: true

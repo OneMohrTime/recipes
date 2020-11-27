@@ -1,0 +1,11 @@
+enableVersioning: true
+handle: drinks
+name: 'Individual Drinks'
+propagationMethod: all
+siteSettings:
+  038df939-32f1-4d74-a42e-9c57bdeb55b0:
+    enabledByDefault: true
+    hasUrls: true
+    template: _sections/drinks/index
+    uriFormat: 'drinks/{slug}'
+type: channel

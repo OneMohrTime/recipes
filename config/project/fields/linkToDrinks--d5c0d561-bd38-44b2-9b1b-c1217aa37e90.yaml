@@ -1,0 +1,20 @@
+contentColumnType: string
+fieldGroup: 3620e33a-1793-452c-a9ef-2cb5c22554f0
+handle: linkToDrinks
+instructions: ''
+name: 'Link to Drinks'
+searchable: false
+settings:
+  allowSelfRelations: false
+  limit: '1'
+  localizeRelations: false
+  selectionLabel: 'Add Link'
+  showSiteMenu: true
+  source: null
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries
