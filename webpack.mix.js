@@ -26,7 +26,10 @@ mix.setPublicPath('public/assets') // generate manifest in this directory
   // .sourceMaps();
 
   // Process images + media
-  .copyDirectory('src/images', 'images')
+  .copyDirectory('src/images', 'public/assets/images')
+
+  // Process webfonts
+  .copyDirectory('src/fonts', 'public/assets/fonts')
 
   // Live reload browser
   .browserSync({

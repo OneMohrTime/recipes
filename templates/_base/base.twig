@@ -58,10 +58,11 @@
 		<footer id="footer" class="page__footer">
 			{% include '_components/footer.twig' %}
 		</footer>
-
 	</div>
 
-	{# Load necessary vendor libraries #}
+	{# Load es6 app.js #}
+	<script src="{{ mix('scripts/main.js') }}"></script>
+	{# Load necessary script libraries per page #}
 	{% block scripts %}
 	{% endblock %}
 </body>
