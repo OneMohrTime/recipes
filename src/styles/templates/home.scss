@@ -16,10 +16,12 @@ $nudge: map-get($spacer, 4);
 }
 
 .homepage__headline {
-	max-width: calc( 100% - #{map-get($spacer, 2)} );
+	width: calc( 100% - #{map-get($spacer, 2)} );
+	max-width: 475px;
 	font-size: modular-scale(4);
 
 	@include media(">=for-tablet-landscape-up") {
+		max-width: 675px;
 		font-size: modular-scale(6);
 	}
 }
@@ -29,19 +31,19 @@ $nudge: map-get($spacer, 4);
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: map-get($spacer, 3);
-	
+
 	@include media("<for-phone-only") {
 		@include hide-visually();
 	}
-	
+
 	@include media(">=for-tablet-portrait-up") {
 		max-width: calc( 100% - #{map-get($spacer, 8) * 2} );
 	}
-	
+
 	@include media(">=for-tablet-landscape-up") {
 		max-width: calc( var(--content-width) - #{map-get($spacer, 8) * 2} );
 	}
-	
+
 	@include media(">=for-desktop-up") {
 		max-width: calc( var(--content-width) - #{map-get($spacer, 8) * 5} );
 	}
@@ -134,7 +136,7 @@ $nudge: map-get($spacer, 4);
 		@supports (display: grid) {
 			grid-column: span 1;
 		}
-		
+
 		& > * {
 			// Overlay issues with image as background image
 			z-index: 1;
@@ -151,12 +153,12 @@ $nudge: map-get($spacer, 4);
 			font-size: modular-scale(2);
 			font-weight: 400;
 		}
-		
+
 		&__crosshair {
 			// .left-link__crosshair
 			// .right-link__crosshair
 			height: 2px;
-			
+
 			&::before,
 			&::after {
 				height: 2px;
@@ -164,11 +166,12 @@ $nudge: map-get($spacer, 4);
 				background-color: map-get($color, white);
 			}
 		}
-		
+
 		&__description {
 			// .left-link__description
 			// .right-link__description
-			 margin-top: #{map-get($spacer, 1) / 2}
+			position: relative;
+			margin-top: #{map-get($spacer, 1) / 2}
 		}
 
 		&__cover {
@@ -266,26 +269,26 @@ $nudge: map-get($spacer, 4);
 	.category__list {
 		padding: 0;
 		margin-bottom: map-get($spacer, 4);
-		
+
 		@include media(">=for-tablet-portrait-up") {
 			display: flex;
 			flex-flow: row wrap;
 			justify-content: space-between;
 			margin-bottom: 0;
 		}
-		
+
 		li {
 			display: flex;
 			justify-content: center;
 			padding: map-get($spacer, 4);
 			margin-bottom: map-get($spacer, 1);
 			background-color: map-get($color, light-gray);
-			
+
 			@include media(">=for-tablet-portrait-up") {
 				flex: 0 0 calc( 50% - #{map-get($spacer, 1) / 2} );
 				max-width: calc( 50% - #{map-get($spacer, 1) / 2} );
 			}
-		
+
 			@include media(">=for-tablet-portrait-up") {
 				flex: 0 0 calc( 25% - #{map-get($spacer, 1)} );
 				max-width: calc( 25% - #{map-get($spacer, 1)} );

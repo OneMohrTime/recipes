@@ -1,16 +1,27 @@
 {% extends '_layouts/default' %}
 {% set htmlTitle = entry.title ~ ' - ' ~ siteName %}
 
-{% set recipes = craft.entries.section('recipes').orderBy('date desc') %}
+{% set headline           = entry.headline ??? siteName %}
+{% set subheadline        = entry.homeHeadline ??? 'Browse' %}
+{% set description        = entry.description ??? 'Welcome to my cookbook!' %}
+{% set recipes            = craft.entries.section('recipes').orderBy('date desc') ??? null %}
+{% set featureHeadline    = entry.featureHeadline ??? null %}
+{% set featureDescription = entry.featureDescription ??? null %}
+{% set featureUrlQuery    = entry.featureUrl ??? null %}
+{% set featureUrl         = featureUrlQuery.one().url ??? null %}
+{% set featureImageQuery  = entry.featureImage ??? null %}
+{% set featureImage       = featureImageQuery.one() ??? null %}
+{% set featureCategory    = entry.featureCategory ??? null %}
+{% set featureCategoryHeadline = entry.featureCategoryHeadline ??? 'Featured' %}
 
 {% block content %}
 	<article class="homepage__grid">
 
 		<header class="homepage__intro intro">
 			<h1 class="--hide-visually">{{ siteName }}</h1>
-			<h2 class="homepage__headline headline" data-title="{{ entry.headline }}">{{ entry.headline }}</h2>
+			<h2 class="homepage__headline headline" data-title="{{ headline }}">{{ headline }}</h2>
 			<div class="homepage__subheadline">
-				{{ entry.description }}
+				{{ description }}
 			</div>
 			<a href="javascript:void(0)" id="homeSearchToggle" class="homepage__button button">
 				<span data-title="Seach Food &amp; Drinks">Seach Food &amp; Drinks</span>
@@ -19,14 +30,16 @@
 
 		<section class="homepage__promos">
 			<aside id="homeBored" class="bored">
-				<h2 class="bored__headline headline">{{ entry.subheadline | length > 0 ? entry.subheadline : 'Browse' }}</h2>
+				<h2 class="bored__headline headline">{{ subheadline }}</h2>
 
-				{% set leftQuery = entry.linkToRecipes ??? null %}
-				{% set left      = leftQuery.one() ??? null %}
-				{# {% set leftCover = left.cover.toFile() %} #}
-				{% set rightQuery = entry.linkToDrinks ??? null %}
-				{% set right      = rightQuery.one() ??? null %}
-				{# {% set rightCover = right.cover.toFile() %} #}
+				{% set leftQuery       = entry.linkToRecipes ??? null %}
+				{% set left            = leftQuery.one() ??? null %}
+				{% set leftCoverQuery  = left.image ??? null %}
+				{% set leftCover       = leftCoverQuery.one() ??? null %}
+				{% set rightQuery      = entry.linkToDrinks ??? null %}
+				{% set right           = rightQuery.one() ??? null %}
+				{% set rightCoverQuery = right.image ??? null %}
+				{% set rightCover      = rightCoverQuery.one() ??? null %}
 
 				{% if left %}
 					<a href="{{ left.url }}" class="bored__link crosshair__trigger">
@@ -35,14 +48,12 @@
 						</h3>
 						<figure class="left-link__crosshair crosshair"></figure>
 						<div class="left-link__description">
-							{{ left.description | raw }}
+							{{ left.description }}
 						</div>
-						{% if leftCover is defined and leftCover is not empty %}
+						{% if leftCover %}
 							<img src="{{ leftCover.url }}"
-								alt="{{ leftCover.name }}"
-								width="{{ leftCover.dimensions.width }}"
-								height="{{ leftCover.dimensions.height }}"
-								id="img-{{ leftCover.hash }}"
+								alt="{{ leftCover.title }}"
+								id="img-{{ leftCover.id }}"
 								class="left-link__cover"
 								srcset="{{ leftCover.srcset([400, 800, 1200, 1600]) }}" />
 						{% else %}
@@ -58,14 +69,12 @@
 						</h3>
 						<figure class="right-link__crosshair crosshair"></figure>
 						<div class="right-link__description">
-							{{ right.description | raw }}
+							{{ right.description }}
 						</div>
-						{% if rightCover is defined and rightCover is not empty %}
+						{% if rightCover %}
 							<img src="{{ rightCover.url }}"
-								alt="{{ rightCover.name }}"
-								width="{{ rightCover.dimensions.width }}"
-								height="{{ rightCover.dimensions.height }}"
-								id="img-{{ rightCover.hash }}"
+								alt="{{ rightCover.title }}"
+								id="img-{{ rightCover.id }}"
 								class="right-link__cover"
 								srcset="{{ rightCover.srcset([400, 800, 1200, 1600]) }}" />
 						{% else %}
@@ -75,41 +84,37 @@
 				{% endif %}
 			</aside>
 
-			{% set featureHeadline = entry.featureHeadline %}
-			{% set featureDescription = entry.featureDescription %}
-
 			{% if featureHeadline or featureDescription %}
 				<aside id="homeFeature" class="feature">
 					<h3 class="feature__headline">
-						{{ entry.featureHeadline }}
+						{{ featureHeadline }}
 					</h3>
 
 					<div class="feature__description">
-						{{ entry.featureDescription }}
+						{{ featureDescription }}
 					</div>
 
-					<a href="#" class="feature__link">Link</a>
+					<a href="{{ featureUrl }}" class="feature__link">Link</a>
 				</aside>
 
-				{% set featureImage = entry.featureImage.toFile() %}
-				{% if featureImage is defined and featureImage is not empty %}
+				{% if featureImage %}
 					<img src="{{ featureImage.url }}"
-						alt="{{ featureImage.name }}"
-						width="{{ featureImage.dimensions.width }}"
-						height="{{ featureImage.dimensions.height }}"
-						id="img-{{ featureImage.hash }}"
-						class="promo__cover"
+						alt="{{ featureImage.title }}"
+						id="img-{{ featureImage.id }}"
+						class="feature__cover"
 						srcset="{{ featureImage.srcset([400, 800, 1200, 1600]) }}"
 						aria-describedby="homeFeature" />
+
 				{% else %}
-					<img src="https://loremflickr.com/400/400/food,elegant/all" alt="" class="promo__cover" />
+					<img src="https://loremflickr.com/400/400/food,elegant/all" alt="" class="feature__cover" />
+
 				{% endif %}
 			{% endif %}
 		</section>
 
-		{% if entry.featureCategory is defined and entry.featureCategory is not empty %}
+		{% if featureCategory %}
 			<section id="homeCategory" class="hompage__category">
-				<h3 class="category__headline headline" data-title="{{ entry.featureCategoryHeadline ?? 'Featured' }}">{{ entry.featureCategoryHeadline ?? 'Featured' }}</h3>
+				<h3 class="category__headline headline" data-title="{{ featureCategoryHeadline }}">{{ featureCategoryHeadline }}</h3>
 				<ul class="category__list">
 					<li><a href="#">Recipe</a></li>
 					<li><a href="#">Recipe</a></li>
