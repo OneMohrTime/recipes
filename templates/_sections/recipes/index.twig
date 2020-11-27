@@ -3,15 +3,17 @@
 {% set mainClass    = 'recipes -index' %}
 {% set recipesQuery = craft.entries.section('recipes') ??? null %}
 {% set recipes      = recipesQuery.all() ??? null %}
+{% set headline     = entry.headline ??? entry.title %}
+{% set description  = entry.description ??? null %}
 
 {% block content %}
 	<article class="page__recipes{% if recipes|length < 1 %} --is-empty{% endif %}">
 
 		<header class="recipes__intro intro">
-			<h1 class="recipes__headline headline" data-title="{{ entry.headline | default(entry.title) }}">{{ entry.headline | default(entry.title) }}</h1>
+			<h1 class="recipes__headline headline" data-title="{{ headline }}">{{ headline }}</h1>
 
-			{% if entry.description is defined and entry.description is not empty %}
-				<div class="recipes__subheadline">{{ entry.description }}</div>
+			{% if description %}
+				<div class="recipes__subheadline">{{ description }}</div>
 			{% endif %}
 		</header>
 
