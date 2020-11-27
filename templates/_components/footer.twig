@@ -1,53 +1,44 @@
-{# {% set recipes = site
-	.find('recipes')
-	.children()
-	.listed()
-	.limit(4)
-	.sortBy('date', 'desc') %}
+{% set recipesQuery = craft.entries.section('recipes').limit(4) ??? null %}
+{% set recipes      = recipesQuery.all() ??? null %}
+{% set drinksQuery  = craft.entries.section('drinks').limit(4) ??? null %}
+{% set drinks       = recipesQuery.all() ??? null %}
 
-{% set drinks = site
-	.find('drinks')
-	.children()
-	.listed()
-	.limit(4)
-	.sortBy('date', 'desc') %} #}
-
-{# {% if recipes %}
+{% if recipes %}
 	<nav class="footer__section --recipes">
 		<h4 class="footer__title highlight --white">Newest Recipes</h4>
 		<ul class="recipe-list reading">
 			{% for recipe in recipes %}
-				{% set headline = recipe.headline|default(recipe.title) %}
-				<li class="recipe-item"><a href="{{ recipe.url }}" class="highlight --white" title="{{ recipe.title }}" aria-title="{{ headline }}">{{ headline|length > 54 ? headline|slice(0, 54) ~ '...' : headline }}</a></li>
+				{% set headline = recipe.headline ??? recipe.title %}
+				<li class="recipe-item"><a href="{{ recipe.url }}" class="highlight --white">{{ headline|truncateOnWord(54) }}</a></li>
 			{% endfor %}
 			<li class="recipe-item"><a href="{{ siteUrl }}/recipes" class="highlight --white" title="Show all recipes" aria-title="Show all recipes"><em>Show all recipes</em></a></li>
 		</ul>
 	</nav>
-{% endif %} #}
+{% endif %}
 
-{# {% if drinks %}
+{% if drinks %}
 	<nav class="footer__section --drinks">
-		<h4 class="footer__title highlight --white">Newest Drinks</h4>
+		{# <h4 class="footer__title highlight --white">Newest Drinks</h4>
 		<ul class="drink-list reading">
 			{% for drink in drinks %}
 				<li class="drink-item"><a href="{{ drink.url }}" class="highlight --white" title="{{ drink.title }}" aria-title="{{ drink.headline }}">{{ drink.title|length > 54 ? drink.title|slice(0, 54) ~ '...' : drink.title }}</a></li>
 			{% endfor %}
 			<li class="drink-item"><a href="{{ siteUrl }}/drinks" class="highlight --white" title="Show all drinks" aria-title="Show all drinks"><em>Show all drinks</em></a></li>
-		</ul>
+		</ul> #}
 	</nav>
-{% endif %} #}
+{% endif %}
 
-{# <section class="footer__section --copy">
+<section class="footer__section --copy">
 	<h4 class="footer__title -hideText">About this website</h4>
 	<p class="highlight --white">
 		&copy; {{ 'now'|date('Y') }} <a href="{{ siteUrl }}/about">{{ siteName }}</a> | A shared cookbook of recipes
 		<br/>
-		Project of <a href="https://onemohrti.me" target="_blank" rel="nofollow noreferrer">Derek</a> &amp; <a href="https://owielanctot.com" target="_blank" rel="nofollow noreferrer">Owie</a>
+		Project of <a href="https://onemohrti.me" target="_blank" rel="nofollow">Derek</a> &amp; <a href="https://owielanctot.com" target="_blank" rel="nofollow">Owie</a>
 	</p>
-</section> #}
+</section>
 
-{# <nav class="footer__section --social">
+<nav class="footer__section --social">
 	<ul class="social">
 		<li><a href="{{ siteUrl }}/terms-of-use" class="highlight --white">Terms of Use</a> | <a href="{{ siteUrl }}/privacy-policy" class="highlight --white">Privacy Policy</a></li>
 	</ul>
-</nav> #}
+</nav>
