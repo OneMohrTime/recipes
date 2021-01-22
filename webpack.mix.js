@@ -35,7 +35,7 @@ mix.setPublicPath('public/assets') // generate manifest in this directory
   .browserSync({
     watch: true,
     // proxy: process.env.SITE_URL,
-    proxy: 'https://recipes.onemohrti.local',
+    proxy: 'http://recipes.onemohrti.local',
     // files: [
     //   '{*,**/*}.css',
     //   '{*,**/*}.js',
