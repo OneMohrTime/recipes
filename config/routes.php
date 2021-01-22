@@ -19,5 +19,6 @@
  */
 
 return [
-
+	// Route blog/archive/YYYY to a template
+	'search/results' => ['template' => 'search/index'],
 ];
