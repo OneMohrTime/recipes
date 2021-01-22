@@ -16,6 +16,7 @@
 .env.php
 .env.sh
 .env
+.env.bak
 config/license.key
 
 # COMPOSER
@@ -39,6 +40,12 @@ composer.phar
 /node_modules/*
 /build/*
 /yarn-error.log
+
+# DOCKER
+docker-compose.env
+docker-compose.yml
+!docker-compose.sample.env
+!docker-compose.sample.yml
 
 # MISC FILES
 .cache
