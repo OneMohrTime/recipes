@@ -1,7 +1,7 @@
 <section id="searchForm" class="nav__search">
-	<form action="{{ siteUrl }}/search" class="nav__search-form">
+	<form action="{{ url('search/results') }}" class="nav__search-form">
 
-		<input type="search" id="search" class="search__field" name="q" value="{{ query ?? null }}" placeholder="Type ingredients, recipes, drinks..." />
+		<input type="search" id="search" class="search__field" name="q" value="{{ query ?? null }}" placeholder="Type ingredients, recipes, drinks..." aria-label="search" />
 
 		<button type="button" id="searchClose" class="search__close button">&times;</button>
 

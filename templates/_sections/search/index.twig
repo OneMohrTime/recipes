@@ -1,0 +1,71 @@
+{% extends '_layouts/default' %}
+
+{% set mainClass    = 'drinks -index' %}
+{% set searchQuery  = craft.app.request.getParam('q') ??? 'recipe' %}
+{% set resultsQuery = craft.entries().search(searchQuery).orderBy('score') ??? null %}
+{% set results      = resultsQuery.all() ??? null %}
+{# set some entry overrides #}
+{% set entry        = {
+	title: searchQuery,
+	section: {
+		handle: 'results'
+	},
+	type: {
+		handle: 'search'
+	}
+} %}
+
+{% block content %}
+	<article class="page__results">
+
+		<header class="results__intro intro">
+			<h1 class="results__headline headline">&ldquo;{{ searchQuery ?? 'Nothing?' }}&rdquo;</h1>
+			{% if results %}
+				<p class="results__subheadline">Here&rsquo;s everything.</p>
+			{% else %}
+				<p class="results__subheadline">We got nothin&rsquo;.</p>
+			{% endif %}
+		</header>
+
+		<section class="results">
+			{% if results %}
+				<ul class="results__list">
+					{% for result in results %}
+
+						{% set resultType  = '– ' ~ result.parent %}
+						{% set link        = result.url %}
+						{% set name        = result.title %}
+						{% set description = result.description %}
+
+						<li class="results__result">
+							<a href="{{ link }}" class="result">
+								<figure class="result__image">
+									{# {% if result.cover is defined and result.cover is not empty %}
+										<img src="{{ result.cover.url }}"
+											 alt="Photo of {{ name }}"
+											 width="{{ result.cover.dimensions.width }}"
+											 height="{{ result.cover.dimensions.height }}"
+											 class="thumbnail ratio--{{ result.cover.ratio }}-{{ result.cover.orientation }}"
+											 id="{{ result.cover.hash }}"
+											 srcset="" />
+										<figcaption class="thumbnail__bg">{{ resultType | slice(2, 1) | title }}</figcaption>
+									{% else %} #}
+										<img src="https://via.placeholder.com/250/e8e7e1/2b3b4c?text={{ resultType | slice(2, 1) | title }}" alt="Photo of {{ name }}" class="thumbnail" />
+										<figcaption class="thumbnail__bg">{{ resultType | slice(2, 1) | title }}</figcaption>
+									{# {% endif %} #}
+								</figure>
+								<span class="result__type">{{ resultType }}</span>
+								<h2 class="result__title">{{ name }}</h2>
+								<div class="result__description">
+									<p>{{ description }}</p>
+								</div>
+							</a>
+						</li>
+
+					{% endfor %}
+				</ul>
+			{% endif %}
+		</section>
+
+	</article>
+{% endblock %}
