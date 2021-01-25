@@ -7,6 +7,7 @@
 $column: percentage( 1 / 12 );
 
 .page__recipes {
+	width: 100%;
 
 	@include media(">=for-tablet-landscape-up") {
 		display: grid;
@@ -58,6 +59,37 @@ $column: percentage( 1 / 12 );
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: 0.05em;
+
+	@include media(">=for-desktop-up") {
+		.-featured & {
+			position: relative;
+			height: 0;
+			margin: 0;
+			overflow: visible;
+			font-size: 0;
+
+			&::after {
+				content: attr(data-subtitle);
+				position: absolute;
+				top: -#{map-get($spacer, 3)};
+				left: -#{map-get($spacer, 3)};
+				display: block;
+				font-weight: 900;
+				text-transform: none;
+				color: map-get($color, dark-gray);
+				pointer-events: none;
+				font-size: 4.23580103rem; // modular-scale(6)
+
+				// outline, if possible
+				@supports (-webkit-text-stroke-color: black) {
+					-webkit-text-fill-color: map-get($color, background);
+					-webkit-text-fill-color: transparent;
+					-webkit-text-stroke-color: map-get($color, purple);
+					-webkit-text-stroke-width: 1px;
+				}
+			}
+		}
+	}
 }
 
 @include media(">=for-tablet-portrait-up") {}

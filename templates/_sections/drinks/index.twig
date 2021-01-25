@@ -7,6 +7,7 @@
 {% set description = entry.description ??? null %}
 
 {% block content %}
+	<article class="page__drinks{% if drinks|length < 1 %} --is-empty{% endif %}">
 
 	<header class="drinks__intro intro">
 		<h1 class="drinks__headline headline" data-title="{{ headline }}">{{ headline }}</h1>
@@ -16,14 +17,14 @@
 		{% endif %}
 	</header>
 
-	<section class="page__drinks{% if drinks is empty %} --is-empty{% endif %}">
+	<section id="drinksAll" class="drinks -all">
 
-		{% if drinks is defined and drinks is not empty %}
+		{% if drinks %}
 
 			{% for drink in drinks %}
 
 				<a href="{{ drink.url }}" class="drink crosshair__trigger">
-					{% if drink.cover is defined and drink.cover is not empty %}
+					{# {% if drink.cover is defined and drink.cover is not empty %}
 						<img src="{{ drink.cover.url }}"
 							 alt="placeholder for {{ drink.cover.title }}"
 							 width="{{ drink.cover.dimensions.width }}"
@@ -31,13 +32,13 @@
 							 class="cover__image ratio--{{ drink.cover.ratio }}-{{ drink.cover.orientation }}"
 							 id="{{ drink.cover.hash }}"
 							 srcset="{{ drink.cover.srcset([400, 800, 1200, 1600]) }}" />
-					{% else %}
-						<img src="https://via.placeholder.com/500/e8e7e1/2b3b4c?text=Pretend+this+is+{{ drink.title | replace ({'&' : 'and', '?' : ''}) }}" alt="placeholder for {{ drink.title }}" class="" />
-					{% endif %}
+					{% else %} #}
+						<img src="https://via.placeholder.com/500/e8e7e1/2b3b4c?text=Pretend+this+is+{{ drink.title|replace ({'&' : 'and', '?' : ''}) }}" alt="placeholder for {{ drink.title }}" class="" />
+					{# {% endif %} #}
 					<div class="drink__caption">
 						<h2 class="drink__title">{{ drink.title }}</h2>
 						<figure class="drink__crosshair crosshair"></figure>
-						<p class="drink__subtitle">{{ drink.description | raw | slice(0, 164) }}</p>
+						<p class="drink__subtitle">{{ drink.description|raw|slice(0, 164) }}</p>
 					</div>
 				</a>
 

@@ -1,7 +1,7 @@
 {% set recipesQuery = craft.entries.section('recipes').limit(4) ??? null %}
 {% set recipes      = recipesQuery.all() ??? null %}
 {% set drinksQuery  = craft.entries.section('drinks').limit(4) ??? null %}
-{% set drinks       = recipesQuery.all() ??? null %}
+{% set drinks       = drinksQuery.all() ??? null %}
 
 {% if recipes %}
 	<nav class="footer__section --recipes">
@@ -18,13 +18,13 @@
 
 {% if drinks %}
 	<nav class="footer__section --drinks">
-		{# <h4 class="footer__title highlight --white">Newest Drinks</h4>
+		<h4 class="footer__title highlight --white">Newest Drinks</h4>
 		<ul class="drink-list reading">
 			{% for drink in drinks %}
 				<li class="drink-item"><a href="{{ drink.url }}" class="highlight --white" title="{{ drink.title }}" aria-title="{{ drink.headline }}">{{ drink.title|length > 54 ? drink.title|slice(0, 54) ~ '...' : drink.title }}</a></li>
 			{% endfor %}
 			<li class="drink-item"><a href="{{ siteUrl }}/drinks" class="highlight --white" title="Show all drinks" aria-title="Show all drinks"><em>Show all drinks</em></a></li>
-		</ul> #}
+		</ul>
 	</nav>
 {% endif %}
 
