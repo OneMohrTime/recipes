@@ -19,11 +19,11 @@
 
 h1 {
 	font-size: modular-scale(4);
+	font-weight: 900;
 
 	@include media(">=for-tablet-landscape-up") {
 		font-size: modular-scale(6);
 	}
-	font-weight: 900;
 }
 
 h2 {
@@ -186,6 +186,7 @@ a:not([class]) {
 	margin-bottom: calc( #{map-get($spacer, 3) / 2} + 7px );
 	padding-bottom: #{map-get($spacer, 3) / 2};
 	border-bottom: 7px map-get($color, tan) solid;
+	cursor: text;
 
 	&::before {
 		content: attr(data-title);
