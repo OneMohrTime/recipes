@@ -53,7 +53,7 @@
 						{% if leftCover %}
 							<img src="{{ leftCover.url }}"
 								alt="{{ leftCover.title }}"
-								id="img-{{ leftCover.id }}"
+								id="img-{{ leftCover.uid }}"
 								class="left-link__cover"
 								srcset="{{ leftCover.srcset([400, 800, 1200, 1600]) }}" />
 						{% else %}
@@ -74,7 +74,7 @@
 						{% if rightCover %}
 							<img src="{{ rightCover.url }}"
 								alt="{{ rightCover.title }}"
-								id="img-{{ rightCover.id }}"
+								id="img-{{ rightCover.uid }}"
 								class="right-link__cover"
 								srcset="{{ rightCover.srcset([400, 800, 1200, 1600]) }}" />
 						{% else %}
@@ -100,7 +100,7 @@
 				{% if featureImage %}
 					<img src="{{ featureImage.url }}"
 						alt="{{ featureImage.title }}"
-						id="img-{{ featureImage.id }}"
+						id="img-{{ featureImage.uid }}"
 						class="feature__cover"
 						srcset="{{ featureImage.srcset([400, 800, 1200, 1600]) }}"
 						aria-describedby="homeFeature" />
