@@ -7,7 +7,7 @@
 $column: percentage( 1 / 12 );
 
 .page__results {
-	
+
 	@include media(">=for-tablet-landscape-up") {
 		display: grid;
 		grid-template-columns: repeat(12, $column);
@@ -29,7 +29,7 @@ $column: percentage( 1 / 12 );
 }
 
 .results__intro {
-	
+
 	@include media(">=for-tablet-landscape-up") {
 		grid-column: 3 / 11;
 		grid-row: 1 / 2;
@@ -40,7 +40,7 @@ $column: percentage( 1 / 12 );
 }
 
 .results {
-	
+
 	@include media(">=for-tablet-landscape-up") {
 		grid-column: 3 / 11;
 		grid-row: 2 / 3;
@@ -76,7 +76,7 @@ $column: percentage( 1 / 12 );
 	padding-bottom: map-get($spacer, 1) / 2;
 	transition: color 500ms;
 	border-bottom: 1px map-get($color, light-gray) solid;
-	
+
 	&:hover,
 	&:focus {
 		color: map-get($color, blue);
@@ -113,21 +113,21 @@ $image-size: 44px;
 }
 
 @supports (display: grid) {
-	
+
 	.result {
 		display: grid;
 		grid-template-columns: $image-size 1fr;
 		grid-template-rows: repeat(3, auto);
 		grid-column-gap: map-get($spacer, 1);
 	}
-	
+
 	.result__image {
 		grid-column: 1 / 2;
 		grid-row: 1 / 4;
 		position: relative;
 		display: inherit;
 	}
-	
+
 	.thumbnail {
 		width: $image-size;
 		height: $image-size;
@@ -136,7 +136,7 @@ $image-size: 44px;
 		background-color: map-get($color, light-gray);
 		z-index: 2;
 	}
-	
+
 	.thumbnail__bg {
 		position: absolute;
 		top: 3px;

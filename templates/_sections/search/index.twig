@@ -48,10 +48,10 @@
 											 class="thumbnail ratio--{{ result.cover.ratio }}-{{ result.cover.orientation }}"
 											 id="{{ result.cover.hash }}"
 											 srcset="" />
-										<figcaption class="thumbnail__bg">{{ resultType | slice(2, 1) | title }}</figcaption>
+										<figcaption class="thumbnail__bg">{{ resultType|slice(2, 1)|title }}</figcaption>
 									{% else %} #}
-										<img src="https://via.placeholder.com/250/e8e7e1/2b3b4c?text={{ resultType | slice(2, 1) | title }}" alt="Photo of {{ name }}" class="thumbnail" />
-										<figcaption class="thumbnail__bg">{{ resultType | slice(2, 1) | title }}</figcaption>
+										<img src="https://via.placeholder.com/250/e8e7e1/2b3b4c?text={{ resultType|slice(2, 1)|title }}" alt="Photo of {{ name }}" class="thumbnail" />
+										<figcaption class="thumbnail__bg">{{ resultType|slice(2, 1)|title }}</figcaption>
 									{# {% endif %} #}
 								</figure>
 								<span class="result__type">{{ resultType }}</span>
