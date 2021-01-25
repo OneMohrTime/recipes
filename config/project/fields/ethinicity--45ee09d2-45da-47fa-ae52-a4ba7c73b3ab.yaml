@@ -1,0 +1,23 @@
+contentColumnType: string
+fieldGroup: 8e8a3a92-4ae6-4d1c-831f-1ef6db76f546
+handle: ethinicity
+instructions: ''
+name: Ethinicity
+searchable: false
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: ''
+  limit: null
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: 'group:d292d761-7c52-45be-a1c9-2d638dbb7967'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

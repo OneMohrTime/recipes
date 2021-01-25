@@ -1,0 +1,21 @@
+contentColumnType: string
+fieldGroup: 8e8a3a92-4ae6-4d1c-831f-1ef6db76f546
+handle: featuredRecipes
+instructions: ''
+name: 'Featured Recipes'
+searchable: false
+settings:
+  allowSelfRelations: false
+  limit: '2'
+  localizeRelations: false
+  selectionLabel: 'Add Recipe'
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:8be328ea-62d9-42b7-9b78-07c424cd4724'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries
