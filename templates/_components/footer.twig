@@ -31,14 +31,16 @@
 <section class="footer__section --copy">
 	<h4 class="footer__title -hideText">About this website</h4>
 	<p class="highlight --white">
-		&copy; {{ 'now'|date('Y') }} <a href="{{ siteUrl }}/about">{{ siteName }}</a> | A shared cookbook of recipes
+		<a href="{{ siteUrl }}about">{{ siteName }}</a> is a shared cookbook of recipes
 		<br/>
 		Project of <a href="https://onemohrti.me" target="_blank" rel="nofollow">Derek</a> &amp; <a href="https://owielanctot.com" target="_blank" rel="nofollow">Owie</a>
+		<br/>
+		&copy; 2018 – {{ 'now'|date('Y') }} | All rights reserved | <a href="https://github.com/OneMohrTime/recipes/" rel="noopener" target="_blank">MIT License</a>
 	</p>
 </section>
 
 <nav class="footer__section --social">
 	<ul class="social">
-		<li><a href="{{ siteUrl }}/terms-of-use" class="highlight --white">Terms of Use</a> | <a href="{{ siteUrl }}/privacy-policy" class="highlight --white">Privacy Policy</a></li>
+		<li><a href="{{ siteUrl }}terms-of-use" class="highlight --white">Terms of Use</a> | <a href="{{ siteUrl }}privacy-policy" class="highlight --white">Privacy Policy</a></li>
 	</ul>
 </nav>
