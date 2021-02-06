@@ -8,12 +8,12 @@
 {% set featureDescription   = entry.featureDescription ??? null %}
 {% set featuredRecipesQuery = entry.featuredRecipes ??? null %}
 {% set featuredRecipes      = featuredRecipesQuery.all() ??? null %}
-{% set categoriesQuery      = craft.categories().group('*') ??? null %}
+{% set categoriesQuery      = craft.categories.group('*') ??? null %}
 {% set categories           = categoriesQuery.all() ??? null %}
-{% set dishQuery            = craft.categories().group('dish') ??? null %}
-{% set ethnicityQuery       = craft.categories().group('ethnicity') ??? null %}
-{% set healthinessQuery     = craft.categories().group('healthiness') ??? null %}
-{% set styleQuery           = craft.categories().group('style') ??? null %}
+{% set dishQuery            = craft.categories.group('dish') ??? null %}
+{% set ethnicityQuery       = craft.categories.group('ethnicity') ??? null %}
+{% set healthinessQuery     = craft.categories.group('healthiness') ??? null %}
+{% set styleQuery           = craft.categories.group('style') ??? null %}
 {% set dish                 = dishQuery.all() ??? null %}
 {% set ethnicity            = ethnicityQuery.all() ??? null %}
 {% set healthiness          = healthinessQuery.all() ??? null %}
@@ -53,7 +53,7 @@
 								srcset="{{ recipeImage.srcset([400, 800, 1200, 1600]) }}" />
 
 						{% else %}
-							<img src="https://via.placeholder.com/500/e8e7e1/2b3b4c?text=Pretend+this+is+{{ recipe.title }}" alt="placeholder for {{ recipe.title }}" class="" />
+							<img src="https://via.placeholder.com/500/e8e7e1/2b3b4c?text=Pretend+this+is+{{ recipe.title|replace ({'&' : 'and', '?' : ''}) }}" alt="placeholder for {{ recipe.title }}" class="" />
 
 						{% endif %}
 
@@ -61,7 +61,7 @@
 							<h2 class="recipe__title">{{ recipe.title }}</h2>
 							<figure class="recipe__crosshair crosshair"></figure>
 							{% if recipe.description %}
-								<p class="recipe__subtitle">{{ recipe.description|truncateOnWord(20) }}</p>
+								<p class="recipe__subtitle">{{ recipe.description|wordLimit(20) }}</p>
 							{% else %}
 								{# {{ dish }} #}
 								{# {{ ethnicity }} #}
