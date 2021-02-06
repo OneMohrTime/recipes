@@ -16,17 +16,17 @@
 	padding-right: map-get($spacer, 1);
 }
 
-.page.__home {
+.page.-home {
 	& > .page__body {
 		margin: 0;
 		padding: 0;
 	}
 }
 
-.page.__recipePage,
-.page.__drinksPage,
-.page.__about,
-.page.__searchPage {
+.page.-recipePage,
+.page.-drinksPage,
+.page.-about,
+.page.-results {
 	& > .page__body {
 		margin-bottom: map-get($spacer, 2);
 		padding-top: map-get($spacer, 4);
@@ -44,7 +44,8 @@
 	}
 }
 
-.page.__recipes {
+.page.-recipes,
+.page.-drinks {
 	& > .page__body {
 		margin-bottom: map-get($spacer, 2);
 		padding-top: map-get($spacer, 4);

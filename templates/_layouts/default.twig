@@ -1,6 +1,6 @@
 {% extends '_base/base' %}
 {% set htmlTitle = entry.title ~ ' - ' ~ siteName %}
-{% set pageClass = entry.section.handle ? ' __' ~ entry.section.handle : ' __default' %}
+{% set pageClass = entry.section.handle ? ' -' ~ entry.section.handle : ' -default' %}
 
 {% block content %}
 	<header class="intro">
