@@ -1,14 +1,18 @@
+{% set recipesIsActive = craft.app.request.getSegment(1) == 'recipes' %}
+{% set drinksIsActive  = craft.app.request.getSegment(1) == 'drinks' %}
+{% set searchIsActive  = craft.app.request.getSegment(1) == 'search' %}
+
 <nav id="menu" class="menu">
 
-	<a href="/recipes" class="menu__item" aria-current="page" aria-label="Food">
+	<a href="/recipes" class="menu__item"{% if recipesIsActive %} aria-current="page"{% endif %} aria-label="Food">
 		<span data-title="Food">Food</span>
 	</a>
 
-	<a href="/drinks" class="menu__item" aria-label="Drinks">
+	<a href="/drinks" class="menu__item"{% if drinksIsActive %} aria-current="page"{% endif %} aria-label="Drinks">
 		<span data-title="Drinks">Drinks</span>
 	</a>
 
-	<a href="javascript:void(0)" id="searchToggle" class="menu__item" aria-label="Search">
+	<a href="javascript:void(0)" id="searchToggle" class="menu__item"{% if searchIsActive %} aria-current="page"{% endif %} aria-label="Search">
 		<span data-title="Search">Search</span>
 	</a>
 
