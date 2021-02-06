@@ -4,7 +4,11 @@
 
 @import "../_utilities/templates";
 
-.page__body.recipe {
+$column: percentage( 1 / 12 );
+
+.page__body.recipe.-entry {
+	border-radius: 0;
+	box-shadow: none;
 
 	@include media(">=for-tablet-landscape-up") {
 		padding-left: 0;
@@ -13,10 +17,11 @@
 }
 
 .recipe__grid {
+	width: 100%;
 
 	@include media(">=for-tablet-landscape-up") {
 		display: grid;
-		grid-template-columns: repeat(12, 1fr);
+		grid-template-columns: repeat(12, $column);
 	}
 }
 
