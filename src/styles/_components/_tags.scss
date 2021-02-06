@@ -1,0 +1,21 @@
+/* ----------------------------------------
+	Components / Tags
+---------------------------------------- */
+
+.tags {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.tags__label {
+	position: absolute;
+	margin-bottom: 5px;
+	transform: translateX(calc(-100% - 1em));
+	font-weight: 700;
+	pointer-events: none;
+}
+
+.tag {
+	margin-left: 0;
+	margin-bottom: 5px;
+}
