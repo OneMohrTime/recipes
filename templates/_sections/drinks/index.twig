@@ -22,23 +22,25 @@
 		{% if drinks %}
 
 			{% for drink in drinks %}
+				{% set drinkImage       = drink.image.one() ??? null %}
+				{% set drinkName        = drink.title %}
+				{% set drinkDescription = drink.description ??? '' %}
 
 				<a href="{{ drink.url }}" class="drink crosshair__trigger">
-					{# {% if drink.cover is defined and drink.cover is not empty %}
-						<img src="{{ drink.cover.url }}"
-							 alt="placeholder for {{ drink.cover.title }}"
-							 width="{{ drink.cover.dimensions.width }}"
-							 height="{{ drink.cover.dimensions.height }}"
-							 class="cover__image ratio--{{ drink.cover.ratio }}-{{ drink.cover.orientation }}"
-							 id="{{ drink.cover.hash }}"
-							 srcset="{{ drink.cover.srcset([400, 800, 1200, 1600]) }}" />
-					{% else %} #}
+					{% if drinkImage %}
+						<img src="{{ drinkImage.url }}"
+							 alt="placeholder for {{ drinkImage.title }}"
+							 class="cover__image"
+							 id="img-{{ drinkImage.uid }}"
+							 srcset="{{ drinkImage.srcset([400, 800, 1200, 1600]) }}" />
+
+					{% else %}
 						<img src="https://via.placeholder.com/500/e8e7e1/2b3b4c?text=Pretend+this+is+{{ drink.title|replace ({'&' : 'and', '?' : ''}) }}" alt="placeholder for {{ drink.title }}" class="" />
-					{# {% endif %} #}
+					{% endif %}
 					<div class="drink__caption">
-						<h2 class="drink__title">{{ drink.title }}</h2>
+						<h2 class="drink__title">{{ drinkName }}</h2>
 						<figure class="drink__crosshair crosshair"></figure>
-						<p class="drink__subtitle">{{ drink.description|raw|slice(0, 164) }}</p>
+						<p class="drink__subtitle">{{ drinkDescription|wordLimit(16)|raw }}</p>
 					</div>
 				</a>
 
