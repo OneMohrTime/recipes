@@ -16,9 +16,10 @@ $bourbon: (
 	"modular-scale-ratio": 1.618,
 	"rails-asset-pipeline": false,
 );
-
+// Bourbon vars
 $base-line-height: 1.65em;
 
+// Media queries
 $breakpoints: (
 	for-phone-only: 599px,
 	for-tablet-portrait-up: 600px,
@@ -32,6 +33,7 @@ $breakpoints: (
  * Colors
  */
 
+// map
 $color: (
 	white: #fafaf9,
 	black: #1e2732,
@@ -52,11 +54,30 @@ $color: (
 	background: #fffef7
 );
 
+// vars
+$white: map-get($color, white);
+$black: map-get($color, black);
+$dark-gray: map-get($color, dark-gray);
+$gray: map-get($color, gray);
+$light-gray: map-get($color, light-gray);
+$tan: map-get($color, tan);
+$light-tan: map-get($color, light-tan);
+$red: map-get($color, red);
+$blue: map-get($color, blue);
+$light-blue: map-get($color, light-blue);
+$green: map-get($color, green);
+$light-green: map-get($color, light-green);
+$yellow: map-get($color, yellow);
+$gold: map-get($color, gold);
+$orange: map-get($color, orange);
+$purple: map-get($color, purple);
+
 
 /**
  * Sizing
  */
 
+// map
 $spacer: (
 	0: 0,
 	1: 1.125rem,
@@ -69,6 +90,17 @@ $spacer: (
 	8: 6.5rem
 );
 
+// vars
+$gutter: map-get($spacer, 3);
+$gutter-xs: map-get($spacer, 1);
+$gutter-sm: map-get($spacer, 2);
+$gutter-md: map-get($spacer, 3);
+$gutter-lg: map-get($spacer, 4);
+$gutter-xl: map-get($spacer, 5);
+$gutter-xxl: map-get($spacer, 6);
+$gutter-super: map-get($spacer, 7);
+$gutter-massive: map-get($spacer, 8);
+
 
 /**
  * Animation
@@ -77,3 +109,5 @@ $spacer: (
 $box-shadow: 0 2px 24px fade-out( map-get($color, dark-gray), 0.94 );
 
 $speed: 350ms;
+$speed-slow: $speed * 2;
+$speed-fast: 200ms;
