@@ -1,15 +1,24 @@
 {% extends '_layouts/default' %}
 
-{% set mainClass   = 'recipe -entry' %}
-{% set title       = entry.title %}
-{% set headline    = entry.headline ??? title %}
-{% set description = entry.description ??? null %}
-{% set recipe      = entry.recipe ??? null %}
-{% set imageID     = recipe.imageId[0] ??? null %}
-{% set imageQuery  = craft.assets().id(imageID) ??? null %}
-{% set image       = imageQuery.one() ??? null %}
-{% set ingredients = entry.recipe.ingredients ??? null %}
-{% set directions  = entry.recipe.directions ??? null %}
+{% set mainClass        = 'recipe -entry' %}
+{% set title            = entry.title %}
+{% set headline         = entry.headline ??? title %}
+{% set description      = entry.recipe.description ??? null %}
+{% set recipe           = entry.recipe ??? null %}
+{% set imageID          = recipe.imageId[0] ??? null %}
+{% set imageQuery       = craft.assets().id(imageID) ??? null %}
+{% set image            = imageQuery.one() ??? null %}
+{% set ingredients      = entry.recipe.ingredients ??? null %}
+{% set directions       = entry.recipe.directions ??? null %}
+{% set dishQuery        = craft.categories.group('dish') ??? null %}
+{% set ethnicityQuery   = craft.categories.group('ethnicity') ??? null %}
+{% set healthinessQuery = craft.categories.group('healthiness') ??? null %}
+{% set styleQuery       = craft.categories.group('style') ??? null %}
+{% set dish             = entry.dish ??? null %}
+{% set ethnicity        = entry.ethnicity ??? null %}
+{% set healthiness      = entry.healthiness ??? null %}
+{% set style            = entry.style ??? null %}
+{% set tags             = dish or ethnicity or healthiness or style %}
 
 {% block content %}
 	<article class="recipe__grid">
@@ -78,8 +87,6 @@
 
 		<section id="directions" class="recipe__directions">
 
-			{{ description }}
-
 			<h2 class="directions__title">Directions</h2>
 
 			{% if directions %}
@@ -97,18 +104,47 @@
 			{% endif %}
 		</section>
 
-		{# {% if entry.tags is defined and entry.tags is not empty %}
-			<section class="recipe__tags">
-				<h3 class="tags__title">Related</h3>
-				{% if entry.tags %}
-					{% for tag in entry.tags %}
-						<p>{{ tag }}</p>
-					{% endfor %}
-				{% else %}
-					<p>This relates to&hellip;nothing!</p>
-				{% endif %}
-			</section>
-		{% endif %} #}
+		<section class="recipe__tags">
+			<h3 class="tags__title">Categories, tags, <i>etc.</i></h3>
+			{% if tags %}
+				<dl class="tags">
+					{% if dish %}
+						<dt class="tags__label">Dish</dt>
+						<dd class="tag">
+							{% for tag in dish %}
+								{{ tag }}{% if not loop.last %}, {% endif %}
+							{% endfor %}
+						</dd>
+					{% endif %}
+					{% if ethnicity %}
+						<dt class="tags__label">Ethnicity</dt>
+						<dd class="tag">
+							{% for tag in ethnicity %}
+								{{ tag }}{% if not loop.last %}, {% endif %}
+							{% endfor %}
+						</dd>
+					{% endif %}
+					{% if healthiness %}
+						<dt class="tags__label">Healthiness</dt>
+						<dd class="tag">
+							{% for tag in healthiness %}
+								{{ tag }}{% if not loop.last %}, {% endif %}
+							{% endfor %}
+						</dd>
+					{% endif %}
+					{% if style %}
+						<dt class="tags__label">Style</dt>
+						<dd class="tag">
+							{% for tag in style %}
+								{{ tag }}{% if not loop.last %}, {% endif %}
+							{% endfor %}
+						</dd>
+					{% endif %}
+				</dl>
+			{% else %}
+				<p>This relates to&hellip;nothing!</p>
+			{% endif %}
+		</section>
 
 	</article>
 {% endblock %}
