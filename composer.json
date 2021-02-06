@@ -1,22 +1,25 @@
 {
   "require": {
+    "barrelstrength/sprout-seo": "^4.6",
     "craftcms/cms": "^3.5.10",
     "craftcms/feed-me": "^4.3",
     "craftcms/redactor": "^2.8",
     "ether/logs": "^3.0",
     "fruitstudios/linkit": "1.1.12.1",
     "misterbk/mix": "^1.5",
+    "mmikkel/cp-field-inspect": "1.2.4",
     "nystudio107/craft-emptycoalesce": "^1.0",
     "nystudio107/craft-imageoptimize": "^1.6",
-    "nystudio107/craft-recipe": "^1.2",
+    "nystudio107/craft-recipe": "1.2.1",
     "nystudio107/craft-seomatic": "^3.3",
+    "nystudio107/craft-similar": "^1.0",
     "nystudio107/craft-typogrify": "^1.1",
+    "superbig/craft-entry-instructions": "^1.0",
     "verbb/expanded-singles": "^1.1",
     "vlucas/phpdotenv": "^3.4.0"
   },
   "require-dev": {
     "mildlygeeky/craft-kint": "^1.0",
-    "mmikkel/cp-field-inspect": "^1.2",
     "yiisoft/yii2-shell": "^2.0.3"
   },
   "autoload": {
