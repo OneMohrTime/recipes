@@ -7,24 +7,11 @@
 $column: percentage( 1 / 12 );
 
 .page__results {
+	width: 100%;
 
 	@include media(">=for-tablet-landscape-up") {
 		display: grid;
 		grid-template-columns: repeat(12, $column);
-	}
-}
-
-@include media(">=for-tablet-portrait-up") {
-	.page__results {
-		grid-template-columns: repeat(2, 1fr);
-		grid-gap: map-get($spacer, 3) / 2;
-	}
-}
-
-@include media(">=for-tablet-landscape-up") {
-	.page__results {
-		grid-template-columns: repeat(4, 1fr);
-		grid-gap: map-get($spacer, 2);
 	}
 }
 
@@ -50,17 +37,11 @@ $column: percentage( 1 / 12 );
 	}
 }
 
-//.results__grid {
-//	max-width: var(--content-width);
-//	margin-left: auto;
-//	margin-right: auto;
-//}
-
 .results__list {
-	// Needs extra specificity
-	.results & {
-		@include list-reset();
-	}
+	// @include list-reset(); not enough
+	margin: 0 !important;
+	padding: 0 !important;
+	list-style: none !important;
 }
 
 

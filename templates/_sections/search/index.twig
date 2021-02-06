@@ -1,7 +1,7 @@
 {% extends '_layouts/default' %}
 
-{% set mainClass    = 'drinks -index' %}
-{% set searchQuery  = craft.app.request.getParam('q') ??? 'recipe' %}
+{% set mainClass    = 'search -index' %}
+{% set searchQuery  = craft.app.request.getParam('q') ??? 'Nothing?' %}
 {% set resultsQuery = craft.entries().search(searchQuery).orderBy('score') ??? null %}
 {% set results      = resultsQuery.all() ??? null %}
 {# set some entry overrides #}
@@ -19,9 +19,9 @@
 	<article class="page__results">
 
 		<header class="results__intro intro">
-			<h1 class="results__headline headline">&ldquo;{{ searchQuery ?? 'Nothing?' }}&rdquo;</h1>
+			<h1 class="results__headline headline">You searched, and we found.</h1>
 			{% if results %}
-				<p class="results__subheadline">Here&rsquo;s everything.</p>
+				<p class="results__subheadline">Here&rsquo;s everything in {{ siteName }} relating to <strong>&ldquo;{{ searchQuery }}&rdquo;</strong></p>
 			{% else %}
 				<p class="results__subheadline">We got nothin&rsquo;.</p>
 			{% endif %}
@@ -32,32 +32,43 @@
 				<ul class="results__list">
 					{% for result in results %}
 
-						{% set resultType  = '– ' ~ result.parent %}
-						{% set link        = result.url %}
-						{% set name        = result.title %}
-						{% set description = result.description %}
+						{% set resultType  = '– ' ~ result.section.handle ??? null %}
+						{% set link        = result.url ??? (siteUrl ~ result.section.handle) %}
+						{% set coverID     = result.recipe.imageId[0] ??? null %}
+						{% set coverQuery  = craft.assets().id(coverID) ??? null %}
+						{% set cover       = coverQuery.one() ??? null %}
+						{% set name        = result.recipe.name ??? result.title %}
+						{% set description = result.description ??? '<em>Apparently this isn&rsquo;t good enough to describe :(</em>' %}
 
 						<li class="results__result">
 							<a href="{{ link }}" class="result">
+
+								{# conditional cover image #}
 								<figure class="result__image">
-									{# {% if result.cover is defined and result.cover is not empty %}
-										<img src="{{ result.cover.url }}"
-											 alt="Photo of {{ name }}"
-											 width="{{ result.cover.dimensions.width }}"
-											 height="{{ result.cover.dimensions.height }}"
-											 class="thumbnail ratio--{{ result.cover.ratio }}-{{ result.cover.orientation }}"
-											 id="{{ result.cover.hash }}"
+									{% if cover %}
+										<img src="{{ cover.url }}"
+											 alt="{{ cover.alt ??? cover.title }}"
+											 class="thumbnail"
+											 id="i-{{ cover.uid }}"
 											 srcset="" />
 										<figcaption class="thumbnail__bg">{{ resultType|slice(2, 1)|title }}</figcaption>
-									{% else %} #}
+									{% else %}
 										<img src="https://via.placeholder.com/250/e8e7e1/2b3b4c?text={{ resultType|slice(2, 1)|title }}" alt="Photo of {{ name }}" class="thumbnail" />
 										<figcaption class="thumbnail__bg">{{ resultType|slice(2, 1)|title }}</figcaption>
-									{# {% endif %} #}
+									{% endif %}
 								</figure>
-								<span class="result__type">{{ resultType }}</span>
+
+								{# capitalized version of entry type #}
+								{% if resultType %}
+									<span class="result__type">{{ resultType|title }}</span>
+								{% endif %}
+
+								{# recipe/drink/entry title #}
 								<h2 class="result__title">{{ name }}</h2>
+
+								{# description of entry #}
 								<div class="result__description">
-									<p>{{ description }}</p>
+									{{ description|wordLimit(16)|raw }}
 								</div>
 							</a>
 						</li>
