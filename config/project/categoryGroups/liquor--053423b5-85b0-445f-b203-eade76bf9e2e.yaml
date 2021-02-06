@@ -1,5 +1,5 @@
 fieldLayouts:
-  7e8e7528-1ad0-419a-aac3-f26111093288:
+  45e3de76-cf2a-4610-ba02-4afb885f5546:
     tabs:
       -
         elements:
@@ -26,33 +26,15 @@ fieldLayouts:
             type: craft\fieldlayoutelements\TitleField
             warning: null
             width: 100
-          -
-            fieldUid: 3aad9f4e-592d-4db7-bbc1-5356711d09c1
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: ae504b0b-038f-42ab-a573-60e4afbcc940
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
         name: Content
         sortOrder: 1
-handle: healthiness
-name: Healthiness
+handle: liquor
+name: Liquor
 siteSettings:
   038df939-32f1-4d74-a42e-9c57bdeb55b0:
     hasUrls: true
-    template: null
-    uriFormat: 'health/{slug}'
+    template: _sections/drinks/category
+    uriFormat: 'liquor/{slug}'
 structure:
   maxLevels: 1
-  uid: f41a5917-a1f5-4b83-a57c-dcfd01162551
+  uid: d16747c7-6148-4763-8e27-64eed1bb4489

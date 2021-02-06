@@ -1,5 +1,5 @@
 fieldLayouts:
-  6ee764a9-38bd-4a65-b729-f3ab7ce3c4a2:
+  7e8e7528-1ad0-419a-aac3-f26111093288:
     tabs:
       -
         elements:
@@ -28,13 +28,13 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
-handle: dish
-name: Dish
+handle: diet
+name: Diet
 siteSettings:
   038df939-32f1-4d74-a42e-9c57bdeb55b0:
     hasUrls: true
     template: _sections/recipes/category
-    uriFormat: 'dish/{slug}'
+    uriFormat: 'diet/{slug}'
 structure:
   maxLevels: 1
-  uid: 3f751e13-a083-4575-9f8c-77a5f3df1610
+  uid: f41a5917-a1f5-4b83-a57c-dcfd01162551

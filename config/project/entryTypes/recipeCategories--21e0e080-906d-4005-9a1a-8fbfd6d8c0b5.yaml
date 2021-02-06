@@ -1,5 +1,5 @@
 fieldLayouts:
-  6ee764a9-38bd-4a65-b729-f3ab7ce3c4a2:
+  4bd6dbc9-c28e-4f22-9d5a-146b72f88803:
     tabs:
       -
         elements:
@@ -23,18 +23,16 @@ fieldLayouts:
             step: null
             tip: null
             title: null
-            type: craft\fieldlayoutelements\TitleField
+            type: craft\fieldlayoutelements\EntryTitleField
             warning: null
             width: 100
         name: Content
         sortOrder: 1
-handle: dish
-name: Dish
-siteSettings:
-  038df939-32f1-4d74-a42e-9c57bdeb55b0:
-    hasUrls: true
-    template: _sections/recipes/category
-    uriFormat: 'dish/{slug}'
-structure:
-  maxLevels: 1
-  uid: 3f751e13-a083-4575-9f8c-77a5f3df1610
+handle: recipeCategories
+hasTitleField: true
+name: 'Recipe Categories'
+section: b8f06137-648d-4022-ae15-e183c9ab775b
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

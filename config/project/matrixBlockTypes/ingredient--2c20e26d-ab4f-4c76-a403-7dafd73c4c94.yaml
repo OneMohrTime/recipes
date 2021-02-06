@@ -1,0 +1,40 @@
+field: d48ad356-6f4d-4fc9-9d84-e208130d1d8f
+fieldLayouts:
+  74f83523-ab42-42e1-a506-7dc87e077c9a:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 31cf821b-40e3-4061-a983-5ef6c910266b
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  31cf821b-40e3-4061-a983-5ef6c910266b:
+    contentColumnType: text
+    fieldGroup: null
+    handle: ingredient
+    instructions: ''
+    name: Ingredient
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: '1 part whiskey, 2oz. Malört, [...]'
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: ingredient
+name: Ingredient
+sortOrder: 1

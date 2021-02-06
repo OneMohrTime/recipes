@@ -1,8 +1,8 @@
 contentColumnType: string
-fieldGroup: 8e8a3a92-4ae6-4d1c-831f-1ef6db76f546
-handle: ethinicity
+fieldGroup: 59673be8-2559-47e4-ad61-5047ee16ffb6
+handle: liquor
 instructions: ''
-name: Ethinicity
+name: Liquor
 searchable: false
 settings:
   allowLimit: false
@@ -11,9 +11,9 @@ settings:
   branchLimit: ''
   limit: null
   localizeRelations: false
-  selectionLabel: ''
+  selectionLabel: 'Add Liquor'
   showSiteMenu: true
-  source: 'group:d292d761-7c52-45be-a1c9-2d638dbb7967'
+  source: 'group:053423b5-85b0-445f-b203-eade76bf9e2e'
   sources: '*'
   targetSiteId: null
   validateRelatedElements: false

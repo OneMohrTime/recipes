@@ -26,13 +26,88 @@ fieldLayouts:
             type: craft\fieldlayoutelements\EntryTitleField
             warning: null
             width: 100
+          -
+            fieldUid: ae504b0b-038f-42ab-a573-60e4afbcc940
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3aad9f4e-592d-4db7-bbc1-5356711d09c1
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: d48ad356-6f4d-4fc9-9d84-e208130d1d8f
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e0ca8e75-ce34-4f8c-9612-bae350fc2c1a
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: cb0e4d49-6d86-453b-b713-477c750c8704
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Categories
+        sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: 43ca756d-4ad2-4e47-937e-962ec8de3f0c
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Additional Photos'
+        sortOrder: 3
+      -
+        elements:
+          -
+            fieldUid: 39e5182d-97ef-4d49-ab2f-80fc1f8fef4d
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: SEO
+        sortOrder: 4
 handle: drinks
 hasTitleField: true
 name: Drinks
 section: 58828ff5-3726-4186-a889-50844be44231
 sortOrder: 1
-titleFormat: null
+titleFormat: '{drink.name}'
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

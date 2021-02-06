@@ -9,7 +9,7 @@ settings:
   allowUploads: true
   allowedKinds:
     - image
-  defaultUploadLocationSource: 'volume:9931fe08-b5f7-45bc-9410-2f219f8fd70c'
+  defaultUploadLocationSource: 'volume:0c3e760f-3294-41e0-9911-c57d4c9062bc'
   defaultUploadLocationSubpath: ''
   limit: '1'
   localizeRelations: false
@@ -26,7 +26,7 @@ settings:
   targetSiteId: null
   useSingleFolder: false
   validateRelatedElements: false
-  viewMode: large
+  viewMode: list
 translationKeyFormat: null
 translationMethod: site
 type: craft\fields\Assets

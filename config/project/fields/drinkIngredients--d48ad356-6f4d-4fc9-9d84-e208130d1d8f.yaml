@@ -1,0 +1,14 @@
+contentColumnType: string
+fieldGroup: 59673be8-2559-47e4-ad61-5047ee16ffb6
+handle: drinkIngredients
+instructions: ''
+name: 'Drink Ingredients'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_drinkingredients}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

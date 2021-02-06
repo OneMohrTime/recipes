@@ -1,0 +1,11 @@
+contentColumnType: string
+fieldGroup: 8d65d35b-637b-466c-9e1b-8ceb7317fa3b
+handle: instructions
+instructions: 'Questions? Email <a href="mailto:derek@onemohrti.me">derek@onemohrti.me</a>'
+name: Instructions
+searchable: false
+settings:
+  fieldCustomCss: ''
+translationKeyFormat: null
+translationMethod: none
+type: superbig\entryinstructions\fields\EntryInstructionsField

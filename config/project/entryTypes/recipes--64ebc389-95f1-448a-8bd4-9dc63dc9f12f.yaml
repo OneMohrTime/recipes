@@ -27,6 +27,10 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            style: tip
+            tip: "Questions? Email [recipes@onemohrti.me](mailto:recipes@onemohrti.me)\r\n"
+            type: craft\fieldlayoutelements\Tip
+          -
             fieldUid: 7d8cc90c-9fdb-474d-8603-838be99bc7a1
             instructions: null
             label: null
@@ -90,6 +94,19 @@ fieldLayouts:
             width: 100
         name: 'Additional Photos'
         sortOrder: 3
+      -
+        elements:
+          -
+            fieldUid: 39e5182d-97ef-4d49-ab2f-80fc1f8fef4d
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: SEO
+        sortOrder: 4
 handle: recipes
 hasTitleField: false
 name: Recipes
