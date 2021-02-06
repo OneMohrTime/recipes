@@ -183,8 +183,9 @@ a:not([class]) {
 
 .headline {
 	position: relative;
+	display: inline-block;
 	margin-bottom: calc( #{map-get($spacer, 3) / 2} + 7px );
-	padding-bottom: #{map-get($spacer, 3) / 2};
+	padding-bottom: #{map-get($spacer, 1)};
 	border-bottom: 7px map-get($color, tan) solid;
 	cursor: text;
 
