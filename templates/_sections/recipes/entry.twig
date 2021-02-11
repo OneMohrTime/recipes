@@ -10,15 +10,12 @@
 {% set image            = imageQuery.one() ??? null %}
 {% set ingredients      = entry.recipe.ingredients ??? null %}
 {% set directions       = entry.recipe.directions ??? null %}
-{% set dishQuery        = craft.categories.group('dish') ??? null %}
-{% set ethnicityQuery   = craft.categories.group('ethnicity') ??? null %}
-{% set healthinessQuery = craft.categories.group('healthiness') ??? null %}
-{% set styleQuery       = craft.categories.group('style') ??? null %}
-{% set dish             = entry.dish ??? null %}
-{% set ethnicity        = entry.ethnicity ??? null %}
-{% set healthiness      = entry.healthiness ??? null %}
-{% set style            = entry.style ??? null %}
-{% set tags             = dish or ethnicity or healthiness or style %}
+{# {% set allCategories    = craft.categories.group('recipeLists') ??? null %} #}
+{% set categoriesQuery  = entry.recipeCategories ??? null %}
+{% set mainCategoriesQuery = craft.categories.relatedTo(entry).level(1) ??? null %}
+{% set secondaryCategoriesQuery = craft.categories.relatedTo(entry).level(2) ??? null %}
+{% set categories       = mainCategoriesQuery.all() ??? null %}
+{% set tags             = secondaryCategoriesQuery.all() ??? null %}
 
 {% block content %}
 	<article class="recipe__grid">
@@ -106,40 +103,19 @@
 
 		<section class="recipe__tags">
 			<h3 class="tags__title">Categories, tags, <i>etc.</i></h3>
-			{% if tags %}
+
+			{% if categories %}
 				<dl class="tags">
-					{% if dish %}
-						<dt class="tags__label">Dish</dt>
-						<dd class="tag">
-							{% for tag in dish %}
-								{{ tag }}{% if not loop.last %}, {% endif %}
-							{% endfor %}
-						</dd>
-					{% endif %}
-					{% if ethnicity %}
-						<dt class="tags__label">Ethnicity</dt>
-						<dd class="tag">
-							{% for tag in ethnicity %}
-								{{ tag }}{% if not loop.last %}, {% endif %}
-							{% endfor %}
-						</dd>
-					{% endif %}
-					{% if healthiness %}
-						<dt class="tags__label">Healthiness</dt>
-						<dd class="tag">
-							{% for tag in healthiness %}
-								{{ tag }}{% if not loop.last %}, {% endif %}
-							{% endfor %}
-						</dd>
-					{% endif %}
-					{% if style %}
-						<dt class="tags__label">Style</dt>
-						<dd class="tag">
-							{% for tag in style %}
-								{{ tag }}{% if not loop.last %}, {% endif %}
-							{% endfor %}
-						</dd>
-					{% endif %}
+					{% for category in categories %}
+						<dt class="tags__label">{{ category.title }}</dt>
+						{% if tags %}
+							<dd class="tag">
+								{% for tag in tags if tag.parent.slug == category.slug %}
+									<a href="{{ tag.url }}">{{ tag }}</a>
+								{% endfor %}
+							</dd>
+						{% endif %}
+					{% endfor %}
 				</dl>
 			{% else %}
 				<p>This relates to&hellip;nothing!</p>
