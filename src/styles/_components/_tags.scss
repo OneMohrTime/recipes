@@ -8,14 +8,34 @@
 }
 
 .tags__label {
-	position: absolute;
-	margin-bottom: 5px;
-	transform: translateX(calc(-100% - 1em));
+	margin-top: 1.5em;
+	margin-bottom: 0.5em;
+	font-size: 0.75em;
 	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1px;
 	pointer-events: none;
+
+	@include media(">=for-tablet-landscape-up") {
+		position: absolute;
+		margin-top: 0.5em;
+		margin-bottom: 0;
+		transform: translateX(calc(-100% - 1em));
+		line-height: 1em;
+	}
+
+	@include media(">=for-desktop-up") {
+		margin-top: 1em;
+		font-size: 0.5em;
+		letter-spacing: 2px;
+	}
 }
 
 .tag {
 	margin-left: 0;
-	margin-bottom: 5px;
+	margin-bottom: $base-line-height / 2;
+
+	a:not(:first-child) {
+		margin-left: 5px;
+	}
 }
