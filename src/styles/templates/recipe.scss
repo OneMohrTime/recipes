@@ -46,16 +46,12 @@ $column: percentage( 1 / 12 );
 		position: relative;
 		padding-left: map-get($spacer, 8);
 
-		&::before {
-			content: "";
+		img {
 			position: absolute;
 			right: calc(100% - 50px);
-			width: 100px;
-			height: 61px;
-			background-color: transparent;
-			background: transparent url("../images/recipe.png") no-repeat;
-			background-size: 100px 61px;
-			background-repeat: no-repeat;
+			display: block;
+			max-width: 100px;
+			max-height: 61px;
 		}
 	}
 }

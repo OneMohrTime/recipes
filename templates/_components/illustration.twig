@@ -1,0 +1,15 @@
+{% set drinkOrRecipeIllustration = entry.section.handle %}
+{% switch drinkOrRecipeIllustration %}
+
+	{% case 'recipes' %}
+		<img src="/assets/images/recipe.png" alt="recipe illustration" class="" />
+
+	{% case 'drinks' %}
+drinks!
+
+	{% default %}
+	<pre>
+		{{ dump(drinkOrRecipeIllustration) }}
+	</pre>
+
+{% endswitch %}

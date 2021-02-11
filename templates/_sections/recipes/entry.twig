@@ -24,8 +24,8 @@
 			<h1 class="recipe__headline headline" data-title="{{ headline }}">{{ headline }}</h1>
 			{% if description %}
 				<div class="recipe__subheadline">
-					<img src="" class="" />
-					{{ description }}
+					{% include '_components/illustration' %}
+					<span>{{ description }}</span>
 				</div>
 			{% endif %}
 		</header>

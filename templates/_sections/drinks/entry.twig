@@ -10,8 +10,11 @@
 {% set directions       = entry.drinkDirections ??? null %}
 {% set liquorQuery      = craft.categories.group('liquor') ??? null %}
 {% set liquors          = entry.liquor ??? null %}
-{% set allLiquors       = liquorQuery.all() ??? null %}
-{# {% set tags             = dish or ethnicity or healthiness or style %} #}
+{% set categoriesQuery  = entry.drinkCategories ??? null %}
+{% set mainCategoriesQuery = craft.categories.relatedTo(entry).level(1) ??? null %}
+{% set secondaryCategoriesQuery = craft.categories.relatedTo(entry).level(2) ??? null %}
+{% set categories       = mainCategoriesQuery.all() ??? null %}
+{% set tags             = secondaryCategoriesQuery.all() ??? null %}
 
 {% block content %}
 	<article class="recipe__grid">
@@ -20,8 +23,8 @@
 			<h1 class="recipe__headline headline" data-title="{{ headline }}">{{ headline }}</h1>
 			{% if description %}
 				<div class="recipe__subheadline">
-					<img src="" class="" />
-					{{ description }}
+					{% include '_components/illustration' %}
+					<span>{{ description }}</span>
 				</div>
 			{% endif %}
 		</header>
@@ -97,15 +100,18 @@
 
 		<section class="recipe__tags">
 			<h3 class="tags__title">Liquors, mixers, <i>etc.</i></h3>
-			{# {% if tags %} #}
-			{% if liquors %}
+			{% if categories %}
 				<dl class="tags">
-					<dt class="tags__label">Liquor{% if liquors|length > 1 %}s{% endif %}</dt>
-					<dd class="tag">
-						{% for liquor in liquors %}
-							{{ liquor }}{% if not loop.last %}, {% endif %}
-						{% endfor %}
-					</dd>
+					{% for category in categories %}
+						<dt class="tags__label">{{ category.title }}</dt>
+						{% if tags %}
+							<dd class="tag">
+								{% for tag in tags if tag.parent.slug == category.slug %}
+									<a href="{{ tag.url }}">{{ tag }}</a>
+								{% endfor %}
+							</dd>
+						{% endif %}
+					{% endfor %}
 				</dl>
 			{% else %}
 				<p>This relates to&hellip;nothing!</p>
