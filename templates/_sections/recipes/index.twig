@@ -8,16 +8,8 @@
 {% set featureDescription   = entry.featureDescription ??? null %}
 {% set featuredRecipesQuery = entry.featuredRecipes ??? null %}
 {% set featuredRecipes      = featuredRecipesQuery.all() ??? null %}
-{% set categoriesQuery      = craft.categories.group('*') ??? null %}
+{% set categoriesQuery      = craft.categories.group('recipeLists') ??? null %}
 {% set categories           = categoriesQuery.all() ??? null %}
-{% set dishQuery            = craft.categories.group('dish') ??? null %}
-{% set ethnicityQuery       = craft.categories.group('ethnicity') ??? null %}
-{% set healthinessQuery     = craft.categories.group('healthiness') ??? null %}
-{% set styleQuery           = craft.categories.group('style') ??? null %}
-{% set dish                 = dishQuery.all() ??? null %}
-{% set ethnicity            = ethnicityQuery.all() ??? null %}
-{% set healthiness          = healthinessQuery.all() ??? null %}
-{% set style                = styleQuery.all() ??? null %}
 
 {% block content %}
 	<article class="page__recipes{% if recipes|length < 1 %} --is-empty{% endif %}">
@@ -26,7 +18,7 @@
 			<h1 class="recipes__headline headline" data-title="{{ headline }}">{{ headline }}</h1>
 
 			{% if description %}
-				<div class="recipes__subheadline">{{ description }}</div>
+				<div class="recipes__subheadline">{{ description|typogrify }}</div>
 			{% endif %}
 		</header>
 
@@ -36,13 +28,14 @@
 			{% if featuredRecipes %}
 
 				{% for recipe in featuredRecipes %}
-					{% set recipeImageID    = recipe.recipe.imageId[0] ??? null %}
-					{% set recipeImageQuery = craft.assets().id(recipeImageID) ??? null %}
-					{% set recipeImage      = recipeImageQuery.one() ??? null %}
-					{% set dish             = recipe.dish ??? null %}
-					{% set ethnicity        = recipe.ethnicity ??? null %}
-					{% set healthiness      = recipe.healthiness ??? null %}
-					{% set style            = recipe.style ??? null %}
+					{% set recipeImageID     = recipe.recipe.imageId[0] ??? null %}
+					{% set recipeImageQuery  = craft.assets().id(recipeImageID) ??? null %}
+					{% set recipeImage       = recipeImageQuery.one() ??? null %}
+					{# {% set recipesCategories = recipe.recipeCategories ??? null %} #}
+					{% set mainCategoriesQuery = craft.categories.relatedTo(recipe).level(1) ??? null %}
+					{% set secondaryCategoriesQuery = craft.categories.relatedTo(recipe).level(2) ??? null %}
+					{% set recipeCategories = mainCategoriesQuery.all() ??? null %}
+					{% set recipeTags             = secondaryCategoriesQuery.all() ??? null %}
 
 					<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe crosshair__trigger">
 						{% if recipeImage %}
@@ -63,10 +56,9 @@
 							{% if recipe.description %}
 								<p class="recipe__subtitle">{{ recipe.description|wordLimit(20) }}</p>
 							{% else %}
-								{# {{ dish }} #}
-								{# {{ ethnicity }} #}
-								{# {{ healthiness }} #}
-								{# {{ style }} #}
+								{% for tag in recipeTags %}
+									{{ tag.title }}{% if not loop.last %} | {% endif %}
+								{% endfor %}
 							{% endif %}
 						</div>
 
@@ -125,18 +117,9 @@
 					<span id="recipeLabel" class="recipe-type__label" aria-label="Browse recipes by">Browse</span>
 					<select class="recipe-type__input" aria-labelledby="recipeLabel">
 						<option>Newest Recipes</option>
-						{% for category in dish %}
+						{# {% for category in categoriesQuery %}
 							<option>{{ category }}</option>
-						{% endfor %}
-						{% for category in ethnicity %}
-							<option>{{ category }}</option>
-						{% endfor %}
-						{% for category in healthiness %}
-							<option>{{ category }}</option>
-						{% endfor %}
-						{% for category in style %}
-							<option>{{ category }}</option>
-						{% endfor %}
+						{% endfor %} #}
 					</select>
 				</h2>
 			{% endif %}
@@ -148,7 +131,7 @@
 					{% set recipeImageQuery = craft.assets().id(recipeImageID) ??? null %}
 					{% set recipeImage      = recipeImageQuery.one() ??? null %}
 
-					<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe -small">
+					<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe">
 						{% if recipeImage %}
 							<img src="{{ recipeImage.url }}"
 								alt="placeholder for {{ recipeImage.title }}"
@@ -161,7 +144,15 @@
 
 						{% endif %}
 
-						<h2 class="recipe__title">{{ recipe.title|length > 40 ? recipe.title|slice(0, 40) ~ '...' : recipe.title }}</h2>
+						<div class="recipe__caption">
+							<h2 class="recipe__title">{{ recipe.title }}</h2>
+							{# <figure class="recipe__crosshair crosshair"></figure>
+							{% if recipe.description %}
+								<p class="recipe__subtitle">{{ recipe.description|wordLimit(20) }}</p>
+							{% else %}
+								<p class="recipe__subtitle">Check out this recipe</p>
+							{% endif %} #}
+						</div>
 					</a>
 				{% endfor %}
 

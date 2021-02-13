@@ -180,9 +180,9 @@ $column: percentage( 1 / 12 );
 	}
 
 	.-featured & {
-		flex: 0 0 calc( 50% - #{map-get($spacer, 2)} );
-		max-width: calc( 50% - #{map-get($spacer, 2)} );
-		margin-right: map-get($spacer, 2);
+		flex: 1 0 calc( 50% - #{$gutter-sm} );
+		max-width: 100%;
+		margin-right: $gutter-sm;
 	}
 
 	.-newest & {
