@@ -74,13 +74,13 @@
 				{% endfor %}
 
 			{% else %}
-				<p class="no-drinks">There aren&rsquo;t any featured recipes on {{ siteName }} :(</p>
+				<p class="no-recipes">There aren&rsquo;t any featured recipes on {{ siteName }} :(</p>
 			{% endif %}
 		</section>
 
 		{% if featureDescription %}
 			<section class="recipes -blurb reading">
-				{{ featureDescription }}
+				{{ featureDescription|typogrify }}
 			</section>
 		{% endif %}
 
@@ -166,7 +166,7 @@
 				{% endfor %}
 
 			{% else %}
-				<p class="no-drinks">There aren&rsquo;t any recipes listed on {{ siteName }} :(</p>
+				<p class="no-recipes">There aren&rsquo;t any recipes listed on {{ siteName }} :(</p>
 
 			{% endif %}
 		</section>
