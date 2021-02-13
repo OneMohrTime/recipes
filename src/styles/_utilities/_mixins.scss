@@ -3,17 +3,6 @@
 ---------------------------------------- */
 
 /**
- * Undo list styles
- */
-
-@mixin list-reset() {
-	margin-bottom: 0;
-	padding-left: 0;
-	line-height: inherit;
-}
-
-
-/**
  * Maintain aspect ratios
  * @jonathantneal
  *
@@ -56,13 +45,13 @@
 	&:focus,
 	&:hover {
 		outline: none;
-		
+
 		span {
 			background-color: map-get($color, blue);
 			transform: translate3d( 0px, 0px, -30px ) rotateX( 90deg );
 		}
 	}
-	
+
 	span {
 		display: block;
 		position: relative;
@@ -70,7 +59,7 @@
 		transition: all 400ms ease;
 		transform-origin: 50% 0%;
 		transform-style: preserve-3d;
-		
+
 		&:after {
 			content: attr(data-title);
 			display: block;
@@ -104,7 +93,7 @@
 	font-weight: 700;
 	color: inherit;
 	backface-visibility: hidden;
-	
+
 	&::before {
 		content: "";
 		position: absolute;
@@ -114,7 +103,7 @@
 		height: 2px;
 		background-color: map-get($color, light-gray);
 	}
-	
+
 	&::after {
 		content: "";
 		position: absolute;
@@ -126,15 +115,15 @@
 		background-color: map-get($color, blue);
 		backface-visibility: hidden;
 	}
-	
+
 	&:focus {
 		outline-color: transparent;
 	}
-	
+
 	&:focus,
 	&:hover {
 		color: map-get($color, blue);
-		
+
 		&::after {
 			width: 100%;
 		}

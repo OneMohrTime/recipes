@@ -7,9 +7,9 @@
  */
 
 @mixin list-reset() {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+	margin: 0 !important;
+	padding: 0 !important;
+	list-style: none !important;
 	line-height: inherit;
 }
 

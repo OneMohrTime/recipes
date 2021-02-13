@@ -94,7 +94,7 @@
 					{% set recipeImageQuery = craft.assets().id(recipeImageID) ??? null %}
 					{% set recipeImage      = recipeImageQuery.one() ??? null %}
 
-					<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe --small">
+					<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe -small">
 						{% if recipeImage %}
 							<img src="{{ recipeImage.url }}"
 								alt="placeholder for {{ recipeImage.title }}"
@@ -112,7 +112,7 @@
 				{% endfor %}
 
 			{% else %}
-				<p class="no-drinks">There aren&rsquo;t any recipes listed on {{ siteName }} :(</p>
+				<p class="no-recipes">There aren&rsquo;t any recipes listed on {{ siteName }} :(</p>
 
 			{% endif %}
 		</section>
@@ -148,7 +148,7 @@
 					{% set recipeImageQuery = craft.assets().id(recipeImageID) ??? null %}
 					{% set recipeImage      = recipeImageQuery.one() ??? null %}
 
-					<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe --small">
+					<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe -small">
 						{% if recipeImage %}
 							<img src="{{ recipeImage.url }}"
 								alt="placeholder for {{ recipeImage.title }}"

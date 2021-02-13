@@ -267,14 +267,12 @@ $nudge: map-get($spacer, 4);
 	}
 
 	.category__list {
-		padding: 0;
-		margin-bottom: map-get($spacer, 4);
+		@include list-reset();
 
 		@include media(">=for-tablet-portrait-up") {
 			display: flex;
 			flex-flow: row wrap;
 			justify-content: space-between;
-			margin-bottom: 0;
 		}
 
 		li {

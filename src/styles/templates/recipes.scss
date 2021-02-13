@@ -203,7 +203,7 @@ $column: percentage( 1 / 12 );
 		margin-bottom: map-get($spacer, 1);
 	}
 
-	&.--small {
+	&.-small {
 		display: flex;
 		margin-bottom: map-get($spacer, 1) / 2;
 		width: 100%;

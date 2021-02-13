@@ -55,22 +55,22 @@ $color: (
 );
 
 // vars
-$white: map-get($color, white);
-$black: map-get($color, black);
-$dark-gray: map-get($color, dark-gray);
-$gray: map-get($color, gray);
-$light-gray: map-get($color, light-gray);
-$tan: map-get($color, tan);
-$light-tan: map-get($color, light-tan);
-$red: map-get($color, red);
-$blue: map-get($color, blue);
-$light-blue: map-get($color, light-blue);
-$green: map-get($color, green);
+$white:       map-get($color, white);
+$black:       map-get($color, black);
+$dark-gray:   map-get($color, dark-gray);
+$gray:        map-get($color, gray);
+$light-gray:  map-get($color, light-gray);
+$tan:         map-get($color, tan);
+$light-tan:   map-get($color, light-tan);
+$red:         map-get($color, red);
+$blue:        map-get($color, blue);
+$light-blue:  map-get($color, light-blue);
+$green:       map-get($color, green);
 $light-green: map-get($color, light-green);
-$yellow: map-get($color, yellow);
-$gold: map-get($color, gold);
-$orange: map-get($color, orange);
-$purple: map-get($color, purple);
+$yellow:      map-get($color, yellow);
+$gold:        map-get($color, gold);
+$orange:      map-get($color, orange);
+$purple:      map-get($color, purple);
 
 
 /**

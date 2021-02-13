@@ -46,11 +46,12 @@ $column: percentage( 1 / 12 );
 		position: relative;
 		padding-left: map-get($spacer, 8);
 
-		img {
+		img,
+		svg {
 			position: absolute;
 			right: calc(100% - 50px);
 			display: block;
-			max-width: 100px;
+			max-width: 120px;
 			max-height: 61px;
 		}
 	}
