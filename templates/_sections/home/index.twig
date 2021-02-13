@@ -31,7 +31,7 @@
 
 		<section class="homepage__promos">
 			<aside id="homeBored" class="bored">
-				<h2 class="bored__headline headline">{{ subheadline }}</h2>
+				<h2 class="bored__headline headline">{{ subheadline|typogrify(true) }}</h2>
 
 				{% set leftQuery       = entry.linkToRecipes ??? null %}
 				{% set left            = leftQuery.one() ??? null %}
@@ -49,7 +49,7 @@
 						</h3>
 						<figure class="left-link__crosshair crosshair"></figure>
 						<div class="left-link__description">
-							{{ left.description }}
+							{{ left.description|typogrify }}
 						</div>
 						{% if leftCover %}
 							<img src="{{ leftCover.url }}"
@@ -70,7 +70,7 @@
 						</h3>
 						<figure class="right-link__crosshair crosshair"></figure>
 						<div class="right-link__description">
-							{{ right.description }}
+							{{ right.description|typogrify }}
 						</div>
 						{% if rightCover %}
 							<img src="{{ rightCover.url }}"
@@ -88,14 +88,15 @@
 			{% if featureHeadline or featureDescription %}
 				<aside id="homeFeature" class="feature">
 					<h3 class="feature__headline">
-						{{ featureHeadline }}
+						{{ featureHeadline|typogrify(true) }}
 					</h3>
 
 					<div class="feature__description">
-						{{ featureDescription }}
+						{{ featureDescription|typogrify }}
+						{% if featureUrl %}
+							<a href="{{ featureUrl }}" class="feature__link">Read Post</a>
+						{% endif %}
 					</div>
-
-					<a href="{{ featureUrl }}" class="feature__link">Link</a>
 				</aside>
 
 				{% if featureImage %}

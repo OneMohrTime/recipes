@@ -25,7 +25,7 @@
 			{% if description %}
 				<div class="recipe__subheadline">
 					{% include '_components/illustration' %}
-					<span>{{ description }}</span>
+					<span>{{ description|typogrify }}</span>
 				</div>
 			{% endif %}
 		</header>
@@ -39,7 +39,7 @@
 			{% else %}
 				<img src="https://via.placeholder.com/960x450/e8e7e1/2b3b4c?text=Pretend+this+is+{{ title }}" alt="placeholder for {{ title }}" class="cover__image" />
 				<figcaption class="cover__caption">
-					{{ title }}
+					{{ title|typogrify }}
 				</figcaption>
 			{% endif %}
 		</figure>

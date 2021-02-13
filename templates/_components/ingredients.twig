@@ -14,7 +14,7 @@
 			{% case 'drinks' %}
 				{% for ingredient in ingredients %}
 					<li class="ingredient reading">
-						{{ ingredient }}
+						{{ ingredient|typogrify }}
 					</li>
 				{% endfor %}
 
