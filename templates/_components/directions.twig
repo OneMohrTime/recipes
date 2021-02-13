@@ -1,0 +1,15 @@
+{% if directions %}
+	<ol class="directions__list" role="tablist">
+
+		{% for step in directions %}
+			<li id="{{ step.direction|replace({ ' ' : '', '.' : '', ',' : '' })|lower|slice(0, 24) }}" class="direction reading" role="tab" tabindex="0">
+				{{ step.direction }}
+			</li>
+		{% endfor %}
+
+	</ol>
+
+{% else %}
+	<p>Apparently you should be able to figure this one out on your own?</p>
+
+{% endif %}
