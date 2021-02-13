@@ -60,22 +60,7 @@
 		<section class="recipe__ingredients">
 			<div id="ingredients" class="ingredients" tabindex="0">
 				<h2 class="ingredients__title">Ingredients</h2>
-
-				{% if ingredients %}
-					<ul class="ingredients__list">
-
-						{% for ingredient in ingredients %}
-							<li class="ingredient reading">
-								{{ ingredient }}
-							</li>
-						{% endfor %}
-
-					</ul>
-				{% else %}
-					<ul class="ingredients__list">
-						<li class="ingredient reading">Evidently there are no ingredients.</li>
-					</ul>
-				{% endif %}
+				{% include '_components/ingredients' %}
 			</div>
 		</section>
 
