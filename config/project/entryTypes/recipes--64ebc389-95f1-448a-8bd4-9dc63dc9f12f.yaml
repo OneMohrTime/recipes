@@ -44,34 +44,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 54ccf5d6-da92-4271-b1f8-57e00e29c2af
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 45ee09d2-45da-47fa-ae52-a4ba7c73b3ab
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 9c054470-464d-4115-b7c8-de5c55df15d5
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 3ecc3a87-e185-4c24-b319-ef3dbbe99592
+            fieldUid: a170c16b-3bd9-4fcc-bb79-a7534dc2558d
             instructions: null
             label: null
             required: false

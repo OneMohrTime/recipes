@@ -1,5 +1,5 @@
 fieldLayouts:
-  594ffe81-83dd-4ed3-be86-acdc756ca165:
+  c73dc034-0eb5-4c8e-856d-2391faa99385:
     tabs:
       -
         elements:
@@ -46,13 +46,13 @@ fieldLayouts:
             width: 100
         name: Content
         sortOrder: 1
-handle: style
-name: Style
+handle: recipeLists
+name: 'Recipe Lists'
 siteSettings:
   038df939-32f1-4d74-a42e-9c57bdeb55b0:
     hasUrls: true
-    template: null
-    uriFormat: 'style/{slug}'
+    template: _sections/recipes/category
+    uriFormat: 'recipes/category/{slug}'
 structure:
-  maxLevels: null
-  uid: 0c7d9c4f-97dc-4f2c-83e5-242e1e07e428
+  maxLevels: 2
+  uid: 4f92d543-54d4-4d05-a328-f14c63ec9579

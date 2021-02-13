@@ -1,5 +1,5 @@
 fieldLayouts:
-  6ee764a9-38bd-4a65-b729-f3ab7ce3c4a2:
+  39f5bba8-197c-476e-b3a2-594461225767:
     tabs:
       -
         elements:
@@ -26,15 +26,33 @@ fieldLayouts:
             type: craft\fieldlayoutelements\TitleField
             warning: null
             width: 100
+          -
+            fieldUid: 3aad9f4e-592d-4db7-bbc1-5356711d09c1
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ae504b0b-038f-42ab-a573-60e4afbcc940
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
         name: Content
         sortOrder: 1
-handle: dish
-name: Dish
+handle: drinkLists
+name: 'Drink Lists'
 siteSettings:
   038df939-32f1-4d74-a42e-9c57bdeb55b0:
     hasUrls: true
-    template: _sections/recipes/category
-    uriFormat: 'dish/{slug}'
+    template: null
+    uriFormat: 'category/{slug}'
 structure:
-  maxLevels: 1
-  uid: 3f751e13-a083-4575-9f8c-77a5f3df1610
+  maxLevels: null
+  uid: 703ba534-eb0a-4216-8174-547c8d2880e6

@@ -1,8 +1,8 @@
 contentColumnType: string
 fieldGroup: 8e8a3a92-4ae6-4d1c-831f-1ef6db76f546
-handle: dish
+handle: recipeCategories
 instructions: ''
-name: Dish
+name: 'Recipe Categories'
 searchable: false
 settings:
   allowLimit: false
@@ -11,9 +11,9 @@ settings:
   branchLimit: ''
   limit: null
   localizeRelations: false
-  selectionLabel: 'Add Dish'
+  selectionLabel: ''
   showSiteMenu: true
-  source: 'group:323c4c22-176b-46b8-8813-32bb56d7f4ad'
+  source: 'group:b4a63e70-515e-4b32-97b8-2cf6d32448e2'
   sources: '*'
   targetSiteId: null
   validateRelatedElements: false
