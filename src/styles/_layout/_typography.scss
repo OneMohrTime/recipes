@@ -153,8 +153,8 @@ hr {
 }
 
 ::selection {
-	background-color: map-get($color, yellow);
-	color: map-get($color, blue);
+	background-color: $yellow;
+	color: $dark-gray;
 	text-shadow: none;
 }
 
