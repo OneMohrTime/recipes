@@ -1,0 +1,78 @@
+{% extends '_layouts/default' %}
+
+{% set mainClass        = 'drinks -entry' %}
+{% set title            = entry.title %}
+{% set headline         = entry.headline ??? title %}
+{% set description      = entry.description ??? null %}
+{% set imageQuery       = entry.image ??? null %}
+{% set image            = imageQuery.one() ??? null %}
+{% set ingredients      = entry.drinkIngredients ??? null %}
+{% set directions       = entry.drinkDirections ??? null %}
+{% set liquorQuery      = craft.categories.group('liquor') ??? null %}
+{% set liquors          = entry.liquor ??? null %}
+{% set categoriesQuery  = entry.drinkCategories ??? null %}
+{% set mainCategoriesQuery = craft.categories.relatedTo(entry).level(1) ??? null %}
+{% set secondaryCategoriesQuery = craft.categories.relatedTo(entry).level(2) ??? null %}
+{% set categories       = mainCategoriesQuery.all() ??? null %}
+{% set tags             = secondaryCategoriesQuery.all() ??? null %}
+
+{% block content %}
+	<article class="recipe__grid">
+
+		<header class="recipe__intro intro">
+			<h1 class="recipe__headline headline" data-title="{{ headline }}">{{ headline }}</h1>
+			{% if description %}
+				<div class="recipe__subheadline">
+					{% include '_components/illustration' %}
+					<span>{{ description|typogrify }}</span>
+				</div>
+			{% endif %}
+		</header>
+		<figure class="recipe__cover">
+			{% if image %}
+				<img src="{{ image.url }}"
+					 alt="{{ image.alt ??? image.title }}"
+					 class="cover__image"
+					 id="i-{{ image.uid }}"
+					 srcset="" />
+			{% else %}
+				<img src="https://via.placeholder.com/960x450/e8e7e1/2b3b4c?text=Pretend+this+is+{{ title }}" alt="placeholder for {{ title }}" class="cover__image" />
+				<figcaption class="cover__caption">
+					{{ title|typogrify }}
+				</figcaption>
+			{% endif %}
+		</figure>
+
+		{# {% if entry.recipeImages | length > 1 %}
+			<section class="recipe__gallery" style="display: none;">
+				{% for image in entry.recipeImages %}
+					<img src="{{ image.url }}"
+						 alt="{{ image.name }}"
+						 width="{{ image.dimensions.width }}"
+						 height="{{ image.dimensions.height }}"
+						 class="gallery__image ratio--{{ image.ratio|slice(0, 2) }}-{{ image.orientation }}"
+						 id="{{ image.hash }}"
+						 srcset="" />
+				{% endfor %}
+			</section>
+		{% endif %} #}
+
+		<section class="recipe__ingredients">
+			<div id="ingredients" class="ingredients" tabindex="0">
+				<h2 class="ingredients__title">Ingredients</h2>
+				{% include '_components/ingredients' %}
+			</div>
+		</section>
+
+		<section id="directions" class="recipe__directions">
+			<h2 class="directions__title">Directions</h2>
+			{% include '_components/directions' %}
+		</section>
+
+		<section class="recipe__tags">
+			<h3 class="tags__title">Liquors, mixers, <i>etc.</i></h3>
+			{% include '_components/tags' %}
+		</section>
+
+	</article>
+{% endblock %}

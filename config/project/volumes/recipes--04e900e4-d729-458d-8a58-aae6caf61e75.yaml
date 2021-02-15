@@ -1,0 +1,38 @@
+fieldLayouts:
+  8ff1374c-5367-40a4-89c2-185a57dba96a:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: recipes
+hasUrls: true
+name: 'Recipe Photos'
+settings:
+  path: '@webroot/uploads/recipes'
+sortOrder: 3
+type: craft\volumes\Local
+url: /uploads/recipes

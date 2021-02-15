@@ -1,0 +1,18 @@
+<nav class="page__breadcrumb">
+
+	<hr class="hr--gold" />
+
+	<ul class="breadcrumbs">
+		{# {% for crumb in site.breadcrumb %}
+			<li class="breadcrumbs__crumb{{ crumb.isActive == '1' ? ' -isActive' }}">
+				<a href="{{ crumb.url }}"{% if loop.last %} title="Click to copy URL"{% endif %}>
+					{{ crumb.title.words < 6 ? crumb.title : crumb.title|slice(0, 16) ~ '… yada yada…' }}
+				</a>
+			{% if not loop.last %}
+				&emsp;→
+			{% endif %}
+			</li>
+		{% endfor %} #}
+	</ul>
+
+</nav>

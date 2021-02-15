@@ -1,0 +1,166 @@
+{% extends '_layouts/default' %}
+
+{% set mainClass            = 'recipes -index' %}
+{% set recipesQuery         = craft.entries.section('recipes') ??? null %}
+{% set recipes              = recipesQuery.all() ??? null %}
+{% set headline             = entry.headline ??? entry.title %}
+{% set description          = entry.description ??? null %}
+{% set featureDescription   = entry.featureDescription ??? null %}
+{% set featuredRecipesQuery = entry.featuredRecipes ??? null %}
+{% set featuredRecipes      = featuredRecipesQuery.all() ??? null %}
+{% set categoriesQuery      = craft.categories.group('recipeLists') ??? null %}
+{% set categories           = categoriesQuery.all() ??? null %}
+
+{% block content %}
+	<article class="page__recipes{% if recipes|length < 1 %} --is-empty{% endif %}">
+
+		<header class="recipes__intro intro">
+			<h1 class="recipes__headline headline" data-title="{{ headline }}">{{ headline }}</h1>
+
+			{% if description %}
+				<div class="recipes__subheadline">{{ description|typogrify }}</div>
+			{% endif %}
+		</header>
+
+		<section id="recipesFeatured" class="recipes -featured">
+			<h2 class="recipes__subtitle" data-subtitle="Featured" aria-label="Featured">Featured</h2>
+
+			{% if featuredRecipes %}
+
+				{% for recipe in featuredRecipes %}
+					{% set recipeImageID     = recipe.recipe.imageId[0] ??? null %}
+					{% set recipeImageQuery  = craft.assets().id(recipeImageID) ??? null %}
+					{% set recipeImage       = recipeImageQuery.one() ??? null %}
+					{# {% set recipesCategories = recipe.recipeCategories ??? null %} #}
+					{% set mainCategoriesQuery = craft.categories.relatedTo(recipe).level(1) ??? null %}
+					{% set secondaryCategoriesQuery = craft.categories.relatedTo(recipe).level(2) ??? null %}
+					{% set recipeCategories = mainCategoriesQuery.all() ??? null %}
+					{% set recipeTags             = secondaryCategoriesQuery.all() ??? null %}
+
+					<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe crosshair__trigger">
+						{% if recipeImage %}
+							<img src="{{ recipeImage.url }}"
+								alt="placeholder for {{ recipeImage.title }}"
+								class="cover__image"
+								id="img-{{ recipeImage.uid }}"
+								srcset="{{ recipeImage.srcset([400, 800, 1200, 1600]) }}" />
+
+						{% else %}
+							<img src="https://via.placeholder.com/500/e8e7e1/2b3b4c?text=Pretend+this+is+{{ recipe.title|replace ({'&' : 'and', '?' : ''}) }}" alt="placeholder for {{ recipe.title }}" class="" />
+
+						{% endif %}
+
+						<div class="recipe__caption">
+							<h2 class="recipe__title">{{ recipe.title }}</h2>
+							<figure class="recipe__crosshair crosshair"></figure>
+							{% if recipe.description %}
+								<p class="recipe__subtitle">{{ recipe.description|wordLimit(20) }}</p>
+							{% else %}
+								{% for tag in recipeTags %}
+									{{ tag.title }}{% if not loop.last %} | {% endif %}
+								{% endfor %}
+							{% endif %}
+						</div>
+
+					</a>
+				{% endfor %}
+
+			{% else %}
+				<p class="no-recipes">There aren&rsquo;t any featured recipes on {{ siteName }} :(</p>
+			{% endif %}
+		</section>
+
+		{% if featureDescription %}
+			<section class="recipes -blurb reading">
+				{{ featureDescription|typogrify }}
+			</section>
+		{% endif %}
+
+		<section id="recipesNewest" class="recipes -newest">
+			<h2 class="recipes__subtitle">Newly added:</h2>
+
+			{% if recipes %}
+
+				{% for recipe in recipes %}
+					{% set recipeImageID    = recipe.recipe.imageId[0] ??? null %}
+					{% set recipeImageQuery = craft.assets().id(recipeImageID) ??? null %}
+					{% set recipeImage      = recipeImageQuery.one() ??? null %}
+
+					<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe -small">
+						{% if recipeImage %}
+							<img src="{{ recipeImage.url }}"
+								alt="placeholder for {{ recipeImage.title }}"
+								class="recipe__thumbnail"
+								id="img-{{ recipeImage.uid }}"
+								srcset="{{ recipeImage.srcset([44, 72, 150]) }}" />
+
+						{% else %}
+							<img src="https://via.placeholder.com/500/e8e7e1/2b3b4c?text=Pretend+this+is+{{ recipe.title }}" alt="placeholder for {{ recipe.title }}" class="recipe__thumbnail" />
+
+						{% endif %}
+
+						<h2 class="recipe__title">{{ recipe.title|length > 40 ? recipe.title|slice(0, 40) ~ '...' : recipe.title }}</h2>
+					</a>
+				{% endfor %}
+
+			{% else %}
+				<p class="no-recipes">There aren&rsquo;t any recipes listed on {{ siteName }} :(</p>
+
+			{% endif %}
+		</section>
+
+
+		<section id="recipesAll" class="recipes -all">
+
+			{% if categories %}
+				<h2 class="recipes__browse">
+					<span id="recipeLabel" class="recipe-type__label" aria-label="Browse recipes by">Browse</span>
+					<select class="recipe-type__input" aria-labelledby="recipeLabel">
+						<option>Newest Recipes</option>
+						{# {% for category in categoriesQuery %}
+							<option>{{ category }}</option>
+						{% endfor %} #}
+					</select>
+				</h2>
+			{% endif %}
+
+			{% if recipes %}
+
+				{% for recipe in recipes %}
+					{% set recipeImageID    = recipe.recipe.imageId[0] ??? null %}
+					{% set recipeImageQuery = craft.assets().id(recipeImageID) ??? null %}
+					{% set recipeImage      = recipeImageQuery.one() ??? null %}
+
+					<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe">
+						{% if recipeImage %}
+							<img src="{{ recipeImage.url }}"
+								alt="placeholder for {{ recipeImage.title }}"
+								class="cover__image"
+								id="img-{{ recipeImage.uid }}"
+								srcset="{{ recipeImage.srcset([400, 800, 1200, 1600]) }}" />
+
+						{% else %}
+							<img src="https://via.placeholder.com/500/e8e7e1/2b3b4c?text=Pretend+this+is+{{ recipe.title }}" alt="placeholder for {{ recipe.title }}" class="recipe__thumbnail" />
+
+						{% endif %}
+
+						<div class="recipe__caption">
+							<h2 class="recipe__title">{{ recipe.title }}</h2>
+							{# <figure class="recipe__crosshair crosshair"></figure>
+							{% if recipe.description %}
+								<p class="recipe__subtitle">{{ recipe.description|wordLimit(20) }}</p>
+							{% else %}
+								<p class="recipe__subtitle">Check out this recipe</p>
+							{% endif %} #}
+						</div>
+					</a>
+				{% endfor %}
+
+			{% else %}
+				<p class="no-recipes">There aren&rsquo;t any recipes listed on {{ siteName }} :(</p>
+
+			{% endif %}
+		</section>
+
+	</article>
+{% endblock %}

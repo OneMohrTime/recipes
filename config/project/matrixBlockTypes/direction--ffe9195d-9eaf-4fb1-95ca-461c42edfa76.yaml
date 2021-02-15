@@ -1,0 +1,50 @@
+field: e0ca8e75-ce34-4f8c-9612-bae350fc2c1a
+fieldLayouts:
+  a6168cac-5ff9-43b9-9d2d-621445fb6ef0:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 6ffb109c-e98e-4b95-a3d2-8c2be1b8d922
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  6ffb109c-e98e-4b95-a3d2-8c2be1b8d922:
+    contentColumnType: text
+    fieldGroup: null
+    handle: direction
+    instructions: ''
+    name: Direction
+    searchable: false
+    settings:
+      availableTransforms: '*'
+      availableVolumes:
+        - 428e5564-9e75-4e1b-a401-af5da8894fa6
+      cleanupHtml: true
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: Video.json
+      purifyHtml: '1'
+      redactorConfig: Simple.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showHtmlButtonForNonAdmins: '1'
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+handle: direction
+name: Direction
+sortOrder: 1

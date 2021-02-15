@@ -1,0 +1,23 @@
+contentColumnType: string
+fieldGroup: 8e8a3a92-4ae6-4d1c-831f-1ef6db76f546
+handle: healthiness
+instructions: ''
+name: Healthiness
+searchable: false
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: ''
+  limit: null
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: 'group:6c5a8d78-82a2-479f-b219-60d4af04134c'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

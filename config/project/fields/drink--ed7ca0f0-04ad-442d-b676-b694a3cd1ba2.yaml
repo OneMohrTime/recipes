@@ -1,0 +1,12 @@
+contentColumnType: text
+fieldGroup: 59673be8-2559-47e4-ad61-5047ee16ffb6
+handle: drink
+instructions: ''
+name: Drink
+searchable: false
+settings:
+  assetSources:
+    - 'folder:6b6c58e6-cf79-4f6e-8467-b556fb0b00c0'
+translationKeyFormat: null
+translationMethod: none
+type: nystudio107\recipe\fields\Recipe

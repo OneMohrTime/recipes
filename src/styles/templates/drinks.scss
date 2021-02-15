@@ -1,0 +1,153 @@
+/* ----------------------------------------
+	Template / Drinks
+---------------------------------------- */
+
+@import "../_utilities/templates";
+
+$column: percentage( 1 / 12 );
+
+/**
+ * Page
+ */
+
+.page__drinks {
+	width: 100%;
+}
+
+.drinks {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+
+	// &.-all {
+	// 	// .drinks.-all
+	// 	gap: $gutter-xs
+	// }
+}
+
+.drinks__intro {
+
+	@include media(">=for-tablet-landscape-up") {
+		grid-column: 3 / 11;
+		grid-row: 1 / 2;
+		max-width: var(--content-width);
+		padding-left: calc( 50% - (var(--content-width) / 2) );
+		padding-right: calc( 50% - (var(--content-width) / 2) );
+	}
+}
+
+
+/**
+ * Grid
+ */
+
+.drink {
+	flex-grow: 0;
+	flex-shrink: 1;
+	flex-basis: calc(50% - (#{$gutter-sm / 2}));
+	max-width: 50%;
+	position: relative;
+	border-radius: 3px;
+	box-shadow: $box-shadow;
+	margin-right: $gutter-sm;
+	margin-bottom: $gutter-sm;
+
+	@include media(">=for-tablet-portrait-up") {
+		flex-basis: calc(33% - (#{$gutter-sm / 3}));
+		max-width: percentage(1/3);
+		margin-right: $gutter-xs;
+	}
+
+	@include media(">=for-tablet-landscape-up") {
+	}
+
+	// align margins on the right
+	@include media("<=for-phone-only") {
+		&:nth-child(2n) {
+			margin-right: 0;
+		}
+	}
+	// @include media(">=for-tablet-portrait-up", "<=for-tablet-landscape-up") {
+	@include media(">=for-tablet-portrait-up") {
+		&:nth-child(3n) {
+			margin-right: 0;
+		}
+	}
+
+	&:focus,
+	&:hover {
+		.drink__title {
+			margin-top: 0;
+		}
+		.drink__subtitle {
+			overflow: visible;
+			text-overflow: none;
+			white-space: normal;
+		}
+		.drink__caption {
+			padding: map-get($spacer, 1);
+			background-color: map-get($color, blue);
+			color: map-get($color, white);
+		}
+		.drink__crosshair {
+			margin-top: map-get($spacer, 3) / 2;
+			margin-bottom: map-get($spacer, 3) / 2;
+
+			&::before,
+			&::after {
+				background-color: map-get($color, white);
+			}
+		}
+	}
+}
+
+.drink__title {
+	@include ellipsis;
+	display: block;
+	margin-top: map-get($spacer, 1) / 2;
+	transition: margin 500ms;
+	font-size: modular-scale(1);
+}
+
+.drink__subtitle {
+	@include ellipsis;
+	display: block;
+	margin-bottom: 0;
+	transition: overflow 500ms, text-overflow 500ms, white-space 500ms;
+	font-size: modular-scale(0);
+	font-weight: 400;
+}
+
+.drink__cover {
+	position: relative;
+}
+
+.drink__caption {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: map-get($spacer, 1) / 4 map-get($spacer, 1) / 3;
+	transform: translate3d(1em, 1em, 0);
+	transition: padding 500ms, background-color 500ms, color 500ms;
+	border-radius: 3px;
+	background-color: tint(map-get($color, light-gray), 67%);
+	color: map-get($color, dark-gray);
+	box-shadow: $box-shadow;
+}
+
+.drink__crosshair {
+	margin-bottom: map-get($spacer, 1);
+	transition: margin 500ms;
+
+	&::before,
+	&::after {
+		transition: all 500ms;
+	}
+}
+
+.no-drinks {
+	grid-column: span 4;
+	position: relative;
+	display: block;
+	font-size: modular-scale(1);
+}

@@ -1,0 +1,12 @@
+contentColumnType: text
+fieldGroup: 8e8a3a92-4ae6-4d1c-831f-1ef6db76f546
+handle: recipe
+instructions: '**☝️ oh and FYI:** Nutrition facts will be generated on their own, from FDA data.'
+name: Recipe
+searchable: false
+settings:
+  assetSources:
+    - 'folder:a8d30c87-9d20-43a6-8ea7-e76a78cb3f29'
+translationKeyFormat: null
+translationMethod: none
+type: nystudio107\recipe\fields\Recipe

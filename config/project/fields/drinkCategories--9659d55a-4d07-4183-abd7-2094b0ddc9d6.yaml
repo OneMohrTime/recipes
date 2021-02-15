@@ -1,0 +1,23 @@
+contentColumnType: string
+fieldGroup: 59673be8-2559-47e4-ad61-5047ee16ffb6
+handle: drinkCategories
+instructions: ''
+name: 'Drink Categories'
+searchable: false
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: ''
+  limit: null
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: 'group:784ef2bc-e7a8-416d-850b-deba0d6f6b4a'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

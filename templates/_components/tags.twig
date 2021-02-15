@@ -1,0 +1,16 @@
+{% if categories %}
+	<dl class="tags">
+		{% for category in categories %}
+			<dt class="tags__label">{{ category.title }}</dt>
+			{% if tags %}
+				<dd class="tag">
+					{% for tag in tags if tag.parent.slug == category.slug %}
+						<a href="{{ tag.url }}">{{ tag }}</a>
+					{% endfor %}
+				</dd>
+			{% endif %}
+		{% endfor %}
+	</dl>
+{% else %}
+	<p>This relates to&hellip;nothing!</p>
+{% endif %}

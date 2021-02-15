@@ -1,0 +1,11 @@
+enableVersioning: true
+handle: recipePage
+name: Recipes
+propagationMethod: all
+siteSettings:
+  038df939-32f1-4d74-a42e-9c57bdeb55b0:
+    enabledByDefault: true
+    hasUrls: true
+    template: _sections/recipes/index
+    uriFormat: recipes
+type: single

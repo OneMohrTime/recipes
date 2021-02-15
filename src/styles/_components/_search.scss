@@ -1,0 +1,152 @@
+/* ----------------------------------------
+	Components / Search (in nav)
+---------------------------------------- */
+
+.nav__search {
+	position: absolute;
+	visibility: hidden;
+	float: right;
+	padding-left: map-get($spacer, 1);
+	padding-right: map-get($spacer, 1) / 2;
+
+	@supports (display: flex) {
+		padding-right: 0;
+
+		@include media("<for-phone-only") {
+			padding-left: 0;
+		}
+	}
+
+	&.--is-active {
+		position: relative;
+		visibility: visible;
+
+		@supports (display: flex) {
+			flex: 1;
+		}
+	}
+}
+
+.nav__search-form {
+
+	@supports (display: flex) {
+		display: flex;
+	}
+}
+
+.search__field {
+	display: block;
+	width: 100%;
+	min-width: 100px;
+
+	&::placeholder {
+		font-style: italic;
+	}
+
+	@supports (display: flex) {
+		flex: 1 1 55%;
+		max-width: 55%;
+		width: auto;
+
+		@include media(">=for-tablet-portrait-up") {
+			flex-basis: 60%;
+			max-width: 60%;
+		}
+
+		@include media(">=for-tablet-landscape-up") {
+			flex-basis: 85%;
+			max-width: 85%;
+		}
+	}
+
+	@include media(">=for-desktop-up") {
+		background-color: transparent;
+		border: 0;
+		border-radius: 0;
+		box-shadow: none;
+		transition: box-shadow 500ms;
+
+		&:focus {
+			outline: 1px fade-out(map-get($color, light-gray), 0.4) solid;
+			outline-offset: 0;
+			box-shadow: inset 0 -2px 0 0 map-get($color, blue);
+		}
+	}
+}
+
+.search__close {
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;
+	font-size: 2em;
+	line-height: 1em;
+	background-color: transparent;
+	color: map-get($color, red);
+
+	@include media(">=for-tablet-portrait-up") {
+		padding-left: map-get($spacer, 1) / 2;
+		padding-right: map-get($spacer, 1) / 2;
+	}
+
+	@include media(">=for-desktop-up") {
+		position: absolute;
+		top: 0;
+		left: calc( 100% + #{map-get($spacer, 1)} );
+		height: 100%;
+		height: calc( 100% - #{map-get($spacer, 2)} );
+		padding: 0 map-get($spacer, 1) / 2;
+		opacity: 0;
+		transform: translateY( #{map-get($spacer, 1)} );
+		transition: opacity 500ms;
+		line-height: calc( 100% - #{map-get($spacer, 2)} );
+		background-color: map-get($color, red);
+		box-shadow: $box-shadow;
+		color: map-get($color, white);
+
+		.--is-searching & {
+			opacity: 1;
+		}
+	}
+
+	@supports (display: flex) {
+		flex: 1 1 15%;
+		max-width: 15%;
+		width: auto;
+	}
+}
+
+.search__submit {
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0;
+
+	@supports (display: flex) {
+		flex: 1 1 25%;
+		max-width: 25%;
+		width: auto;
+
+		// @include media(">=for-tablet-portrait-up") {
+		// 	flex: 1 1 15%;
+		// 	max-width: 15%;
+		// }
+
+		@include media(">=for-tablet-landscape-up") {
+			flex: 1 1 10%;
+			max-width: 10%;
+		}
+
+		@include media(">=for-desktop-up") {
+			margin-left: map-get($spacer, 1);
+			flex: 0 1 15%;
+			max-width: 15%;
+		}
+	}
+
+	@include media(">=for-desktop-up") {
+		.--is-searching & {
+			margin-top: map-get($spacer, 1);
+			margin-bottom: map-get($spacer, 1);
+		}
+	}
+}

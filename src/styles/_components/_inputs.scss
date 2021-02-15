@@ -1,0 +1,23 @@
+/* ----------------------------------------
+	Components / Buttons
+---------------------------------------- */
+
+#{$all-text-inputs} {
+	margin: 0;
+	padding: 0 map-get($spacer, 1) / 2;
+	border: 1px map-get($color, light-gray) solid;
+	border-radius: 3px;
+	box-shadow: inset 0 0 0 0 map-get($color, light-gray);
+	transition: border 500ms, box-shadow 500ms;
+	appearance: none;
+	
+	&:focus {
+		border-color: map-get($color, blue);
+		box-shadow: inset 0 0 5px 0 fade-out(map-get($color, blue), 0.6);
+		outline-color: transparent;
+	}
+	
+	@include media(">=for-desktop-up") {
+		width: 100%;
+	}
+}

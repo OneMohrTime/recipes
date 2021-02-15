@@ -1,0 +1,17 @@
+/* ----------------------------------------
+	Template / Recipe
+---------------------------------------- */
+
+@import "../_utilities/templates";
+
+$column: percentage( 1 / 12 );
+
+.page__body.drinks.-entry {
+	border-radius: 0;
+	box-shadow: none;
+
+	@include media(">=for-tablet-landscape-up") {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}

@@ -1,0 +1,68 @@
+/* ----------------------------------------
+	Components / Navigation
+---------------------------------------- */
+
+$nudge: map-get($spacer, 1);
+
+.nav {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: map-get($spacer, 1) / 2;
+	@include clearfix();
+	transform: translateY(0);
+	transition: width 500ms, margin 500ms, transform 500ms, border 500ms;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+
+	@include media(">=for-tablet-portrait-up") {
+		padding: map-get($spacer, 1);
+	}
+
+	@include media(">=for-tablet-landscape-up") {
+		padding-left: map-get($spacer, 2);
+		padding-right: map-get($spacer, 2);
+	}
+
+	// When "search" is clicked
+	&.--is-searching {
+		transform: translateY($nudge);
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+
+		@include media(">=for-desktop-up") {
+			width: calc(100% - #{$nudge});
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+	}
+
+	@supports(display: flex) {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		&::after {
+			display: none;
+		}
+	}
+}
+
+.nav__logo {
+	display: block;
+	float: left;
+	margin-bottom: 0;
+	padding-left: map-get($spacer, 1) / 2;
+
+	@supports(display: flex) {
+		margin-right: auto;
+		padding-left: 0;
+
+		@include media(">=for-desktop-up") {
+			// visually align from button padding
+			transform: translateX(-#{map-get($spacer, 1) / 2});
+		}
+	}
+}

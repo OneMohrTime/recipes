@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+echo "switch to $1"
+
+if [ -L "./.env" ]; then
+  rm ./.env
+fi
+
+ln -s ./operations/env/env.$1 ./.env

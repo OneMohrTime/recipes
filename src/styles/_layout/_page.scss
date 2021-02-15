@@ -1,0 +1,61 @@
+/* ----------------------------------------
+	Layout / Page
+---------------------------------------- */
+
+.page {
+	position: relative;
+
+	@include media(">=for-tablet-landscape-up") {
+		padding-bottom: map-get($spacer, 4);
+	}
+}
+
+.page > * {
+	margin: 0 auto;
+	padding-left: map-get($spacer, 1);
+	padding-right: map-get($spacer, 1);
+}
+
+.page.-home {
+	& > .page__body {
+		margin: 0;
+		padding: 0;
+	}
+}
+
+.page.-recipePage,
+.page.-drinksPage,
+.page.-about,
+.page.-results {
+	& > .page__body {
+		margin-bottom: map-get($spacer, 2);
+		padding-top: map-get($spacer, 4);
+
+		@include media(">=for-tablet-portrait-up") {
+			margin-bottom: map-get($spacer, 3);
+		}
+
+		@include media(">=for-desktop-up") {
+			width: var(--content-width);
+			margin-bottom: map-get($spacer, 4);
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+}
+
+.page.-recipes,
+.page.-drinks {
+	& > .page__body {
+		margin-bottom: map-get($spacer, 2);
+		padding-top: map-get($spacer, 4);
+
+		@include media(">=for-tablet-portrait-up") {
+			margin-bottom: map-get($spacer, 3);
+		}
+
+		@include media(">=for-desktop-up") {
+			margin-bottom: map-get($spacer, 4);
+		}
+	}
+}

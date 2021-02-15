@@ -1,0 +1,62 @@
+{% extends '_layouts/default' %}
+
+{% set mainClass   = 'drinks -index' %}
+{% set drinksQuery = craft.entries.section('drinks') ??? null %}
+{% set drinks      = drinksQuery.all() ??? null %}
+{% set headline    = entry.headline ??? entry.title %}
+{% set description = entry.description ??? null %}
+
+{% block content %}
+	<article class="page__drinks{% if drinks|length < 1 %} --is-empty{% endif %}">
+
+	<header class="drinks__intro intro">
+		<h1 class="drinks__headline headline" data-title="{{ headline }}">{{ headline }}</h1>
+
+		{% if description %}
+			<div class="drinks__subheadline">{{ description }}</div>
+		{% endif %}
+	</header>
+
+	<section id="drinksAll" class="drinks -all">
+
+		{% if drinks %}
+
+			{% for drink in drinks %}
+				{% set drinkImage       = drink.image.one() ??? null %}
+				{% set drinkName        = drink.title %}
+				{% set drinkDescription = drink.description ??? '' %}
+
+				<a href="{{ drink.url }}" class="drink crosshair__trigger">
+					{% if drinkImage %}
+						<img src="{{ drinkImage.url }}"
+							 alt="placeholder for {{ drinkImage.title }}"
+							 class="cover__image"
+							 id="img-{{ drinkImage.uid }}"
+							 srcset="{{ drinkImage.srcset([400, 800, 1200, 1600]) }}" />
+
+					{% else %}
+						<img src="https://via.placeholder.com/500/e8e7e1/2b3b4c?text=Pretend+this+is+{{ drink.title|replace ({'&' : 'and', '?' : ''}) }}" alt="placeholder for {{ drink.title }}" class="" />
+					{% endif %}
+					<div class="drink__caption">
+						<h2 class="drink__title">{{ drinkName }}</h2>
+						<figure class="drink__crosshair crosshair"></figure>
+						<p class="drink__subtitle">{{ drinkDescription|wordLimit(16)|raw }}</p>
+					</div>
+				</a>
+
+			{% endfor %}
+
+		{% else %}
+
+			<p class="no-drinks">There aren&rsquo;t any drinks listed on {{ siteName }} :(</p>
+
+		{% endif %}
+
+	</section>
+{% endblock %}
+
+{% block modal %}
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

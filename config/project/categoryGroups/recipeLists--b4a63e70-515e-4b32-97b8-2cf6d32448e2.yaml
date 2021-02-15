@@ -1,0 +1,58 @@
+fieldLayouts:
+  c73dc034-0eb5-4c8e-856d-2391faa99385:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3aad9f4e-592d-4db7-bbc1-5356711d09c1
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ae504b0b-038f-42ab-a573-60e4afbcc940
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: recipeLists
+name: 'Recipe Lists'
+siteSettings:
+  038df939-32f1-4d74-a42e-9c57bdeb55b0:
+    hasUrls: true
+    template: _sections/recipes/category
+    uriFormat: 'recipes/category/{slug}'
+structure:
+  maxLevels: 2
+  uid: 4f92d543-54d4-4d05-a328-f14c63ec9579

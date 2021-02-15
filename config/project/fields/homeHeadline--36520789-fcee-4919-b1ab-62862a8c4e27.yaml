@@ -1,0 +1,18 @@
+contentColumnType: text
+fieldGroup: 3620e33a-1793-452c-a9ef-2cb5c22554f0
+handle: homeHeadline
+instructions: ''
+name: 'Home Headline'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: ''
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

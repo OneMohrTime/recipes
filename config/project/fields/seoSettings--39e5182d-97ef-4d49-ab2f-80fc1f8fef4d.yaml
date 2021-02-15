@@ -1,0 +1,23 @@
+contentColumnType: text
+fieldGroup: 8d65d35b-637b-466c-9e1b-8ceb7317fa3b
+handle: seoSettings
+instructions: ''
+name: 'SEO Settings'
+searchable: false
+settings:
+  editCanonical: false
+  enableMetaDetailsFields: false
+  optimizedDescriptionField: manually
+  optimizedImageField: '13'
+  optimizedKeywordsField: ''
+  optimizedTitleField: '1'
+  schemaOverrideTypeId: Recipe
+  schemaTypeId: barrelstrength\sproutseo\schema\CreativeWorkSchema
+  showGeo: ''
+  showOpenGraph: ''
+  showRobots: ''
+  showSearchMeta: ''
+  showTwitter: ''
+translationKeyFormat: null
+translationMethod: none
+type: barrelstrength\sproutseo\fields\ElementMetadata

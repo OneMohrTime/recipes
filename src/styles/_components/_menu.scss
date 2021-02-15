@@ -1,0 +1,30 @@
+/* ----------------------------------------
+	Components / Menu
+---------------------------------------- */
+
+.menu {
+	display: block;
+	float: right;
+	padding-right: map-get($spacer, 1) / 2;
+
+	@supports(display: flex) {
+		padding-right: 0;
+
+		@include media(">=for-desktop-up") {
+			// visuall align from button padding
+			transform: translateX(#{map-get($spacer, 1) / 2});
+		}
+	}
+
+	&.--is-hidden {
+		display: none;
+	}
+}
+
+.menu__item {
+	@include nav-link();
+
+	&[aria-current] {
+		background-color: map-get($color, light-gray);
+	}
+}

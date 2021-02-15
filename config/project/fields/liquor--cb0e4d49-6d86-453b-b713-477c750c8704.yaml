@@ -1,0 +1,23 @@
+contentColumnType: string
+fieldGroup: 59673be8-2559-47e4-ad61-5047ee16ffb6
+handle: liquor
+instructions: ''
+name: Liquor
+searchable: false
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: ''
+  limit: null
+  localizeRelations: false
+  selectionLabel: 'Add Liquor'
+  showSiteMenu: true
+  source: 'group:053423b5-85b0-445f-b203-eade76bf9e2e'
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories
