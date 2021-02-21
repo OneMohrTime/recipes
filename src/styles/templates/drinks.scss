@@ -12,17 +12,25 @@ $column: percentage( 1 / 12 );
 
 .page__drinks {
 	width: 100%;
+
+	@include media(">=for-tablet-landscape-up") {
+		display: grid;
+		grid-template-columns: repeat(12, $column);
+	}
 }
 
 .drinks {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: flex-start;
 
-	// &.-all {
-	// 	// .drinks.-all
-	// 	gap: $gutter-xs
-	// }
+	&.-all {
+		// .drinks.-all
+		grid-column: span 12;
+		grid-row: 2 / 3;
+		// gap: $gutter-sm;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		width: 100%;
+	}
 }
 
 .drinks__intro {
@@ -38,7 +46,7 @@ $column: percentage( 1 / 12 );
 
 
 /**
- * Grid
+ * Grid items
  */
 
 .drink {
@@ -47,6 +55,7 @@ $column: percentage( 1 / 12 );
 	flex-basis: calc(50% - (#{$gutter-sm / 2}));
 	max-width: 50%;
 	position: relative;
+	display: block;
 	border-radius: 3px;
 	box-shadow: $box-shadow;
 	margin-right: $gutter-sm;
