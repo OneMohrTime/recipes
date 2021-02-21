@@ -84,7 +84,7 @@ $column: percentage( 1 / 12 );
 				@supports (-webkit-text-stroke-color: black) {
 					-webkit-text-fill-color: map-get($color, background);
 					-webkit-text-fill-color: transparent;
-					-webkit-text-stroke-color: map-get($color, purple);
+					-webkit-text-stroke-color: $gray;
 					-webkit-text-stroke-width: 1px;
 				}
 			}
