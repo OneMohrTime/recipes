@@ -3,16 +3,26 @@
 	<hr class="hr--gold" />
 
 	<ul class="breadcrumbs">
-		{# {% for crumb in site.breadcrumb %}
-			<li class="breadcrumbs__crumb{{ crumb.isActive == '1' ? ' -isActive' }}">
-				<a href="{{ crumb.url }}"{% if loop.last %} title="Click to copy URL"{% endif %}>
-					{{ crumb.title.words < 6 ? crumb.title : crumb.title|slice(0, 16) ~ '… yada yada…' }}
-				</a>
-			{% if not loop.last %}
-				&emsp;→
-			{% endif %}
-			</li>
-		{% endfor %} #}
+
+		<li class="breadcrumbs__crumb">
+			<a href="{{ siteUrl }}" aria-label="">
+				Home
+			</a>
+			&emsp;→
+		</li>
+
+		<li class="breadcrumbs__crumb">
+			<a href="{{ siteUrl }}{{ entry.type.handle }}" aria-label="{{ entry.type.name }}">
+				{{ entry.type.name }}
+			</a>
+			&emsp;→
+		</li>
+
+		<li class="breadcrumbs__crumb -isActive">
+			<a href="{{ entry.url }}" class="crumb js-crumb" title="Click to copy {{ entry.type.name }} URL">
+				{{ (entry.headline ??? entry.title)|wordLimit(6) }}
+			</a>
+		</li>
 	</ul>
 
 </nav>
