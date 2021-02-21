@@ -19,11 +19,11 @@
 	<article class="page__results">
 
 		<header class="results__intro intro">
-			<h1 class="results__headline headline">Recipes &amp; Drinks</h1>
+			<h1 class="results__headline headline">Search Results</h1>
 			{% if results %}
 				<p class="results__subheadline">Here&rsquo;s everything in {{ siteName }} relating to <strong>&ldquo;{{ searchQuery }}&rdquo;</strong></p>
 			{% else %}
-				<p class="results__subheadline">We got nothin&rsquo;.</p>
+				<p class="results__subheadline">We got nothin&rsquo;. Try <a href="javascript:;" id="homeSearchToggle">searching again</a>.</p>
 			{% endif %}
 		</header>
 
