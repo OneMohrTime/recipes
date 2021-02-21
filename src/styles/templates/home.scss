@@ -19,9 +19,10 @@ $nudge: map-get($spacer, 4);
 	width: calc( 100% - #{map-get($spacer, 2)} );
 	max-width: 475px;
 	font-size: modular-scale(4);
+	font-weight: 900;
 
 	@include media(">=for-tablet-landscape-up") {
-		max-width: 675px;
+		max-width: 625px;
 		font-size: modular-scale(6);
 	}
 }
