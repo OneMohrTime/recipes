@@ -17,7 +17,7 @@
 {% set recipeCategories = mainCategoriesQuery.all() ??? null %}
 {% set recipeTags = secondaryCategoriesQuery.all() ??? null %}
 
-<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe">
+<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe crosshair__trigger">
 	{% if recipeImage %}
 		{% spaceless %}
 			<img src="{{ recipeImage.url }}"
