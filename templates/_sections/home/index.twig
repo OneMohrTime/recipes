@@ -10,10 +10,12 @@
 {% set featureUrl              = featureUrlQuery.one().url ??? null %}
 {% set featureImageQuery       = entry.featureImage ??? null %}
 {% set featureImage            = featureImageQuery.one() ??? null %}
-{% set featureCategory         = entry.featureCategory ??? null %}
-{% set featureCategoryQuery    = craft.entries.section('recipes').limit(4) ??? null %}
-{% set featureCategory         = featureCategoryQuery.all() ??? null %}
+{# {% set featureCategory         = entry.featureCategory ??? null %} #}
+{# {% set featureCategoryQuery    = craft.entries.section('recipes').limit(4) ??? null %} #}
+{# {% set featureCategory         = featureCategoryQuery.all() ??? null %} #}
 {% set featureCategoryHeadline = entry.featureCategoryHeadline ??? 'Featured' %}
+{% set featureCategoryQuery    = craft.entries.section('recipes') ??? null %}
+{% set featureCategory         = featureCategoryQuery.all() ??? null %}
 
 {% block content %}
 	<article class="homepage__grid">
@@ -116,11 +118,38 @@
 
 		<section id="homeCategory" class="hompage__category">
 			<h3 class="category__headline headline" data-title="Latest Recipes">Latest Recipes</h3>
-			<ul class="category__list">
-				{% for recipe in featureCategory %}
-					<li><a href="{{ recipe.url }}">{{ recipe.title }}</a></li>
-				{% endfor %}
-			</ul>
+			{% if featureCategory %}
+				<ul class="category__list">
+
+					{% for recipe in featureCategory %}
+						{% set recipeImageID    = recipe.recipe.imageId[0] ??? null %}
+						{% set recipeImageQuery = craft.assets().id(recipeImageID) ??? null %}
+						{% set recipeImage      = recipeImageQuery.one() ??? null %}
+
+						<li class="recipe -small">
+							<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe__link">
+								{% if recipeImage %}
+									<img src="{{ recipeImage.url }}"
+										alt="{{ recipeImage.title }}"
+										class="recipe__thumbnail"
+										id="img-{{ recipeImage.uid }}"
+										srcset="{{ recipeImage.srcset([44, 72, 150]) }}" />
+
+								{% else %}
+									<img src="https://via.placeholder.com/500/e8e7e1/2b3b4c?text=Pretend+this+is+{{ recipe.title }}" alt="placeholder for {{ recipe.title }}" class="recipe__thumbnail" />
+
+								{% endif %}
+
+								<h2 class="recipe__title">{{ recipe.title|truncateOnWord(40) }}</h2>
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
+
+			{% else %}
+				<p class="no-recipes">There aren&rsquo;t any recipes listed on {{ siteName }} :(</p>
+
+			{% endif %}
 		</section>
 
 	</article>
