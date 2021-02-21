@@ -69,7 +69,7 @@ $nudge: map-get($spacer, 4);
 		max-width: calc( 100% - #{map-get($spacer, 2)} );
 		margin-left: auto;
 		margin-right: auto;
-		padding-bottom: map-get($spacer, 1);
+		padding-bottom: $gutter-xs;
 		transform: translateY( -#{$nudge} );
 		border-radius: 3px;
 		background-color: map-get($color, dark-gray);
@@ -90,7 +90,7 @@ $nudge: map-get($spacer, 4);
 		@supports (display: grid) {
 			@include media(">=for-tablet-landscape-up") {
 				display: grid;
-				grid-template-columns: repeat(2, calc( 50% - #{map-get($spacer, 1)} ));
+				grid-template-columns: repeat(2, calc( 50% - #{$gutter-xs} ));
 				grid-column-gap: map-get($spacer, 2);
 				padding: map-get($spacer, 2);
 			}
@@ -98,10 +98,10 @@ $nudge: map-get($spacer, 4);
 	}
 
 	.bored__headline {
-		margin-left: map-get($spacer, 1);
-		margin-right: map-get($spacer, 1);
-		padding-top: map-get($spacer, 1) / 2;
-		padding-bottom: map-get($spacer, 1) / 2;
+		margin-left: $gutter-xs;
+		margin-right: $gutter-xs;
+		padding-top: $gutter-xs / 2;
+		padding-bottom: $gutter-xs / 2;
 		border-bottom: 3px map-get($color, white) solid;
 
 		@supports (display: grid) {
@@ -110,7 +110,7 @@ $nudge: map-get($spacer, 4);
 				justify-self: center;
 				margin-left: 0;
 				margin-right: 0;
-				padding: 0 map-get($spacer, 1) /2 map-get($spacer, 1) / 2;
+				padding: 0 $gutter-xs /2 $gutter-xs / 2;
 			}
 		}
 	}
@@ -119,8 +119,8 @@ $nudge: map-get($spacer, 4);
 		position: relative;
 		display: block;
 		margin-bottom: map-get($spacer, 2);
-		padding-left: map-get($spacer, 1);
-		padding-right: map-get($spacer, 1);
+		padding-left: $gutter-xs;
+		padding-right: $gutter-xs;
 
 		@include media(">=for-tablet-landscape-up") {
 			margin-bottom: 0;
@@ -172,7 +172,7 @@ $nudge: map-get($spacer, 4);
 			// .left-link__description
 			// .right-link__description
 			position: relative;
-			margin-top: #{map-get($spacer, 1) / 2}
+			margin-top: #{$gutter-xs / 2}
 		}
 
 		&__cover {
@@ -197,7 +197,7 @@ $nudge: map-get($spacer, 4);
 		position: relative;
 		margin-bottom: $nudge;
 		padding-left: 25%;
-		padding-right: map-get($spacer, 1);
+		padding-right: $gutter-xs;
 		padding-bottom: $nudge;
 		text-align: left;
 		color: map-get($color, white);
@@ -248,7 +248,7 @@ $nudge: map-get($spacer, 4);
 	max-width: calc( 100% - #{map-get($spacer, 2)} );
 	margin-left: auto;
 	margin-right: auto;
-	padding: map-get($spacer, 1);
+	padding: $gutter-xs;
 	transform: translateY(-#{$nudge});
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
