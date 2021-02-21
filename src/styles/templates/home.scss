@@ -19,9 +19,10 @@ $nudge: map-get($spacer, 4);
 	width: calc( 100% - #{map-get($spacer, 2)} );
 	max-width: 475px;
 	font-size: modular-scale(4);
+	font-weight: 900;
 
 	@include media(">=for-tablet-landscape-up") {
-		max-width: 675px;
+		max-width: 625px;
 		font-size: modular-scale(6);
 	}
 }
@@ -68,7 +69,7 @@ $nudge: map-get($spacer, 4);
 		max-width: calc( 100% - #{map-get($spacer, 2)} );
 		margin-left: auto;
 		margin-right: auto;
-		padding-bottom: map-get($spacer, 1);
+		padding-bottom: $gutter-xs;
 		transform: translateY( -#{$nudge} );
 		border-radius: 3px;
 		background-color: map-get($color, dark-gray);
@@ -89,7 +90,7 @@ $nudge: map-get($spacer, 4);
 		@supports (display: grid) {
 			@include media(">=for-tablet-landscape-up") {
 				display: grid;
-				grid-template-columns: repeat(2, calc( 50% - #{map-get($spacer, 1)} ));
+				grid-template-columns: repeat(2, calc( 50% - #{$gutter-xs} ));
 				grid-column-gap: map-get($spacer, 2);
 				padding: map-get($spacer, 2);
 			}
@@ -97,10 +98,10 @@ $nudge: map-get($spacer, 4);
 	}
 
 	.bored__headline {
-		margin-left: map-get($spacer, 1);
-		margin-right: map-get($spacer, 1);
-		padding-top: map-get($spacer, 1) / 2;
-		padding-bottom: map-get($spacer, 1) / 2;
+		margin-left: $gutter-xs;
+		margin-right: $gutter-xs;
+		padding-top: $gutter-xs / 2;
+		padding-bottom: $gutter-xs / 2;
 		border-bottom: 3px map-get($color, white) solid;
 
 		@supports (display: grid) {
@@ -109,7 +110,7 @@ $nudge: map-get($spacer, 4);
 				justify-self: center;
 				margin-left: 0;
 				margin-right: 0;
-				padding: 0 map-get($spacer, 1) /2 map-get($spacer, 1) / 2;
+				padding: 0 $gutter-xs /2 $gutter-xs / 2;
 			}
 		}
 	}
@@ -118,8 +119,8 @@ $nudge: map-get($spacer, 4);
 		position: relative;
 		display: block;
 		margin-bottom: map-get($spacer, 2);
-		padding-left: map-get($spacer, 1);
-		padding-right: map-get($spacer, 1);
+		padding-left: $gutter-xs;
+		padding-right: $gutter-xs;
 
 		@include media(">=for-tablet-landscape-up") {
 			margin-bottom: 0;
@@ -171,7 +172,7 @@ $nudge: map-get($spacer, 4);
 			// .left-link__description
 			// .right-link__description
 			position: relative;
-			margin-top: #{map-get($spacer, 1) / 2}
+			margin-top: #{$gutter-xs / 2}
 		}
 
 		&__cover {
@@ -196,7 +197,7 @@ $nudge: map-get($spacer, 4);
 		position: relative;
 		margin-bottom: $nudge;
 		padding-left: 25%;
-		padding-right: map-get($spacer, 1);
+		padding-right: $gutter-xs;
 		padding-bottom: $nudge;
 		text-align: left;
 		color: map-get($color, white);
@@ -247,7 +248,7 @@ $nudge: map-get($spacer, 4);
 	max-width: calc( 100% - #{map-get($spacer, 2)} );
 	margin-left: auto;
 	margin-right: auto;
-	padding: map-get($spacer, 1);
+	padding: $gutter-xs;
 	transform: translateY(-#{$nudge});
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
@@ -257,9 +258,7 @@ $nudge: map-get($spacer, 4);
 	z-index: 10;
 
 	@include media(">=for-tablet-portrait-up") {
-//			height: 50vh;
 		max-width: calc( 100% - #{map-get($spacer, 8)} );
-		padding-bottom: 0;
 	}
 
 	@include media(">=for-desktop-up") {
@@ -272,25 +271,41 @@ $nudge: map-get($spacer, 4);
 		@include media(">=for-tablet-portrait-up") {
 			display: flex;
 			flex-flow: row wrap;
-			justify-content: space-between;
+			align-items: flex-start;
 		}
 
 		li {
-			display: flex;
-			justify-content: center;
-			padding: map-get($spacer, 4);
-			margin-bottom: map-get($spacer, 1);
-			background-color: map-get($color, light-gray);
+			margin-bottom: $gutter-xs;
 
 			@include media(">=for-tablet-portrait-up") {
-				flex: 0 0 calc( 50% - #{map-get($spacer, 1) / 2} );
-				max-width: calc( 50% - #{map-get($spacer, 1) / 2} );
+				flex-grow: 1;
+				flex-shrink: 0;
+				flex-basis: calc( 50% - #{$gutter-xs / 2} );
+				max-width: 50%;
+				margin-right: $gutter-xs;
 			}
 
-			@include media(">=for-tablet-portrait-up") {
-				flex: 0 0 calc( 25% - #{map-get($spacer, 1)} );
-				max-width: calc( 25% - #{map-get($spacer, 1)} );
+			@include media(">=for-tablet-portrait-up", "<for-tablet-landscape-up") {
+				&:nth-child(2n) {
+					margin-right: 0;
+				}
 			}
+
+			@include media(">=for-tablet-landscape-up") {
+				flex-basis: calc( 25% - #{$gutter-xs * 4 / 3} );
+				max-width: 25%;
+				&:nth-child(4) {
+					margin-right: 0;
+				}
+			}
+		}
+
+		.recipe {
+			display: block;
+		}
+
+		.recipe__title {
+			font-size: modular-scale(1);
 		}
 	}
 }

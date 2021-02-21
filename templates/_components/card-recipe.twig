@@ -1,0 +1,50 @@
+
+{#
+	Component: Card/Recipes
+	URI: '_components/card-recipe'
+	As seen on:
+		- 'https://recipes.onemohrti.me/'
+		- 'https://recipes.onemohrti.me/recipes'
+#}
+
+{% set recipe = recipeOverride ??? recipe ??? entry %}
+{% set recipeDescriptions = descriptions == true ? descriptions : null %}
+{% set recipeImageID = recipe.recipe ? recipe.recipe.imageId[0] : null %}
+{% set recipeImageQuery = craft.assets().id(recipeImageID) ??? null %}
+{% set recipeImage = drink.image.one() ??? recipeImageQuery.one() ??? null %}
+{% set mainCategoriesQuery = craft.categories.relatedTo(recipe).level(1) ??? null %}
+{% set secondaryCategoriesQuery = craft.categories.relatedTo(recipe).level(2) ??? null %}
+{% set recipeCategories = mainCategoriesQuery.all() ??? null %}
+{% set recipeTags = secondaryCategoriesQuery.all() ??? null %}
+
+<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe crosshair__trigger">
+	{% if recipeImage %}
+		{% spaceless %}
+			<img src="{{ recipeImage.url }}"
+				alt="placeholder for {{ recipeImage.title }}"
+				class="cover__image"
+				id="img-{{ recipeImage.uid }}"
+				srcset="{{ recipeImage.srcset([400, 800, 1200, 1600]) }}" />
+		{% endspaceless %}
+
+	{% else %}
+		<img src="https://via.placeholder.com/500/e8e7e1/2b3b4c?text=Pretend+this+is+{{ recipe.title }}" alt="placeholder for {{ recipe.title }}" class="recipe__thumbnail" />
+
+	{% endif %}
+
+	<div class="recipe__caption">
+		<h2 class="recipe__title">{{ recipe.title }}</h2>
+		{% if recipeDescriptions %}
+			<figure class="recipe__crosshair crosshair"></figure>
+			{% if recipe.description %}
+				<p class="recipe__subtitle">{{ recipe.description|wordLimit(20) }}</p>
+			{% elseif recipeTags %}
+				{% for tag in recipeTags %}
+					{{ tag.title }}{% if not loop.last %} | {% endif %}
+				{% endfor %}
+			{% else %}
+				<p class="recipe__subtitle">Check out this recipe</p>
+			{% endif %}
+		{% endif %}
+	</div>
+</a>

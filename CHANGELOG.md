@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## 1.0.1
+`2021/02/21`
+- Add breadcrumb functionality
+- Add category functionality
+- Update **Recipe** card to reusable component
+
 ## 1.0.0
 `2021/02/14`
 - First commit to `main` branch

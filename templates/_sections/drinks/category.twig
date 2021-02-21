@@ -1,0 +1,50 @@
+{% extends '_layouts/default' %}
+
+{% set urlSegmentFirst      = craft.app.request.getSegment(1) %}
+{% set urlSegmentLast       = craft.app.request.getSegment(-1) %}
+{% set recipeLists          = craft.categories.group('drinkLists') ??? null %}
+{% set categorySlug         = craft.categories.slug(urlSegmentLast) ??? null %}
+{% set categoryPage         = categorySlug.one() ??? null %}
+{% set categoryList         = craft.entries.relatedTo(categorySlug) ??? null %}
+{% set mainClass            = 'category -' ~ urlSegmentLast %}
+{% set entry                = {
+	title: categoryPage.title,
+	type: {
+		handle: 'category'
+	},
+	section: {
+		handle: 'categoryPage'
+	}
+} %}
+{% set headline             = categoryPage.headline ??? categoryPage.title %}
+{% set description          = categoryPage.description ??? null %}
+
+{% block content %}
+
+	<article class="page__drinks{% if categoryList|length < 1 %} --is-empty{% endif %}">
+
+		<header class="drinks__intro intro">
+			<h1 class="drinks__headline headline" data-title="{{ headline }}">{{ headline }}</h1>
+
+			{% if description %}
+				<div class="drinks__subheadline">{{ description }}</div>
+			{% endif %}
+		</header>
+
+		<section id="drinksAll" class="drinks -all">
+
+			{% if categoryList|length %}
+				{% for entry in categoryList %}
+					{% include '_components/card-recipe' with {
+						descriptions: false
+					} %}
+				{% endfor %}
+
+			{% else %}
+				<p class="no-{{ categoryPage.slug }}">There aren&rsquo;t any {{ categoryPage.title }} listed on {{ siteName }} :(</p>
+
+			{% endif %}
+		</section>
+
+	</article>
+{% endblock %}

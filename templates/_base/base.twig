@@ -51,7 +51,8 @@
 
 		{% include '_components/modalSection.twig' %}
 
-		{% if entry.type.handle == 'recipe' or entry.type.handle == 'drink' %}
+		{% if entry.type.handle == 'recipes'
+		   or entry.type.handle == 'drinks' %}
 			{% include '_components/breadcrumb.twig' %}
 		{% endif %}
 
