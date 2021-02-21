@@ -51,8 +51,8 @@ name: 'Drink Lists'
 siteSettings:
   038df939-32f1-4d74-a42e-9c57bdeb55b0:
     hasUrls: true
-    template: null
-    uriFormat: 'category/{slug}'
+    template: _sections/drinks/category
+    uriFormat: 'drinks/category/{slug}'
 structure:
   maxLevels: null
   uid: 703ba534-eb0a-4216-8174-547c8d2880e6
