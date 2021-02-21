@@ -122,27 +122,9 @@
 				<ul class="category__list">
 
 					{% for recipe in featureCategory %}
-						{% set recipeImageID    = recipe.recipe.imageId[0] ??? null %}
-						{% set recipeImageQuery = craft.assets().id(recipeImageID) ??? null %}
-						{% set recipeImage      = recipeImageQuery.one() ??? null %}
-
-						<li class="recipe -small">
-							<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe__link">
-								{% if recipeImage %}
-									<img src="{{ recipeImage.url }}"
-										alt="{{ recipeImage.title }}"
-										class="recipe__thumbnail"
-										id="img-{{ recipeImage.uid }}"
-										srcset="{{ recipeImage.srcset([44, 72, 150]) }}" />
-
-								{% else %}
-									<img src="https://via.placeholder.com/500/e8e7e1/2b3b4c?text=Pretend+this+is+{{ recipe.title }}" alt="placeholder for {{ recipe.title }}" class="recipe__thumbnail" />
-
-								{% endif %}
-
-								<h2 class="recipe__title">{{ recipe.title|truncateOnWord(40) }}</h2>
-							</a>
-						</li>
+						{% include '_components/card-recipe' with {
+							descriptions: false
+						} %}
 					{% endfor %}
 				</ul>
 
