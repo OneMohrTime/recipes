@@ -26,7 +26,7 @@
 			<div class="homepage__subheadline">
 				{{ description }}
 			</div>
-			<a href="javascript:void(0)" id="homeSearchToggle" class="homepage__button button">
+			<a href="javascript:;" id="homeSearchToggle" class="homepage__button button">
 				<span data-title="Seach Food &amp; Drinks">Seach Food &amp; Drinks</span>
 			</a>
 		</header>
@@ -118,13 +118,17 @@
 
 		<section id="homeCategory" class="hompage__category">
 			<h3 class="category__headline headline" data-title="Latest Recipes">Latest Recipes</h3>
+
 			{% if featureCategory %}
 				<ul class="category__list">
-
 					{% for recipe in featureCategory %}
-						{% include '_components/card-recipe' with {
-							descriptions: false
-						} %}
+
+						<li class="category__listItem">
+							{% include '_components/card-recipe' with {
+								descriptions: false
+							} %}
+						</li>
+
 					{% endfor %}
 				</ul>
 

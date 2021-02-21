@@ -258,9 +258,7 @@ $nudge: map-get($spacer, 4);
 	z-index: 10;
 
 	@include media(">=for-tablet-portrait-up") {
-//			height: 50vh;
 		max-width: calc( 100% - #{map-get($spacer, 8)} );
-		padding-bottom: 0;
 	}
 
 	@include media(">=for-desktop-up") {
@@ -273,25 +271,41 @@ $nudge: map-get($spacer, 4);
 		@include media(">=for-tablet-portrait-up") {
 			display: flex;
 			flex-flow: row wrap;
-			justify-content: space-between;
+			align-items: flex-start;
 		}
 
 		li {
-			display: flex;
-			justify-content: center;
-			padding: map-get($spacer, 4);
-			margin-bottom: map-get($spacer, 1);
-			background-color: map-get($color, light-gray);
+			margin-bottom: $gutter-xs;
 
 			@include media(">=for-tablet-portrait-up") {
-				flex: 0 0 calc( 50% - #{map-get($spacer, 1) / 2} );
-				max-width: calc( 50% - #{map-get($spacer, 1) / 2} );
+				flex-grow: 1;
+				flex-shrink: 0;
+				flex-basis: calc( 50% - #{$gutter-xs / 2} );
+				max-width: 50%;
+				margin-right: $gutter-xs;
 			}
 
-			@include media(">=for-tablet-portrait-up") {
-				flex: 0 0 calc( 25% - #{map-get($spacer, 1)} );
-				max-width: calc( 25% - #{map-get($spacer, 1)} );
+			@include media(">=for-tablet-portrait-up", "<for-tablet-landscape-up") {
+				&:nth-child(2n) {
+					margin-right: 0;
+				}
 			}
+
+			@include media(">=for-tablet-landscape-up") {
+				flex-basis: calc( 25% - #{$gutter-xs * 4 / 3} );
+				max-width: 25%;
+				&:nth-child(4) {
+					margin-right: 0;
+				}
+			}
+		}
+
+		.recipe {
+			display: block;
+		}
+
+		.recipe__title {
+			font-size: modular-scale(1);
 		}
 	}
 }
