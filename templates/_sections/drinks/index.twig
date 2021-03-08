@@ -7,32 +7,38 @@
 {% set description = entry.description ??? null %}
 
 {% block content %}
-	<article class="page__drinks{% if drinks|length < 1 %} --is-empty{% endif %}">
+	<article class="page__drinks{% if drinks|length < 1 %} -isEmpty{% endif %}">
 
-	<header class="drinks__intro intro">
-		<h1 class="drinks__headline headline" data-title="{{ headline }}">{{ headline }}</h1>
+		<header class="drinks__intro intro"
+				data-scroll
+				data-scroll-class="-inViewport">
+			<h1 class="drinks__headline headline" data-title="{{ headline }}">{{ headline }}</h1>
 
-		{% if description %}
-			<div class="drinks__subheadline">{{ description }}</div>
-		{% endif %}
-	</header>
+			{% if description %}
+				<div class="drinks__subheadline">{{ description }}</div>
+			{% endif %}
+		</header>
 
-	<section id="drinksAll" class="drinks -all">
+		<section class="drinks -all"
+				 id="drinksAll"
+				 data-scroll
+				 data-scroll-class="-inViewport">
 
-		{% if drinks %}
-			{% for drink in drinks %}
-				{% include '_components/card-recipe' with {
-					recipeOverride: drink,
-					descriptions: true
-				} %}
-			{% endfor %}
+			{% if drinks %}
+				{% for drink in drinks %}
+					{% include '_components/card-recipe' with {
+						recipeOverride: drink,
+						descriptions: true
+					} %}
+				{% endfor %}
 
-		{% else %}
-			<p class="no-drinks">There aren&rsquo;t any drinks listed on {{ siteName }} :(</p>
+			{% else %}
+				<p class="no-drinks">There aren&rsquo;t any drinks listed on {{ siteName }} :(</p>
 
-		{% endif %}
+			{% endif %}
 
-	</section>
+		</section>
+	</article>
 {% endblock %}
 
 {% block modal %}

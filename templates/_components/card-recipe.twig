@@ -17,18 +17,24 @@
 {% set recipeCategories = mainCategoriesQuery.all() ??? null %}
 {% set recipeTags = secondaryCategoriesQuery.all() ??? null %}
 
-<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe crosshair__trigger">
+{% spaceless %}
+<a href="{{ recipe.url }}"
+   id="{{ recipe.uid }}"
+   class="recipe crosshair__trigger"
+   data-scroll
+   data-scroll-class="-inViewport">
+
 	{% if recipeImage %}
-		{% spaceless %}
-			<img src="{{ recipeImage.url }}"
-				alt="placeholder for {{ recipeImage.title }}"
-				class="cover__image"
-				id="img-{{ recipeImage.uid }}"
-				srcset="{{ recipeImage.srcset([400, 800, 1200, 1600]) }}" />
-		{% endspaceless %}
+		<img src="{{ recipeImage.url }}"
+			 alt="placeholder for {{ recipeImage.title }}"
+			 class="cover__image"
+			 id="img-{{ recipeImage.uid }}"
+			 srcset="{{ recipeImage.srcset([400, 800, 1200, 1600]) }}" />
 
 	{% else %}
-		<img src="https://via.placeholder.com/500/e8e7e1/2b3b4c?text=Pretend+this+is+{{ recipe.title }}" alt="placeholder for {{ recipe.title }}" class="recipe__thumbnail" />
+		<img src="https://via.placeholder.com/500/e8e7e1/2b3b4c?text=Pretend+this+is+{{ recipe.title }}"
+			 alt="placeholder for {{ recipe.title }}"
+			 class="recipe__thumbnail" />
 
 	{% endif %}
 
@@ -48,3 +54,4 @@
 		{% endif %}
 	</div>
 </a>
+{% endspaceless %}

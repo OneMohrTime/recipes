@@ -1,4 +1,4 @@
-dateModified: 1613931666
+dateModified: 1615165415
 email:
   fromEmail: derekmohrdesign@gmail.com
   fromName: Recipes
@@ -12,10 +12,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
-  entry-instructions:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
   expanded-singles:
     edition: standard
     enabled: true
@@ -23,10 +19,6 @@ plugins:
     settings:
       expandSingles: '1'
       redirectToEntry: '1'
-  feed-me:
-    edition: standard
-    enabled: true
-    schemaVersion: 4.3.0
   kint:
     edition: standard
     enabled: true
@@ -52,6 +44,12 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.3.0
+  sidebar-themes:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      theme: autumn
   sprout-seo:
     edition: lite
     enabled: true

@@ -10,9 +10,6 @@
 {% set featureUrl              = featureUrlQuery.one().url ??? null %}
 {% set featureImageQuery       = entry.featureImage ??? null %}
 {% set featureImage            = featureImageQuery.one() ??? null %}
-{# {% set featureCategory         = entry.featureCategory ??? null %} #}
-{# {% set featureCategoryQuery    = craft.entries.section('recipes').limit(4) ??? null %} #}
-{# {% set featureCategory         = featureCategoryQuery.all() ??? null %} #}
 {% set featureCategoryHeadline = entry.featureCategoryHeadline ??? 'Featured' %}
 {% set featureCategoryQuery    = craft.entries.section('recipes') ??? null %}
 {% set featureCategory         = featureCategoryQuery.all() ??? null %}
@@ -20,9 +17,11 @@
 {% block content %}
 	<article class="homepage__grid">
 
-		<header class="homepage__intro intro">
-			<h1 class="--hide-visually">{{ siteName }}</h1>
-			<h2 class="homepage__headline headline" data-title="{{ headline }}">{{ headline }}</h2>
+		<header class="homepage__intro intro"
+				data-scroll
+				data-scroll-class="-inViewport"
+				data-scroll-speed="-3">
+			<h1 class="homepage__headline headline" data-title="{{ headline }}">{{ headline }}</h1>
 			<div class="homepage__subheadline">
 				{{ description }}
 			</div>
@@ -31,7 +30,9 @@
 			</a>
 		</header>
 
-		<section class="homepage__promos">
+		<section class="homepage__promos"
+				 data-scroll
+				 data-scroll-class="-inViewport">
 			<aside id="homeBored" class="bored">
 				<h2 class="bored__headline headline">{{ subheadline|typogrify(true) }}</h2>
 
@@ -88,7 +89,10 @@
 			</aside>
 
 			{% if featureHeadline or featureDescription %}
-				<aside id="homeFeature" class="feature">
+				<aside id="homeFeature"
+					   class="feature"
+					   data-scroll
+					   data-scroll-class="-inViewport">
 					<h3 class="feature__headline">
 						{{ featureHeadline|typogrify(true) }}
 					</h3>
@@ -116,26 +120,31 @@
 			{% endif %}
 		</section>
 
-		<section id="homeCategory" class="hompage__category">
-			<h3 class="category__headline headline" data-title="Latest Recipes">Latest Recipes</h3>
+		<section id="homeCategory"
+				 data-scroll
+				 data-scroll-class="-inViewport"
+				 data-scroll-speed="-1">
+			<div class="hompage__category">
+				<h3 class="category__headline headline" data-title="Latest Recipes">Latest Recipes</h3>
 
-			{% if featureCategory %}
-				<ul class="category__list">
-					{% for recipe in featureCategory %}
+				{% if featureCategory %}
+					<ul class="category__list">
+						{% for recipe in featureCategory %}
 
-						<li class="category__listItem">
-							{% include '_components/card-recipe' with {
-								descriptions: false
-							} %}
-						</li>
+							<li class="category__listItem">
+								{% include '_components/card-recipe' with {
+									descriptions: false
+								} %}
+							</li>
 
-					{% endfor %}
-				</ul>
+						{% endfor %}
+					</ul>
 
-			{% else %}
-				<p class="no-recipes">There aren&rsquo;t any recipes listed on {{ siteName }} :(</p>
+				{% else %}
+					<p class="no-recipes">There aren&rsquo;t any recipes listed on {{ siteName }} :(</p>
 
-			{% endif %}
+				{% endif %}
+			</div>
 		</section>
 
 	</article>

@@ -1,24 +1,24 @@
-<nav class="page__breadcrumb">
+<nav class="page__breadcrumb" data-scroll-section>
 
 	<hr class="hr--gold" />
 
 	<ul class="breadcrumbs">
 
-		<li class="breadcrumbs__crumb">
+		<li class="breadcrumbs__crumb" data-scroll data-scroll-class="-inViewport">
 			<a href="{{ siteUrl }}" aria-label="">
 				Home
 			</a>
 			&emsp;→
 		</li>
 
-		<li class="breadcrumbs__crumb">
+		<li class="breadcrumbs__crumb" data-scroll data-scroll-class="-inViewport">
 			<a href="{{ siteUrl }}{{ entry.type.handle }}" aria-label="{{ entry.type.name }}">
 				{{ entry.type.name }}
 			</a>
 			&emsp;→
 		</li>
 
-		<li class="breadcrumbs__crumb -isActive">
+		<li class="breadcrumbs__crumb -isActive" data-scroll data-scroll-class="-inViewport">
 			<a href="{{ entry.url }}" class="crumb js-crumb" title="Click to copy {{ entry.type.name }} URL">
 				{{ (entry.headline ??? entry.title)|wordLimit(6) }}
 			</a>

@@ -12,18 +12,23 @@
 {% set categories           = categoriesQuery.all() ??? null %}
 
 {% block content %}
-	<article class="page__recipes{% if recipes|length < 1 %} --is-empty{% endif %}">
+	<article class="page__recipes{% if recipes|length < 1 %} -isEmpty{% endif %}">
 
-		<header class="recipes__intro intro">
-			<h1 class="recipes__headline headline" data-title="{{ headline }}">{{ headline }}</h1>
+		<header class="recipes__intro intro"
+				data-scroll
+				data-scroll-class="-inViewport">
+			<h1 class="recipes__headline headline" data-title="{{ headline }}" data-scroll>{{ headline }}</h1>
 
 			{% if description %}
-				<div class="recipes__subheadline">{{ description|typogrify }}</div>
+				<div class="recipes__subheadline" data-scroll>{{ description|typogrify }}</div>
 			{% endif %}
 		</header>
 
-		<section id="recipesFeatured" class="recipes -featured">
-			<h2 class="recipes__subtitle" data-subtitle="Featured" aria-label="Featured">Featured</h2>
+		<section class="recipes -featured"
+				 id="recipesFeatured"
+				 data-scroll
+				 data-scroll-class="-inViewport">
+			<h2 class="recipes__subtitle" data-subtitle="Featured" aria-label="Featured" data-scroll>Featured</h2>
 
 			{% if featuredRecipes %}
 
@@ -41,12 +46,18 @@
 		</section>
 
 		{% if featureDescription %}
-			<section class="recipes -blurb reading">
+			<section class="recipes -blurb reading"
+					 data-scroll
+					 data-scroll-class="-inViewport"
+					 data-scroll-speed="1">
 				{{ featureDescription|typogrify }}
 			</section>
 		{% endif %}
 
-		<section id="recipesNewest" class="recipes -newest">
+		<section id="recipesNewest"
+				 class="recipes -newest"
+				 data-scroll
+				 data-scroll-class="-inViewport">
 			<h2 class="recipes__subtitle">Newly added:</h2>
 
 			{% if recipes %}
@@ -56,7 +67,12 @@
 					{% set recipeImageQuery = craft.assets().id(recipeImageID) ??? null %}
 					{% set recipeImage      = recipeImageQuery.one() ??? null %}
 
-					<a href="{{ recipe.url }}" id="{{ recipe.uid }}" class="recipe -small">
+					<a href="{{ recipe.url }}"
+					   id="{{ recipe.uid }}"
+					   class="recipe -small"
+					   data-scroll
+					   data-scroll-class="-inViewport">
+
 						{% if recipeImage %}
 							<img src="{{ recipeImage.url }}"
 								alt="placeholder for {{ recipeImage.title }}"
