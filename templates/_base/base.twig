@@ -30,11 +30,11 @@
 </head>
 
 <body>
-	<div class="page{{ pageClass ??? null }}">
+	<div class="page{{ pageClass ??? null }}" data-scroll-container>
 
 		{% include '_components/skipToContent.twig' %}
 
-		<header id="mainNav" class="nav page__header">
+		<header id="mainNav" class="nav page__header" data-scroll-section>
 			<a class="nav__logo menu__item" href="{{ siteUrl }}" aria-label="Home"><span data-title="Home">{{ siteName }}</span></a>
 
 			{# When activated, search appears over nav #}
@@ -44,7 +44,7 @@
 			{% include '_components/navigation.twig' %}
 		</header>
 
-		<main id="mainContent" class="page__body{% if mainClass is defined and mainClass is not null %} {{ mainClass }}{% endif %}">
+		<main id="mainContent" class="page__body{% if mainClass is defined and mainClass is not null %} {{ mainClass }}{% endif %}" data-scroll-section>
 			{% block content %}
 			{% endblock %}
 		</main>
@@ -56,12 +56,14 @@
 			{% include '_components/breadcrumb.twig' %}
 		{% endif %}
 
-		<footer id="footer" class="page__footer">
+		<footer id="footer" class="page__footer" data-scroll-section>
 			{% include '_components/footer.twig' %}
 		</footer>
 	</div>
 
 	{# Load es6 app.js #}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.6.0/polyfill.min.js" nomodule crossorigin="anonymous"></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=Object.assign%2CElement.prototype.append%2CNodeList.prototype.forEach%2CCustomEvent%2Csmoothscroll" nomodule crossorigin="anonymous"></script>
 	<script src="{{ mix('scripts/main.js') }}"></script>
 	{# Load necessary script libraries per page #}
 	{% block scripts %}

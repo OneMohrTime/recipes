@@ -23,7 +23,9 @@
 
 	<article class="page__recipes{% if categoryList|length < 1 %} -isEmpty{% endif %}">
 
-		<header class="recipes__intro intro">
+		<header class="recipes__intro intro"
+				data-scroll
+				data-scroll-class="-inViewport">
 			<h1 class="recipes__headline headline" data-title="{{ headline }}">{{ headline }}</h1>
 
 			{% if description %}
@@ -31,7 +33,10 @@
 			{% endif %}
 		</header>
 
-		<section id="recipesAll" class="recipes -all">
+		<section class="recipes -all"
+				 id="recipesAll"
+				 data-scroll
+				 data-scroll-class="-inViewport">
 
 			{% if categoryList|length %}
 				{% for entry in categoryList %}
