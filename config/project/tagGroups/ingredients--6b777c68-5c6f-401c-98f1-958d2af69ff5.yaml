@@ -1,0 +1,27 @@
+fieldLayouts:
+  d6f15f72-d43b-4886-beb8-590a03837b71:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 3aad9f4e-592d-4db7-bbc1-5356711d09c1
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ae504b0b-038f-42ab-a573-60e4afbcc940
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: ingredients
+name: Ingredients
