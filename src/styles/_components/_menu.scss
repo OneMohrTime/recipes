@@ -4,20 +4,15 @@
 
 .menu {
 	display: block;
-	float: right;
-	padding-right: map-get($spacer, 1) / 2;
-
-	@supports(display: flex) {
-		padding-right: 0;
-
-		@include media(">=for-desktop-up") {
-			// visuall align from button padding
-			transform: translateX(#{map-get($spacer, 1) / 2});
-		}
-	}
+	padding-right: 0;
 
 	&.-isHidden {
 		display: none;
+	}
+
+	@include media(">=for-desktop-up") {
+		// visually align from button padding
+		transform: translateX(#{$gutter-xs / 2});
 	}
 }
 
@@ -25,6 +20,6 @@
 	@include nav-link();
 
 	&[aria-current] {
-		background-color: map-get($color, light-gray);
+		background-color: $light-gray;
 	}
 }

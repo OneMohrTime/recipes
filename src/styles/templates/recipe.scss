@@ -119,6 +119,11 @@ $column: percentage( 1 / 12 );
 		transform: translateY(#{map-get($spacer, 2)});
 		z-index: 2;
 	}
+
+	// when locomotivescroll hits
+	@include media(">=locomotive-scroll-init") {
+		margin-top: 100px;
+	}
 }
 
 .ingredients {

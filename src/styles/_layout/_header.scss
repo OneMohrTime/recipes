@@ -15,8 +15,6 @@
 	z-index: 50;
 
 	@include media(">=for-desktop-up") {
-		// padding-left: calc( 50% - (var(--content-width) / 2) );
-		// padding-right: calc( 50% - (var(--content-width) / 2) );
 		max-width: calc( var(--content-width) + #{map-get($spacer, 2)} );
 	}
 }
