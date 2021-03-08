@@ -17,7 +17,7 @@
 		}
 	}
 
-	&.--is-active {
+	&.-isActive {
 		position: relative;
 		visibility: visible;
 
@@ -104,7 +104,7 @@
 		box-shadow: $box-shadow;
 		color: map-get($color, white);
 
-		.--is-searching & {
+		.-isSearching & {
 			opacity: 1;
 		}
 	}
@@ -126,11 +126,6 @@
 		max-width: 25%;
 		width: auto;
 
-		// @include media(">=for-tablet-portrait-up") {
-		// 	flex: 1 1 15%;
-		// 	max-width: 15%;
-		// }
-
 		@include media(">=for-tablet-landscape-up") {
 			flex: 1 1 10%;
 			max-width: 10%;
@@ -144,7 +139,7 @@
 	}
 
 	@include media(">=for-desktop-up") {
-		.--is-searching & {
+		.-isSearching & {
 			margin-top: map-get($spacer, 1);
 			margin-bottom: map-get($spacer, 1);
 		}

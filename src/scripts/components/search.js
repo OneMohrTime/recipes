@@ -15,16 +15,16 @@ export default function search() {
         menu         = document.getElementById('menu');
 
   searchToggle.addEventListener('click', function (e) {
-    mainNav.classList.add('--is-searching');
-    menu.classList.add('--is-hidden');
-    seachForm.classList.add('--is-active');
+    mainNav.classList.add('-isSearching');
+    menu.classList.add('-isHidden');
+    seachForm.classList.add('-isActive');
     search.focus();
   });
 
   searchClose.addEventListener('click', function (e) {
-    mainNav.classList.remove('--is-searching');
-    menu.classList.remove('--is-hidden');
-    seachForm.classList.remove('--is-active');
+    mainNav.classList.remove('-isSearching');
+    menu.classList.remove('-isHidden');
+    seachForm.classList.remove('-isActive');
   })
 
 
@@ -36,15 +36,15 @@ export default function search() {
 
   if ( homeSearchToggle ) {
     homeSearchToggle.addEventListener('click', function (e) {
-      mainNav.classList.add('--is-searching');
-      menu.classList.add('--is-hidden');
-      seachForm.classList.add('--is-active');
+      mainNav.classList.add('-isSearching');
+      menu.classList.add('-isHidden');
+      seachForm.classList.add('-isActive');
       search.focus();
     });
     searchClose.addEventListener('click', function (e) {
-      mainNav.classList.remove('--is-searching');
-      menu.classList.remove('--is-hidden');
-      seachForm.classList.remove('--is-active');
+      mainNav.classList.remove('-isSearching');
+      menu.classList.remove('-isHidden');
+      seachForm.classList.remove('-isActive');
     })
   }
 }

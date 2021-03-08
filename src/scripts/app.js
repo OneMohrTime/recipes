@@ -3,6 +3,7 @@
 ---------------------------------------- */
 
 // import breadcrumb from './components/breadcrumb';
+import scroll from './components/scroll';
 import search from './components/search';
 
 /* ----------------------------------------
@@ -10,4 +11,5 @@ import search from './components/search';
 ---------------------------------------- */
 
 // breadcrumb();
+scroll();
 search();

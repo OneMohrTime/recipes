@@ -32,17 +32,4 @@ export default function breadcrumb() {
       copyURI(e.target);
     })
   } );
-
-  // searchToggle.addEventListener('click', function (e) {
-  //   mainNav.classList.add('--is-searching');
-  //   menu.classList.add('--is-hidden');
-  //   seachForm.classList.add('--is-active');
-  //   search.focus();
-  // });
-
-  // searchClose.addEventListener('click', function (e) {
-  //   mainNav.classList.remove('--is-searching');
-  //   menu.classList.remove('--is-hidden');
-  //   seachForm.classList.remove('--is-active');
-  // })
 }

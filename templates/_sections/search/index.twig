@@ -18,7 +18,9 @@
 {% block content %}
 	<article class="page__results">
 
-		<header class="results__intro intro">
+		<header class="results__intro intro"
+				data-scroll
+				data-scroll-class="-inViewport">
 			<h1 class="results__headline headline">Search Results</h1>
 			{% if results %}
 				<p class="results__subheadline">Here&rsquo;s everything in {{ siteName }} relating to <strong>&ldquo;{{ searchQuery }}&rdquo;</strong></p>
@@ -40,7 +42,10 @@
 						{% set name        = result.recipe.name ??? result.title %}
 						{% set description = result.description ??? '<em>Apparently this isn&rsquo;t good enough to describe :(</em>' %}
 
-						<li class="results__result">
+						<li class="results__result"
+							data-scroll
+							data-scroll-class="-inViewport">
+
 							<a href="{{ link }}" class="result">
 
 								{# conditional cover image #}

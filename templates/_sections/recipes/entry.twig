@@ -20,7 +20,11 @@
 {% block content %}
 	<article class="recipe__grid">
 
-		<header class="recipe__intro intro">
+		<header class="recipe__intro intro"
+				data-scroll
+				data-scroll-class="-inViewport"
+				data-scroll-direction="horizontal"
+				data-scroll-speed="-7">
 			<h1 class="recipe__headline headline" data-title="{{ headline }}">{{ headline }}</h1>
 			{% if description %}
 				<div class="recipe__subheadline">
@@ -29,15 +33,25 @@
 				</div>
 			{% endif %}
 		</header>
-		<figure class="recipe__cover">
+
+		<figure class="recipe__cover"
+				data-scroll
+				data-scroll-class="-inViewport"
+				data-scroll-speed="1">
 			{% if image %}
 				<img src="{{ image.url }}"
 					 alt="{{ image.alt ??? image.title }}"
 					 class="cover__image"
 					 id="i-{{ image.uid }}"
-					 srcset="" />
+					 srcset=""
+					 data-scroll />
+				<figcaption class="cover__caption">
+					{{ title|typogrify }}
+				</figcaption>
 			{% else %}
-				<img src="https://via.placeholder.com/960x450/e8e7e1/2b3b4c?text=Pretend+this+is+{{ title }}" alt="placeholder for {{ title }}" class="cover__image" />
+				<img src="https://via.placeholder.com/960x450/e8e7e1/2b3b4c?text=Pretend+this+is+{{ title }}"
+					 alt="placeholder for {{ title }}"
+					 class="cover__image" />
 				<figcaption class="cover__caption">
 					{{ title|typogrify }}
 				</figcaption>
@@ -58,19 +72,29 @@
 			</section>
 		{% endif %} #}
 
-		<section class="recipe__ingredients">
+		<section class="recipe__ingredients"
+				 data-scroll
+				 data-scroll-class="-inViewport"
+				 data-scroll-speed="-2">
 			<div id="ingredients" class="ingredients" tabindex="0">
 				<h2 class="ingredients__title">Ingredients</h2>
 				{% include '_components/ingredients' %}
 			</div>
 		</section>
 
-		<section id="directions" class="recipe__directions">
+		<section class="recipe__directions"
+				 id="directions"
+				 data-scroll
+				 data-scroll-class="-inViewport"
+				 data-scroll-speed="1">
 			<h2 class="directions__title">Directions</h2>
 			{% include '_components/directions' %}
 		</section>
 
-		<section class="recipe__tags">
+		<section class="recipe__tags"
+				 data-scroll
+				 data-scroll-class="-inViewport"
+				 data-scroll-speed="1">
 			<h3 class="tags__title">Categories, tags, <i>etc.</i></h3>
 			{% include '_components/tags' %}
 		</section>
