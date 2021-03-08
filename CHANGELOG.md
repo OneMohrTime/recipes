@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## 1.1.0
+`2021/03/07`
+- Add **LocomotiveScroll.js** w/corresponding styles to all index, entry pages
+- Clean up a few old var references
+
 ## 1.0.1
 `2021/02/21`
 - Add breadcrumb functionality
