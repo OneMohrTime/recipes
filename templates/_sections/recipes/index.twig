@@ -12,7 +12,7 @@
 {% set categories           = categoriesQuery.all() ??? null %}
 
 {% block content %}
-	<article class="page__recipes{% if recipes|length < 1 %} --is-empty{% endif %}">
+	<article class="page__recipes{% if recipes|length < 1 %} -isEmpty{% endif %}">
 
 		<header class="recipes__intro intro">
 			<h1 class="recipes__headline headline" data-title="{{ headline }}">{{ headline }}</h1>

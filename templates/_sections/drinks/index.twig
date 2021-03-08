@@ -7,7 +7,7 @@
 {% set description = entry.description ??? null %}
 
 {% block content %}
-	<article class="page__drinks{% if drinks|length < 1 %} --is-empty{% endif %}">
+	<article class="page__drinks{% if drinks|length < 1 %} -isEmpty{% endif %}" data-scroll-section>
 
 	<header class="drinks__intro intro">
 		<h1 class="drinks__headline headline" data-title="{{ headline }}">{{ headline }}</h1>
