@@ -19,7 +19,7 @@
 		</li>
 
 		<li class="breadcrumbs__crumb -isActive" data-scroll data-scroll-class="-inViewport">
-			<a href="{{ entry.url }}" class="crumb js-crumb" title="Click to copy {{ entry.type.name }} URL">
+			<a href="{{ entry.url }}" class="crumb js-crumb" title="Click to copy {{ entry.type.name }} URL" data-clipboard-text="{{ entry.url }}">
 				{{ (entry.headline ??? entry.title)|wordLimit(6) }}
 			</a>
 		</li>
