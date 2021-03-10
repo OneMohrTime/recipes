@@ -153,7 +153,7 @@ $column: percentage( 1 / 12 );
 		}
 
 		&:focus {
-			transform: translatex( #{$gutter-sm} );
+			transform: translatex(#{$gutter-sm}) scale(1.2);
 			outline-color: transparent;
 			box-shadow: 1px 2px 5px 0 fade-out( map-get($color, black), 0.66 );
 
