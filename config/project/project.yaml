@@ -44,12 +44,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.3.0
-  sidebar-themes:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.0.0
-    settings:
-      theme: autumn
   sprout-seo:
     edition: lite
     enabled: true
