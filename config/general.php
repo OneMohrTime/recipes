@@ -76,7 +76,7 @@ return [
 	// Production environment settings
 	'production' => [
 		// Set this to `false` to prevent administrative changes from being made on Production
-		'allowAdminChanges' => false,
+		'allowAdminChanges' => true,
 		// Don’t allow updates on Production
 		'allowUpdates' => false,
 	],

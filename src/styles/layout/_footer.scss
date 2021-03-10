@@ -42,6 +42,7 @@
 }
 
 .footer {
+	width: 100%;
 
 	@include media(">=for-tablet-portrait-up") {
 		display: grid;

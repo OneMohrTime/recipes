@@ -38,9 +38,12 @@
 
 		@include media(">=for-desktop-up") {
 			width: var(--content-width);
+			width: 100%;
 			margin-bottom: $gutter-lg;
 			padding-left: 0;
+			padding-left: calc(50% - var(--content-width) / 2);
 			padding-right: 0;
+			padding-right: calc(50% - var(--content-width) / 2);
 		}
 	}
 }

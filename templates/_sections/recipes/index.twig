@@ -71,7 +71,9 @@
 					   id="{{ recipe.uid }}"
 					   class="recipe -small"
 					   data-scroll
-					   data-scroll-class="-inViewport">
+					   data-scroll-class="-inViewport"
+					   data-scroll-offset="{{ loop.index }}"
+					   data-scroll-speed="-{{ loop.index / 2 }}">
 
 						{% if recipeImage %}
 							<img src="{{ recipeImage.url }}"

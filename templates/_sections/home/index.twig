@@ -33,7 +33,13 @@
 		<section class="homepage__promos"
 				 data-scroll
 				 data-scroll-class="-inViewport">
-			<aside id="homeBored" class="bored">
+
+			<aside id="homeBored"
+				   class="bored"
+				   data-scroll
+				   data-scroll-class="-inViewport"
+				   data-scroll-speed="-1">
+
 				<h2 class="bored__headline headline">{{ subheadline|typogrify(true) }}</h2>
 
 				{% set leftQuery       = entry.linkToRecipes ??? null %}

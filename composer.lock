@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9efa84b139016fd0ba549ca481f077bb",
+    "content-hash": "bb77408adf333f3cd13ff84f712cc0a0",
     "packages": [
         {
             "name": "barrelstrength/sprout-base",
@@ -2097,6 +2097,63 @@
             ],
             "description": "Provides functionality for http_build_url() to environments without pecl_http.",
             "time": "2017-05-01T15:36:40+00:00"
+        },
+        {
+            "name": "jalendport/craft-fetch",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jalendport/craft-fetch.git",
+                "reference": "bfb7fb7f24e82e9f9818f394aa4316c8edd13766"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jalendport/craft-fetch/zipball/bfb7fb7f24e82e9f9818f394aa4316c8edd13766",
+                "reference": "bfb7fb7f24e82e9f9818f394aa4316c8edd13766",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^3.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Fetch",
+                "handle": "fetch",
+                "schemaVersion": "1.0.0",
+                "hasCpSettings": false,
+                "hasCpSection": false,
+                "changelogUrl": "https://raw.githubusercontent.com/jalendport/craft-fetch/v1/CHANGELOG.md",
+                "class": "jalendport\\fetch\\Fetch"
+            },
+            "autoload": {
+                "psr-4": {
+                    "jalendport\\fetch\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jalen Davenport",
+                    "homepage": "https://jalendport.com"
+                },
+                {
+                    "name": "Luke Youell",
+                    "homepage": "https://github.com/lukeyouell"
+                }
+            ],
+            "description": "Utilise the Guzzle HTTP client from within your Craft templates.",
+            "keywords": [
+                "Craft",
+                "Guzzle",
+                "cms",
+                "craft-plugin",
+                "craftcms",
+                "fetch"
+            ],
+            "time": "2019-11-16T18:27:34+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -4584,51 +4641,6 @@
             "time": "2019-03-08T08:49:03+00:00"
         },
         {
-            "name": "sabberworm/php-css-parser",
-            "version": "8.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sabberworm/PHP-CSS-Parser.git",
-                "reference": "d217848e1396ef962fb1997cf3e2421acba7f796"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sabberworm/PHP-CSS-Parser/zipball/d217848e1396ef962fb1997cf3e2421acba7f796",
-                "reference": "d217848e1396ef962fb1997cf3e2421acba7f796",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "codacy/coverage": "^1.4",
-                "phpunit/phpunit": "~4.8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Sabberworm\\CSS": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Raphael Schweikert"
-                }
-            ],
-            "description": "Parser for CSS Files written in PHP",
-            "homepage": "http://www.sabberworm.com/blog/2010/6/10/php-css-parser",
-            "keywords": [
-                "css",
-                "parser",
-                "stylesheet"
-            ],
-            "time": "2020-06-01T09:10:00+00:00"
-        },
-        {
             "name": "sebastian/diff",
             "version": "2.0.1",
             "source": {
@@ -4868,60 +4880,6 @@
                 "parser"
             ],
             "time": "2016-11-22T22:57:47+00:00"
-        },
-        {
-            "name": "superbig/craft-entry-instructions",
-            "version": "1.0.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sjelfull/craft-entry-instructions.git",
-                "reference": "37991daa02f041f3f23d25a177fe26eab2aad5ef"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sjelfull/craft-entry-instructions/zipball/37991daa02f041f3f23d25a177fe26eab2aad5ef",
-                "reference": "37991daa02f041f3f23d25a177fe26eab2aad5ef",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^3.0.0-RC1",
-                "sabberworm/php-css-parser": "^8.2.0|^8.1.0"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "name": "Entry Instructions",
-                "handle": "entry-instructions",
-                "schemaVersion": "1.0.0",
-                "hasCpSettings": false,
-                "hasCpSection": false,
-                "changelogUrl": "https://raw.githubusercontent.com/sjelfull/craft-entry-instructions/master/CHANGELOG.md",
-                "class": "superbig\\entryinstructions\\EntryInstructions"
-            },
-            "autoload": {
-                "psr-4": {
-                    "superbig\\entryinstructions\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Superbig",
-                    "homepage": "https://superbig.co"
-                }
-            ],
-            "description": "A simple fieldtype to add instructions",
-            "keywords": [
-                "Craft",
-                "cms",
-                "craft-plugin",
-                "craftcms",
-                "entry instructions",
-                "fieldtype"
-            ],
-            "time": "2020-01-17T08:42:50+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -7586,6 +7544,51 @@
             "time": "2020-05-03T19:32:03+00:00"
         },
         {
+            "name": "sabberworm/php-css-parser",
+            "version": "8.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sabberworm/PHP-CSS-Parser.git",
+                "reference": "d217848e1396ef962fb1997cf3e2421acba7f796"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sabberworm/PHP-CSS-Parser/zipball/d217848e1396ef962fb1997cf3e2421acba7f796",
+                "reference": "d217848e1396ef962fb1997cf3e2421acba7f796",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "codacy/coverage": "^1.4",
+                "phpunit/phpunit": "~4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Sabberworm\\CSS": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Raphael Schweikert"
+                }
+            ],
+            "description": "Parser for CSS Files written in PHP",
+            "homepage": "http://www.sabberworm.com/blog/2010/6/10/php-css-parser",
+            "keywords": [
+                "css",
+                "parser",
+                "stylesheet"
+            ],
+            "time": "2020-06-01T09:10:00+00:00"
+        },
+        {
             "name": "symfony/var-dumper",
             "version": "v3.3.6",
             "source": {
@@ -7720,7 +7723,7 @@
     "platform": [],
     "platform-dev": [],
     "platform-overrides": {
-        "php": "7.0"
+        "php": "7.4"
     },
     "plugin-api-version": "1.1.0"
 }

@@ -1,0 +1,20 @@
+/* ----------------------------------------
+	Components / Scrolling
+---------------------------------------- */
+
+// // don't fire anything without javascript
+// html.has-scroll-init {
+
+// 	// fade out all scroll items
+// 	div[data-scroll],
+// 	figure[data-scroll],
+// 	header[data-scroll] {
+// 		transition: opacity $speed;
+// 		opacity: 0;
+
+// 		// scrolled into view
+// 		&.-inViewport {
+// 			opacity: 1;
+// 		}
+// 	}
+// }
