@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## 1.1.1
+`2021/03/09`
+- Add "click-to-copy" functionality to breadcrumbs
+- Fix `project.config`
+- More scss var reference cleanup, classes next
+
 ## 1.1.0
 `2021/03/07`
 - Add **LocomotiveScroll.js** w/corresponding styles to all index, entry pages

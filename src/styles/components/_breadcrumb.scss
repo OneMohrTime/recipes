@@ -18,3 +18,24 @@
 	margin-right: map-get($spacer, 1);
 	margin-bottom: map-get($spacer, 1);
 }
+
+// tooltips
+
+[data-tippy-root] {
+	padding: $gutter-xs/2 $gutter-xs;
+	letter-spacing: 0.5px;
+	border-radius: 3px;
+	background-color: $dark-gray;
+	color: $white;
+
+	span {
+		// margin-right: 5px;
+		// font-size: 0.75em;
+		// font-weight: 700;
+		// text-transform: uppercase;
+		// letter-spacing: 1px;
+		// pointer-events: none;
+		position: absolute;
+		opacity: 0;
+	}
+}
