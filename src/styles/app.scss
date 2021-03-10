@@ -13,31 +13,31 @@ https://coolors.co/2b3b4c-1e2732-f1bf98-8fd5a6-fffef7
 	"../../node_modules/locomotive-scroll/src/locomotive-scroll";
 
 @import
-	"_utilities/variables",
-	"_utilities/mixins",
-	"_utilities/helpers";
+	"utilities/variables",
+	"utilities/mixins",
+	"utilities/helpers";
 
 @import
-	"_layout/base",
-	"_layout/typography",
-	"_layout/media",
-	"_layout/page",
-	"_layout/header",
-	"_layout/footer";
+	"layout/base",
+	"layout/typography",
+	"layout/media",
+	"layout/page",
+	"layout/header",
+	"layout/footer";
 
 @import
-	"_components/breadcrumb",
-	"_components/buttons",
-	"_components/crosshair",
-//	"_components/font-face": imported in _layout/typography
-	"_components/inputs",
-	"_components/intro",
-	"_components/menu",
-	"_components/modals",
-	"_components/nav",
-	"_components/search",
-	"_components/social-icons",
-	"_components/tags";
+	"components/breadcrumb",
+	"components/buttons",
+	"components/crosshair",
+//	"components/font-face": imported in _layout/typography
+	"components/inputs",
+	"components/intro",
+	"components/menu",
+	"components/modals",
+	"components/nav",
+	"components/search",
+	"components/social-icons",
+	"components/tags";
 
 @import
 	"templates/default",
