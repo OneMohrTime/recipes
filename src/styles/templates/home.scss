@@ -70,7 +70,7 @@ $nudge: map-get($spacer, 4);
 		margin-left: auto;
 		margin-right: auto;
 		padding-bottom: $gutter-xs;
-		transform: translateY(-#{$nudge}) !important;
+		transform: translateY(-#{$nudge});
 		border-radius: 3px;
 		background-color: map-get($color, dark-gray);
 		color: map-get($color, white);
@@ -81,6 +81,10 @@ $nudge: map-get($spacer, 4);
 //			height: 50vh;
 			max-width: calc( 100% - #{map-get($spacer, 8)} );
 			padding-bottom: 0;
+		}
+
+		@include media(">=locomotive-scroll-init") {
+			transform: translateY(0);
 		}
 
 		@include media(">=for-desktop-up") {
