@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## 1.1.2
+`2021/03/15`
+- Add `JSON-LD` output for all recipes, for better SEO
+- Update **Recipes** plugin to `1.3.0` for access to the [Edamam](https://developer.edamam.com/edamam-nutrition-api) nutrition generator
+
 ## 1.1.1
 `2021/03/09`
 - Add "click-to-copy" functionality to breadcrumbs
