@@ -3,14 +3,19 @@
 {% set mainClass        = 'recipe -entry' %}
 {% set title            = entry.title %}
 {% set headline         = entry.headline ??? title %}
-{% set description      = entry.recipe.description ??? null %}
 {% set recipe           = entry.recipe ??? null %}
+{% set description      = recipe.description ??? null %}
 {% set imageID          = recipe.imageId[0] ??? null %}
 {% set imageQuery       = craft.assets().id(imageID) ??? null %}
 {% set image            = imageQuery.one() ??? null %}
-{% set ingredients      = entry.recipe.ingredients ??? null %}
-{% set directions       = entry.recipe.directions ??? null %}
-{# {% set allCategories    = craft.categories.group('recipeLists') ??? null %} #}
+{% set imageUrl         = recipe.getImageUrl() ??? null %}
+{% set ingredients      = recipe.ingredients ??? null %}
+{% set directions       = recipe.directions ??? null %}
+{% set cookingSkill     = recipe.skill ??? null %}
+{% set servingSize      = recipe.serves ??? null %}
+{% set prepTime         = recipe.prepTime ??? null %}
+{% set cookTime         = recipe.cookTime ??? null %}
+{% set totalTime        = recipe.totalTime ??? null %}
 {% set categoriesQuery  = entry.recipeCategories ??? null %}
 {% set mainCategoriesQuery = craft.categories.relatedTo(entry).level(1) ??? null %}
 {% set secondaryCategoriesQuery = craft.categories.relatedTo(entry).level(2) ??? null %}
@@ -39,11 +44,11 @@
 				data-scroll-class="-inViewport"
 				data-scroll-speed="1">
 			{% if image %}
-				<img src="{{ image.url }}"
+				<img src="{{ imageUrl }}"
 					 alt="{{ image.alt ??? image.title }}"
 					 class="cover__image"
 					 id="i-{{ image.uid }}"
-					 srcset="" />
+					 srcset="{{ image.srcset([400, 800, 1200, 1600]) }}" />
 				<figcaption class="cover__caption">
 					{{ title|typogrify }}
 				</figcaption>
