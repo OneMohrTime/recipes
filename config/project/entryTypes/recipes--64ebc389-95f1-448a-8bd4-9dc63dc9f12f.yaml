@@ -28,7 +28,7 @@ fieldLayouts:
             width: 100
           -
             style: tip
-            tip: "Questions? Email [recipes@onemohrti.me](mailto:recipes@onemohrti.me)\r\n"
+            tip: "1. Add recipe ingredients one-by-one, clicking \"fetch nutrition information\" between each line. It's a longer process, but the API isn't mine aand it's doing a pretty good job.\r\n2. Ratings do not appear on the front end currently, but can still be added.\r\n3. **Total time** will be a range of time, if you enter a total recipe time that doesn't match the prep + cooking time."
             type: craft\fieldlayoutelements\Tip
           -
             fieldUid: 7d8cc90c-9fdb-474d-8603-838be99bc7a1
