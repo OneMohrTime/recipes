@@ -1,4 +1,4 @@
-dateModified: 1615165415
+dateModified: 1617423925
 email:
   fromEmail: derekmohrdesign@gmail.com
   fromName: Recipes
@@ -40,6 +40,9 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+    settings:
+      apiApplicationId: 490c5b08
+      apiApplicationKey: 150515764a253f5268876d4297cacb47
   redactor:
     edition: standard
     enabled: true

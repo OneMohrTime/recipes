@@ -1,4 +1,3 @@
-
 {#
 	Component: Card/Recipes
 	URI: '_components/card-recipe'
@@ -9,9 +8,9 @@
 
 {% set recipe = recipeOverride ??? recipe ??? entry %}
 {% set recipeDescriptions = descriptions == true ? descriptions : null %}
-{% set recipeImageID = recipe.recipe ? recipe.recipe.imageId[0] : null %}
+{% set recipeImageID = (entry.recipe ??? null) ? entry.recipe.imageId[0] : null %}
 {% set recipeImageQuery = craft.assets().id(recipeImageID) ??? null %}
-{% set recipeImage = drink.image.one() ??? recipeImageQuery.one() ??? null %}
+{% set recipeImage = entry.image.one() ??? recipeImageQuery.one() ??? null %}
 {% set mainCategoriesQuery = craft.categories.relatedTo(recipe).level(1) ??? null %}
 {% set secondaryCategoriesQuery = craft.categories.relatedTo(recipe).level(2) ??? null %}
 {% set recipeCategories = mainCategoriesQuery.all() ??? null %}
