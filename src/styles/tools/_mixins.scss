@@ -1,10 +1,7 @@
-
-// *****************************************************************************
 // =============================================================================
 // Tools: Mixins
 // =============================================================================
 // This file contains tools for mixins
-// *****************************************************************************
 
 //
 // Set the color of the highlight that appears over a link while it's being tapped.
@@ -34,7 +31,7 @@
 // @link   http://www.cssmojo.com/the-very-latest-clearfix-reloaded/
 // @param  {List} $supports The type of clearfix to generate.
 // @output Injects `:::after` pseudo-element.
-@mixin u-clearfix($supports...) {
+@mixin clearfix($supports...) {
     &::after {
         display: if(list-contains($supports, table), table, block);
         clear: both;
@@ -98,7 +95,7 @@
 // @link    https://github.com/inuitcss/inuitcss/blob/master/tools/_tools.mixins.scss
 // @content Wrapped in `:focus` and `:hover` pseudo-classes.
 // @output  Wraps the given content in `:focus` and `:hover` pseudo-classes.
-@mixin u-hocus {
+@mixin hocus {
     &:focus,
     &:hover {
         @content;
@@ -108,10 +105,10 @@
 //
 // Generate `:active` and `:focus` styles in one go.
 //
-// @see     {Mixin} u-hocus
+// @see     {Mixin} hocus
 // @content Wrapped in `:focus` and `:active` pseudo-classes.
 // @output  Wraps the given content in `:focus` and `:hover` pseudo-classes.
-@mixin u-actus {
+@mixin actus {
     &:focus,
     &:active {
         @content;
@@ -128,7 +125,7 @@
 //
 // @param  {Number} $width [100%] - The maximum width of element.
 // @output `max-width`, `word-wrap`, `white-space`, `overflow`, `text-overflow`
-@mixin u-truncate($width: 100%) {
+@mixin truncate($width: 100%) {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -143,7 +140,7 @@
 //
 // @param  {Boolean} $important [true] - Whether the visibility is important.
 // @output Properties for removing the element from the document flow.
-@mixin u-accessibly-hidden($important: true) {
+@mixin accessibly-hidden($important: true) {
     $important: important($important);
     position: absolute $important;
     overflow: hidden;
@@ -160,8 +157,8 @@
 //
 // @content For styling the now visible element.
 // @output  Injects `:focus`, `:active` pseudo-classes.
-@mixin u-accessibly-focusable {
-    @include u-actus {
+@mixin accessibly-focusable {
+    @include actus {
         clip: auto;
         width: auto;
         height: auto;
@@ -178,7 +175,7 @@
 // @link   http://juicystudio.com/article/screen-readers-display-none.php
 // @param  {Boolean} $important [true] - Whether the visibility is important.
 // @output `display`, `visibility`
-@mixin u-hidden($important: true) {
+@mixin hidden($important: true) {
     $important: important($important);
     display: none   $important;
     visibility: hidden $important;
@@ -192,42 +189,8 @@
 // @param  {String}  $display   [block] - The rendering box used for the element.
 // @param  {Boolean} $important [true]  - Whether the visibility is important.
 // @output `display`, `visibility`
-@mixin u-shown($display: block, $important: true) {
+@mixin shown($display: block, $important: true) {
     $important: important($important);
     display: $display $important;
     visibility: visible  $important;
-}
-
-//
-// Add a little flair to inline links
-//
-@mixin inline-link() {
-	position: relative;
-	display: inline-block;
-	transition: color $speed-hover,
-				background $speed-hover;
-	text-decoration: none;
-	color: inherit;
-
-	&::after {
-		content: "";
-		display: block;
-		width: 95%;
-		height: 1px;
-		margin-left: auto;
-		margin-right: auto;
-		background-color: currentColor;
-		transform: translateY(0);
-		transition: transform $speed-hover,
-					background $speed-hover,
-					width $speed-hover;
-	}
-
-	@include u-hocus() {
-		&::after {
-			width: 100%;
-			transform: translateY(-1px);
-			background-color: $tan;
-		}
-	}
 }

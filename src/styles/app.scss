@@ -24,10 +24,9 @@ https://coolors.co/2b3b4c-1e2732-f1bf98-8fd5a6-fffef7
 // Tools
 // =============================================================================
 @import
+	"tools/family",
 	"tools/functions",
-	"tools/mixins",
-	"tools/fonts",
-	"tools/family";
+	"tools/mixins";
 
 // Layout
 // =============================================================================
@@ -51,7 +50,7 @@ https://coolors.co/2b3b4c-1e2732-f1bf98-8fd5a6-fffef7
 	"components/intro",
 	"components/kitchen-time",
 	"components/menu",
-	"components/modals",
+	// "components/modals",
 	"components/nav",
 	"components/nutrition",
 	"components/scroll",
@@ -62,8 +61,6 @@ https://coolors.co/2b3b4c-1e2732-f1bf98-8fd5a6-fffef7
 // Page Templates
 // =============================================================================
 @import
-	"templates/default",
-	"templates/about",
 	"templates/drink",
 	"templates/drinks",
 	"templates/home",

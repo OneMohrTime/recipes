@@ -120,7 +120,9 @@ $column: percentage( 1 / 12 );
 	@include ellipsis;
 	display: block;
 	margin-bottom: 0;
-	transition: overflow 500ms, text-overflow 500ms, white-space 500ms;
+	transition: overflow 500ms,
+				text-overflow 500ms,
+				white-space 500ms;
 	font-size: modular-scale(0);
 	font-weight: 400;
 }

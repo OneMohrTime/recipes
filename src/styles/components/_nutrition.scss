@@ -4,6 +4,20 @@
 
 .nutrition {
 	position: relative;
+	transition: color $speed;
+
+	// hover, focus
+	@include hocus {
+		color: $blue;
+	}
+
+	// when opened
+	&[open] {
+		// hover, focus
+		@include hocus {
+			color: inherit;
+		}
+	}
 }
 
 .nutrition__header {
