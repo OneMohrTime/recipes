@@ -8,12 +8,9 @@
 }
 
 .tags__label {
+	@include text-label();
 	margin-top: 1.5em;
 	margin-bottom: 0.5em;
-	font-size: 0.75em;
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 1px;
 	pointer-events: none;
 
 	@include media(">=for-tablet-landscape-up") {
@@ -26,8 +23,6 @@
 
 	@include media(">=for-desktop-up") {
 		margin-top: 1em;
-		font-size: 0.5em;
-		letter-spacing: 2px;
 	}
 }
 
