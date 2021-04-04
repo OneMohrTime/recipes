@@ -15,31 +15,13 @@
 		padding: $gutter-sm;
 		transition: transform $speed, box-shadow $speed;
 		background-color: map-get($color, white);
-		box-shadow: 0 0 0 0 transparent;
-
-		&::before {
-			content: "";
-			position: absolute;
-			left: 3%;
-			bottom: 0;
-			width: 94%;
-			height: 94%;
-			opacity: 1;
-			transition: opacity $speed;
-			box-shadow: 1px 2px 5px 0 fade-out( map-get($color, black), 0.66 );
-			z-index: -1;
-			filter: blur(6px);
-		}
+		box-shadow: 1px 2px 5px 0 fade-out($black, 0.33);
 
 		// enlarge it when clicked
 		&:focus-within {
 			transform: translatex(#{$gutter-sm}) scale(1.2);
 			outline-color: transparent;
-			box-shadow: 1px 2px 5px 0 fade-out( map-get($color, black), 0.66 );
-
-			&::before {
-				opacity: 0;
-			}
+			box-shadow: 1px 2px 5px 0 fade-out($black, 0.66);
 		}
 	}
 }
