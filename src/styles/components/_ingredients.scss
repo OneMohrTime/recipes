@@ -13,13 +13,12 @@
 		position: absolute;
 		width: 100%;
 		padding: $gutter-sm;
-		transition: transform $speed, box-shadow $speed;
+		transition: box-shadow $speed;
 		background-color: map-get($color, white);
 		box-shadow: 1px 2px 5px 0 fade-out($black, 0.33);
 
 		// enlarge it when clicked
 		&:focus-within {
-			transform: translatex(#{$gutter-sm}) scale(1.2);
 			outline-color: transparent;
 			box-shadow: 1px 2px 5px 0 fade-out($black, 0.66);
 		}

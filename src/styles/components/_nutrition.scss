@@ -23,6 +23,7 @@
 .nutrition__header {
 	display: flex;
 	flex-wrap: wrap;
+	margin-top: $gutter-md / 2;
 	cursor: pointer;
 
 	// header elements
@@ -33,11 +34,20 @@
 		max-width: 100%;
 		padding-right: 1em;
 	}
+
+	.-label {
+		@include text-label();
+		display: block;
+		line-height: $base-line-height;
+	}
+
+	.-value {
+		line-height: $base-line-height;
+	}
 }
 
 .nutrition__title {
 	flex-basis: 100% !important;
-	margin-top: $gutter-md / 2;
 	margin-bottom: $gutter-md / 4;
 	font-size: modular-scale(1);
 	font-weight: 700;

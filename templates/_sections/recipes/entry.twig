@@ -12,7 +12,6 @@
 {% set ingredients      = recipe.ingredients ??? null %}
 {% set directions       = recipe.directions ??? null %}
 {% set cookingSkill     = recipe.skill ??? null %}
-{% set servingSize      = recipe.serves ??? null %}
 {% set prepTime         = recipe.prepTime ??? null %}
 {% set cookTime         = recipe.cookTime ??? null %}
 {% set totalTime        = recipe.totalTime ??? null %}
@@ -91,7 +90,9 @@
 					totalTime: totalTime,
 				} %}
 				{# custom generated nutrition label #}
-				{{ recipe.renderNutritionFacts() }}
+				{% include "_components/nutrition" with {
+					params: recipe
+				} only %}
 			</div>
 		</section>
 
