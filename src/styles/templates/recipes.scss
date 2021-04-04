@@ -2,8 +2,6 @@
 	Template / Recipes
 ---------------------------------------- */
 
-@import "../utilities/templates";
-
 $column: percentage( 1 / 12 );
 
 .page__recipes {
@@ -67,6 +65,8 @@ $column: percentage( 1 / 12 );
 			margin: 0;
 			overflow: visible;
 			font-size: 0;
+			pointer-events: none;
+			z-index: 10;
 
 			&::after {
 				content: attr(data-subtitle);

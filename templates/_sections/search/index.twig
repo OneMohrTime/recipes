@@ -40,13 +40,13 @@
 						{% set coverQuery  = craft.assets().id(coverID) ??? null %}
 						{% set cover       = coverQuery.one() ??? null %}
 						{% set name        = result.recipe.name ??? result.title %}
-						{% set description = result.description ??? '<em>Apparently this isn&rsquo;t good enough to describe :(</em>' %}
+						{% set description = result.recipe.description ??? result.description ??? '<em>Apparently this isn&rsquo;t good enough to describe :(</em>' %}
 
 						<li class="results__result"
 							data-scroll
 							data-scroll-class="-inViewport">
 
-							<a href="{{ link }}" class="result">
+							<a href="{{ link }}" class="result -{{ resultType }}">
 
 								{# conditional cover image #}
 								<figure class="result__image">

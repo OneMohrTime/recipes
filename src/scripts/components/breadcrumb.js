@@ -12,6 +12,11 @@ export default function breadcrumb() {
    */
 
   const lastBreadcrumb = document.querySelector('.js-crumb');
+
+  if (!lastBreadcrumb) {
+    return;
+  }
+
   const tooltipURL     = lastBreadcrumb.getAttribute('href');
 
   tippy(lastBreadcrumb, {

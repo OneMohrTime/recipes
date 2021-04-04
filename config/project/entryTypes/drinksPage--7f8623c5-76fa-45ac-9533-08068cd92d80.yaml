@@ -88,7 +88,7 @@ fieldLayouts:
         sortOrder: 2
 handle: drinksPage
 hasTitleField: false
-name: Drinks
+name: 'Drinks Page'
 section: e10fdd60-8c8d-4d3d-8b67-0e4386066262
 sortOrder: 1
 titleFormat: '{section.name|raw}'

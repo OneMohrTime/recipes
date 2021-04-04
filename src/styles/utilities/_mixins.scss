@@ -129,3 +129,19 @@
 		}
 	}
 }
+
+/**
+ * Inline link styles
+ */
+
+@mixin text-label() {
+	font-size: 0.75em;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+
+	@include media(">=for-desktop-up") {
+		font-size: 0.5em;
+		letter-spacing: 2px;
+	}
+}

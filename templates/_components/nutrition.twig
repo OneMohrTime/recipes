@@ -1,0 +1,104 @@
+{#
+	Component: Nutrition Label
+	URI: '_components/nutrition'
+	As seen on:
+		- 'https://recipes.onemohrti.me/recipes'
+#}
+
+{% set recipe         = params ??? entry.recipe ??? null %}
+{% set servingSize    = recipe.servingSize ??? null %}
+{% set serves         = recipe.serves ??? null %}
+{% set calories       = recipe.calories ??? null %}
+{% set carbs          = recipe.carbohydrateContent ??? null %}
+{% set cholesterol    = recipe.cholesterolContent ??? null %}
+{% set fat            = recipe.fatContent ??? null %}
+{% set fiber          = recipe.fiberContent ??? null %}
+{% set protein        = recipe.proteinContent ??? null %}
+{% set saturatedFat   = recipe.saturatedFatContent ??? null %}
+{% set sodium         = recipe.sodiumContent ??? null %}
+{% set sugar          = recipe.sugarContent ??? null %}
+{% set transFat       = recipe.transFatContent ??? null %}
+{% set unsaturatedFat = recipe.unsaturatedFatContent ??? null %}
+
+{% if servingSize and calories and carbs %}
+
+<details class="nutrition">
+	<summary class="nutrition__header">
+		<h3 class="nutrition__title">Nutrition Facts</h3>
+		<div class="nutrition__servingSize">
+			<span class="-label">Serving Size:</span>
+			<span class="-value">{{ servingSize }}</span>
+		</div>
+		<div class="nutrition__serves">
+			<span class="-label">Serves:</span>
+			<span class="-value">{{ serves }}</span>
+		</div>
+	</summary>
+	<figure class="nutrition__info">
+		<figcaption class="nutrition__label">
+			Amount Per Serving
+		</figcaption>
+		<div class="nutrition__table">
+			{# The percentages are based on US Recommended Dietary Allowances:
+			'calories': 2000,
+			'carbohydrateContent': 275,
+			'cholesterolContent': 300,
+			'fatContent': 78,
+			'fiberContent': 28,
+			'proteinContent': 50,
+			'saturatedFatContent': 20,
+			'sodiumContent': 2300,
+			'sugarContent': 50,
+			https://en.wikipedia.org/wiki/Reference_Daily_Intake #}
+			<div class="nutrition__row -calories">
+				<span class="-label">Calories:</span>
+				<span class="-value">{{ calories }}</span>
+			</div>
+			<div class="nutrition__dailyValue">
+				<span class="-label">% Daily Value*</span>
+			</div>
+			<div class="nutrition__row -macros">
+				<span class="-value"><span class="-label -strong">Total Fat:</span> {{ fat }}g</span>
+				<span class="-dailyValue">{{ (fat / 78)|percentage }}</span>
+			</div>
+			<div class="nutrition__row -macros">
+				<span class="-indent"></span>
+				<span class="-value"><span class="-label">Saturated Fat:</span> {{ saturatedFat }}g</span>
+				<span class="-dailyValue">{{ (saturatedFat / 20)|percentage }}</span>
+			</div>
+			<div class="nutrition__row -macros">
+				<span class="-indent"></span>
+				<span class="-value"><span class="-label">TransFat:</span> {{ transFat }}g</span>
+				<span class="-dailyValue"></span>
+			</div>
+			<div class="nutrition__row -macros">
+				<span class="-value"><span class="-label -strong">Cholesterol:</span> {{ cholesterol }}mg</span>
+				<span class="-dailyValue">{{ (cholesterol / 300)|percentage }}</span>
+			</div>
+			<div class="nutrition__row -macros">
+				<span class="-value"><span class="-label -strong">Sodium:</span> {{ sodium }}mg</span>
+				<span class="-dailyValue">{{ (sodium / 2300)|percentage }}</span>
+			</div>
+			<div class="nutrition__row -macros">
+				<span class="-value"><span class="-label -strong">Total Carbohydrate:</span> {{ carbs }}g</span>
+				<span class="-dailyValue">{{ (carbs / 275)|percentage }}</span>
+			</div>
+			<div class="nutrition__row -macros">
+				<span class="-indent"></span>
+				<span class="-value"><span class="-label">Dietary Fiber:</span> {{ fiber }}g</span>
+				<span class="-dailyValue">{{ (fiber / 28)|percentage }}</span>
+			</div>
+			<div class="nutrition__row -macros">
+				<span class="-indent"></span>
+				<span class="-value"><span class="-label">Sugars:</span> {{ sugar }}g</span>
+				<span class="-dailyValue">{{ (sugar / 50)|percentage }}</span>
+			</div>
+			<div class="nutrition__row -macros">
+				<span class="-value"><span class="-label -strong">Protein:</span> {{ protein }}g</span>
+				<span class="-dailyValue">{{ (protein / 50)|percentage }}</span>
+			</div>
+		</div>
+	</figure>
+</details>
+
+{% endif %}

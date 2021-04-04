@@ -1,0 +1,31 @@
+/* ----------------------------------------
+	Components / Kitchen Time
+---------------------------------------- */
+
+.kitchenTime__title {
+	margin-top: $gutter-md / 2;
+	margin-bottom: $gutter-md / 4;
+	font-size: modular-scale(1);
+	font-weight: 700;
+}
+
+.kitchenTime__list {
+	display: flex;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	.-label {
+		@include text-label();
+		display: block;
+	}
+
+	li {
+		margin-right: $gutter-sm;
+		list-style: none;
+	}
+
+	.totalTime {
+		margin-left: auto;
+		margin-right: 0;
+	}
+}

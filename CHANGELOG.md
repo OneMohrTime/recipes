@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## 1.2.0
+`2021/04/04`
+- Add **Edamam Nutritional Analysis API** functionality
+- Add custom nutrition label
+- Change _Ingredients_ into its own component(s)
+- Fix _Drinks Page_ bugs
+- Fix _Search Results_ bug
+
 ## 1.1.2
 `2021/03/15`
 - Add `JSON-LD` output for all recipes, for better SEO

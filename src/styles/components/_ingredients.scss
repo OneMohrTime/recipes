@@ -1,0 +1,26 @@
+/* ----------------------------------------
+	Components / Ingredients
+---------------------------------------- */
+
+.ingredients {
+	position: relative;
+	border-radius: 3px;
+	background-image: url("../images/bg.png");
+	transition: transform $speed;
+	z-index: 50;
+
+	@include media(">=for-tablet-landscape-up") {
+		position: absolute;
+		width: 100%;
+		padding: $gutter-sm;
+		transition: box-shadow $speed;
+		background-color: map-get($color, white);
+		box-shadow: 1px 2px 5px 0 fade-out($black, 0.33);
+
+		// enlarge it when clicked
+		&:focus-within {
+			outline-color: transparent;
+			box-shadow: 1px 2px 5px 0 fade-out($black, 0.66);
+		}
+	}
+}

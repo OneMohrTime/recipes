@@ -1,3 +1,13 @@
+{#
+	Component: Ingredient
+	URI: '_components/ingredients'
+	As seen on:
+		- 'https://recipes.onemohrti.me/recipes'
+		- 'https://recipes.onemohrti.me/drinks'
+#}
+
+{% set ingredients = ingredients ??? null %}
+
 {% if ingredients %}
 	<ul class="ingredients__list">
 		{% switch entry.section.handle %}
@@ -14,7 +24,7 @@
 			{% case 'drinks' %}
 				{% for ingredient in ingredients %}
 					<li class="ingredient reading">
-						{{ ingredient|typogrify }}
+						{{ ingredient.ingredient|typogrify }}
 					</li>
 				{% endfor %}
 

@@ -1,6 +1,6 @@
 enableVersioning: true
 handle: recipePage
-name: Recipes
+name: 'Recipes Page'
 propagationMethod: all
 siteSettings:
   038df939-32f1-4d74-a42e-9c57bdeb55b0:

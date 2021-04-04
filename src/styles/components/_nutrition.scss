@@ -1,0 +1,109 @@
+/* ----------------------------------------
+	Components / Nutrition
+---------------------------------------- */
+
+.nutrition {
+	position: relative;
+	transition: color $speed;
+
+	// hover, focus
+	@include hocus {
+		color: $blue;
+	}
+
+	// when opened
+	&[open] {
+		// hover, focus
+		@include hocus {
+			color: inherit;
+		}
+	}
+}
+
+.nutrition__header {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: $gutter-md / 2;
+	cursor: pointer;
+
+	// header elements
+	& > * {
+		flex-grow: 0;
+		flex-shrink: 1;
+		flex-basis: auto;
+		max-width: 100%;
+		padding-right: 1em;
+	}
+
+	.-label {
+		@include text-label();
+		display: block;
+		line-height: $base-line-height;
+	}
+
+	.-value {
+		line-height: $base-line-height;
+	}
+}
+
+.nutrition__title {
+	flex-basis: 100% !important;
+	margin-bottom: $gutter-md / 4;
+	font-size: modular-scale(1);
+	font-weight: 700;
+}
+
+.nutrition__label {
+	margin-top: $gutter-xs;
+	margin-bottom: 5px;
+	padding-top: $gutter-xs / 2;
+	padding-bottom: 7px;
+	border-top: 5px solid $dark-gray;
+	border-bottom: 1px solid $dark-gray;
+}
+
+.nutrition__dailyValue {
+	display: flex;
+	justify-content: flex-end;
+	align-items: baseline;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding-top: $gutter-xs / 2;
+	border-top: 2px solid $dark-gray;
+
+	.-label {
+		@include text-label();
+	}
+}
+
+.nutrition__row {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	line-height: $base-line-height;
+
+	&.-calories {
+		justify-content: flex-start;
+		span:first-child {
+			margin-right: 5px;
+			font-weight: 700;
+		}
+	}
+
+	.-indent {
+		width: $gutter / 2;
+	}
+
+	.-label {
+		margin-right: 5px;
+	}
+
+	.-strong {
+		font-weight: 700;
+	}
+
+	.-dailyValue {
+		margin-left: auto;
+		font-weight: 700;
+	}
+}
