@@ -58,14 +58,14 @@ mix.setPublicPath('public/assets') // generate manifest in this directory
   // .disableSuccessNotifications()
   // .version()
   .options({
-    // autoprefixer: {
-    //   options: {
-    //     grid: "autoplace"
-    //   }
-    // },
-    // postCss: [
-    //   require('autoprefixer')
-    // ],
+    autoprefixer: {
+      options: {
+        grid: "autoplace"
+      }
+    },
+    postCss: [
+      require('autoprefixer')
+    ],
     processCssUrls: false,
   })
 ;
