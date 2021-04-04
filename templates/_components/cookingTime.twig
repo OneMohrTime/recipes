@@ -1,0 +1,41 @@
+{#
+	Component: Cooking Time
+	URI: '_components/cookingTime'
+	As seen on:
+		- 'https://recipes.onemohrti.me/recipes'
+#}
+
+{% set prepTime       = prepTime ??? null %}
+{% set cookTime       = cookTime ??? null %}
+{% set totalTime      = totalTime ??? null %}
+{% set calculatedTime = (totalTime == (prepTime + cookTime)) ? totalTime : (prepTime + cookTime) %}
+
+{% if prepTime or cookTime or totalTime %}
+	<h3 class="kitchenTime__title">Time in the Kitchen</h3>
+	<ul class="kitchenTime__list">
+		{% if prepTime %}
+			<li class="prepTime">
+				<span class="-label">Prep. Time</span>
+				<span class="prepTime__time">{{ prepTime }} min.</span>
+			</li>
+		{% endif %}
+		{% if cookTime %}
+			<li class="cookTime">
+				<span class="-label">Cooking Time</span>
+				<span class="cookTime__time">{{ cookTime }} min.</span>
+			</li>
+		{% endif %}
+		{% if totalTime %}
+			<li class="totalTime">
+				<span class="-label">Total Time</span>
+				{% if calculatedTime > totalTime %}
+					<span class="totalTime__time">{{ totalTime}} to {{ calculatedTime }} min.</span>
+				{% elseif calculatedTime < totalTime %}
+					<span class="totalTime__time">{{ calculatedTime}} to {{ totalTime }} min.</span>
+				{% else %}
+					<span class="totalTime__time">{{ totalTime }} min.</span>
+				{% endif %}
+			</li>
+		{% endif %}
+	</ul>
+{% endif %}
