@@ -77,7 +77,9 @@
 				 data-scroll-speed="-2">
 			<div id="ingredients" class="ingredients" tabindex="0">
 				<h2 class="ingredients__title">Ingredients</h2>
-				{% include '_components/ingredients' %}
+				{% include '_components/ingredients' with {
+					ingredients: ingredients
+				} %}
 			</div>
 		</section>
 

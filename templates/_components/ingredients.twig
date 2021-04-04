@@ -6,7 +6,7 @@
 		- 'https://recipes.onemohrti.me/drinks'
 #}
 
-{% set ingredients = ingredients %}
+{% set ingredients = ingredients ??? null %}
 
 {% if ingredients %}
 	<ul class="ingredients__list">
@@ -24,7 +24,7 @@
 			{% case 'drinks' %}
 				{% for ingredient in ingredients %}
 					<li class="ingredient reading">
-						{{ ingredient|typogrify }}
+						{{ ingredient.ingredient|typogrify }}
 					</li>
 				{% endfor %}
 
