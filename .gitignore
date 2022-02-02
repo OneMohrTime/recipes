@@ -41,12 +41,6 @@ composer.phar
 /build/*
 /yarn-error.log
 
-# DOCKER
-docker-compose.env
-docker-compose.yml
-!docker-compose.sample.env
-!docker-compose.sample.yml
-
 # MISC FILES
 .cache
 .DS_Store
@@ -96,14 +90,3 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
-#
-# VSCODE
-#
-
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-*.code-workspace
