@@ -15,6 +15,7 @@
     "nystudio107/craft-seomatic": "^3.3",
     "nystudio107/craft-similar": "^1.0",
     "nystudio107/craft-typogrify": "^1.1",
+    "sebastianlenz/linkfield": "^1.0",
     "verbb/expanded-singles": "^1.1",
     "vlucas/phpdotenv": "^3.4.0"
   },
