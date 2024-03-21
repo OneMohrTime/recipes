@@ -1,8 +1,15 @@
-dateModified: 1617424593
+dateModified: 1706023933
 email:
   fromEmail: derekmohrdesign@gmail.com
   fromName: Recipes
   transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    0c3e760f-3294-41e0-9911-c57d4c9062bc: General # General
+    04e900e4-d729-458d-8a58-aae6caf61e75: 'Recipe Photos' # Recipe Photos
+    238d1902-b03f-4df3-8166-39be4347dfcd: 'Site Settings' # Site Settings
+    428e5564-9e75-4e1b-a401-af5da8894fa6: 'Drink Photos' # Drink Photos
+    9931fe08-b5f7-45bc-9410-2f219f8fd70c: Users # Users
 plugins:
   cp-field-inspect:
     edition: standard
@@ -60,11 +67,11 @@ system:
   live: true
   name: Recipes
   retryDuration: null
-  schemaVersion: 3.5.13
+  schemaVersion: 3.8.0.1
   timeZone: America/Detroit
 users:
   allowPublicRegistration: false
   defaultGroup: null
   photoSubpath: '{username}'
-  photoVolumeUid: 9931fe08-b5f7-45bc-9410-2f219f8fd70c
+  photoVolumeUid: 9931fe08-b5f7-45bc-9410-2f219f8fd70c # Users
   requireEmailVerification: true

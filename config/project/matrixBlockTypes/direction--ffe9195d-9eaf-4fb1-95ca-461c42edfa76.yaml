@@ -26,7 +26,7 @@ fields:
     settings:
       availableTransforms: '*'
       availableVolumes:
-        - 428e5564-9e75-4e1b-a401-af5da8894fa6
+        - 428e5564-9e75-4e1b-a401-af5da8894fa6 # Drink Photos
       cleanupHtml: true
       columnType: text
       configSelectionMode: choose
