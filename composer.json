@@ -32,7 +32,11 @@
     "sort-packages": true,
     "optimize-autoloader": true,
     "platform": {
-      "php": "7.4"
+      "php": "8.0"
+    },
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true,
+      "craftcms/plugin-installer": true
     }
   },
   "scripts": {
